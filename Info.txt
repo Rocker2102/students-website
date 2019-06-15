@@ -1,6 +1,7 @@
 <-- Website version 1.0 -->  02.06.2019
 <-- Website version 1.1 -->  08.06.2019
 <-- Website version 1.2 -->  09.06.2019  Files moved to new hosting website (infinityfree.net) from old one (000webhost.com).
+<-- DEVELOPMENT PAUSED FROM 11 June 2019 to 15 June 2019 -->
 
 
 /* Use Bootstrap Carousel (or probootstrap carousel) for image slideshow (From previous project).  ##** NOT IMPLEMENTED **## */
