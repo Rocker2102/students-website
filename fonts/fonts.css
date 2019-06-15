@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+         local('MaterialIcons-Regular'),
+         url(material-icons.ttf) format('truetype');
+}
+  
+.material-icons {  
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr; 
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+@font-face {
+  font-family: 'Beyond the Mountains';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Beyond the Mountains'),
+      url(beyond-the-mountains.ttf) format('truetype');
+}
+
+.beyond-mountains {      
+  font-family: 'Beyond the Mountains'; 
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+         local('MaterialIcons-Regular'),
+         url(google-sans.ttf) format('truetype');
+}
+  
+.google-sans {  
+  font-family: 'Google Sans';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+@font-face {
+  font-family: 'Aquatico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Aquatico'),
+        local('Aquatico-Regular'),
+        url(aquatico.otf) format('opentype');
+}

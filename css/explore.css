@@ -1,0 +1,145 @@
+/* ############### */
+/* Copied from codepen.io - CSS for tabbing (Not everything is copied) */
+
+.doc-row {
+  width: 100%;
+  min-height: 275px;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.no_data {
+  opacity: 0.8;
+}
+
+.btn-nav {
+  border: none;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-family: 'Google Sans';
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  -webkit-transition: .3s all ease-in;
+  transition: .3s all ease-in;
+  cursor: pointer;
+}
+
+#side_navbar {
+  position: fixed;
+  top: 95%;
+  left: 10px;
+  border-radius: 10px;
+  transform: rotateZ(270deg);
+  -webkit-transform: rotateZ(270deg);
+  transform-origin: top left;
+  background: rgba(255, 255, 255, 0.1);
+  animation: animate 1s ease;
+}
+
+.wrapper {
+  width: 100%;
+  margin: auto;
+  margin-top: 80px;
+  height: auto;
+}
+
+.tab-wrapper {
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.tabs {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.tab-link {
+  margin: 0 1%;
+  list-style: none;
+  padding: 10px 40px;
+  color: #aaa;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all ease 0.5s;
+  border-bottom: solid 3px rgba(255, 255, 255, 0);
+  letter-spacing: 1px;
+}
+
+.tab-link:hover {
+  color: #f312d5;
+  border-color: #f312d5;
+}
+
+.tab-link.active {
+  color: #CA2020;
+  border-color: #CA2020;
+}
+
+.tab-link:nth-of-type(1).active {
+  color: #EE6534;
+  border-color: #EE6534;
+}
+
+.tab-link:nth-of-type(2).active {
+  color: rgb(22, 212, 70);
+  border-color: rgb(22, 212, 70);
+}
+
+.tab-link:nth-of-type(3).active {
+  color: #EEC63B;
+  border-color: #EEC63B;
+}
+
+.tab-link:nth-of-type(4).active {
+  color: #E22E0E;
+  border-color: #E22E0E;
+}
+
+.content-wrapper {
+  padding: 40px 80px;
+}
+
+.tab-content {
+  display: none;
+  text-align: center;
+  color: #000;
+  font-weight: 300;
+  font-size: 15px;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeIn 0.5s ease 1 forwards;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes animate {
+  25% {
+    opacity: 0.25;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* ############### */
