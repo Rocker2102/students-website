@@ -35,8 +35,8 @@ CREATE TABLE `members` (
   `name` varchar(255) NOT NULL,
   `contact` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `modifed` timestamp NOT NULL DEFAULT current_timestamp()
+  `created` timestamp NOT NULL DEFAULT current_timestamp(),
+  `modifed` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
