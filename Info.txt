@@ -68,7 +68,7 @@
 - Use switch case instead of if-else.  ##** DONE **##
 - Unable to download content on phones sometimes (?) [after uploading on website].
 - Remove the code (#1), it has some 'currently-not-understandable' bugs!
-- Bug: links of files greater than 5MB have been removed from 'explore.php' but not from 'download.php', they can be accessed by manually putting the url!
+- Bug: links of files greater than 5MB have been removed from 'explore.php' but not from 'download.php', they can be accessed by manually editing the url!
 
 <--------------------------------------------------------->
 [login.php]
@@ -77,7 +77,7 @@
 - Close the opened popup.  ##** DONE **##
 - Center the popup.  ##** DONE **##
 - Design login form and position input fields accordingly.
-- Connect to temporary database.
+- Connect to temporary database. ##** DONE **##
 - Animation 'anim1' is 'kind-of-hanging' in pages with more content (eg.: 'explore.php'- tab 1) on 'This PC' (RAM: 2GB). Problem with PC or something else?
 
 ####################
