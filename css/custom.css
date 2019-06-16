@@ -46,7 +46,7 @@ body {
 }
 
 .fixed-background {
-  background-color: rgb(229,224,224);
+  background-color: #000000;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 100%;
