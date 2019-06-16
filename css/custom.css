@@ -421,7 +421,6 @@ footer {
   right: 0;
   bottom: 0;
   margin: auto;
-  max-height: 500px;
   width: 100%;
   text-align: center;
 }
@@ -433,7 +432,6 @@ footer {
 
 .form-control {
   height: 46px;
-  width: 60%;
   margin-bottom: 10px;
   padding-left: 5px;
   padding-right: 5px;
@@ -459,5 +457,4 @@ footer {
 
 .btn-submit {
   margin-top: 10px;
-  width: 30%;
 }
