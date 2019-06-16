@@ -1,0 +1,86 @@
+<-- Website version 1.0 -->  02.06.2019
+<-- Website version 1.1 -->  08.06.2019
+<-- Website version 1.2 -->  09.06.2019  Files moved to new hosting website (infinityfree.net) from old one (000webhost.com).
+<-- DEVELOPMENT PAUSED FROM 11 June 2019 to 15 June 2019 -->
+
+
+/* Use Bootstrap Carousel (or probootstrap carousel) for image slideshow (From previous project).  ##** NOT IMPLEMENTED **## */
+- Menu has been decided (may be changed later on). -> Changed!
+    : Flip the navigation bar to show menu (is it possible?).
+    : Just change the right side part of the nav bar by flipping, sliding or any other animation and show the menu.
+- Login popup (like Bootstrap modal boxes). Animation is must for this. (?)
+- Move header and footer to header.php and footer.php respectively and include them from there.  ##** DONE **##  [FOOTER REMAINING]
+- Make a page for CANS.
+- Add link to 'CANS' webpage on navbar.
+- Use cookies (after showing consent to user).  [THOUGHT PENDING]
+- Colors of all webpages will be decided in the end.
+- Compress images.
+- Change heading fonts (if a better font is found).  ##** DONE **##
+- Convert website to a mobile friendly site.  [THOUGHT PENDING]
+- Image subject to copyrights! (all the images used...)
+
+<--------------------------------------------------------->
+[index.html] -> [index.php]
+28.05.2019, 16:18 - 31.05.2019, 14:12
+- First page of site: Design according to decided layout (layout modified a bit)  ##** DONE **##
+- Colors will be decided later on.
+- Content will be written (typed) later.
+- Align 'Whats New' and 'Notices' tabs.  ##** DONE **##
+- Add the 'Explore' tab.  ##** DONE **##
+- Menu has not been made (waiting for ideas).
+- Footer needs to be designed and merged.
+- Open to any other suggestions.
+
+<--------------------------------------------------------->
+[signup.html] -> [signup.php]
+31.05.2019, 19:30 - 01.06.2019, 15:44 (PAUSED)
+- How to upload files?... more detailed info..
+- Code according to design.
+- Step-by-step progress... can it be made?
+- How to add calender popup (for DOB)? See how to!
+- Proper alignment.
+
+<--------------------------------------------------------->
+[explore.php]
+01.06.2019, 18:20 - 00.00.000 00:00
+- Center the images  ##** DONE **##
+- Add some effect  ##** DONE **##
+- Finalize it  ##** DONE **##
+- Make tabs for 1st sem and 2nd sem (Assignments and Exams....)  ##** DONE **##
+- Code used to make tabs: https://codepen.io/jenningscreate/pen/odKVed
+- Add option to report broken links.
+- Responsive image resizing (according to screen size)  ##** DONE **##  [NOT PERFECT]
+- Downloading of files (Adding links after uploading files).  ##** DONE **##
+- Add key for subject codes (at top or bottom?).
+- Some problem in using class 'doc-row' in rows (actually just the first row) of section 'Assignments & Notes'. ('height-fix' used)  ##** DONE **##
+- Move different sections of page to different files and include them (current file has become too large and confusing!).  ##** DONE **##
+- Correct the new sidenavbar (or remove it completely)!  ##** DONE **##  [REMOVED]
+
+<--------------------------------------------------------->
+[download.php]
+02.06.2019, 17:56 - 03.06.2019 03:09
+- Write base code.  ##** DONE **##
+- Insert links.  ##** DONE **##
+- (#1) Add code to make files downloadable without giving actual location of file (copied from stackoverflow.com).  ##** DONE **##
+- Add code such that downloading is possible from website only (even if the user has link).  [why to secure downloads like this... they are just pdf's !]
+    : Function 'uniqid' can be used.
+    : Generate a random id in 'explore.php' and verify it on 'download.php'.
+- Use switch case instead of if-else.  ##** DONE **##
+- Unable to download content on phones sometimes (?) [after uploading on website].
+- Remove the code (#1), it has some 'currently-not-understandable' bugs!
+- Bug: links of files greater than 5MB have been removed from 'explore.php' but not from 'download.php', they can be accessed by manually editing the url!
+
+<--------------------------------------------------------->
+[login.php]
+07.06.2019, 12:32 - 00.00.0000 00:00
+- Make popup.  ##** DONE **##
+- Close the opened popup.  ##** DONE **##
+- Center the popup.  ##** DONE **##
+- Design login form and position input fields accordingly.
+- Connect to temporary database. ##** DONE **##
+- Animation 'anim1' is 'kind-of-hanging' in pages with more content (eg.: 'explore.php'- tab 1) on 'This PC' (RAM: 2GB). Problem with PC or something else?
+- Use AJAX for login (add a loading animation in the 'LOGIN' button).
+
+####################
+- web content depends on the host?
+    : a lot changed after uploading (totally different from what i see on localhost!).
