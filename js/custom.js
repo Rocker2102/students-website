@@ -16,27 +16,10 @@ function login_close () {
 	document.getElementById('login_blur').style.filter = "blur(0px)";
 }
 
-// AJAX query for login (uses jQuery)
+// AJAX query for login (uses jQuery)  [copied from 'phpzag.com']
 $('document').ready(function() {
 	$("#login_submit").validate({
-		/*
-		rules: {
-			password: {
-				required: true,
-			},
-			user_email: {
-				required: true,
-				email: true
-			},
-		},
-		messages: {
-			password:{
-			  required: "please enter your password"
-			 },
-			user_email: "please enter your email address",
-		},
-		*/
-		submitHandler: submitForm	
+		submitHandler: submitForm
 	});
 
 	function submitForm() {
@@ -47,13 +30,14 @@ $('document').ready(function() {
 			data : data,
 				beforeSend: function(){
 					//$("#error").fadeOut();
-					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>VERIFYING');
+					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">loop</i>VERIFYING');
 					},
 				success : function(response) {
-					if(response == "login_correct"){
-						$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGIN');
-						setTimeout(' window.location.href = "welcome.php"; ',4000);
+					if(response == "login_confirmed"){
+						$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
+						setTimeout('window.location.href = "?loggedin"; ',2000);
 					} else {
+						alert("Invalid Username or Password !");
 						$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">error</i>UNABLE TO LOGIN');
 					}
 				}
