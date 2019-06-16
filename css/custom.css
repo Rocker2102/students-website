@@ -457,4 +457,16 @@ footer {
 
 .btn-submit {
   margin-top: 10px;
+<<<<<<< Updated upstream
+=======
+  width: 30%;
+  height: 46px;
+}
+
+.btn-submit:hover {
+  opacity: 1;
+  background-image: none;
+  background-color: #000;
+  color: #fff;
+>>>>>>> Stashed changes
 }
