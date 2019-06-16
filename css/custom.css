@@ -432,6 +432,7 @@ footer {
 
 .form-control {
   height: 46px;
+  width: 80%;
   margin-bottom: 10px;
   padding-left: 5px;
   padding-right: 5px;
