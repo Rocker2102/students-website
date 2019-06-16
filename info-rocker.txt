@@ -80,6 +80,8 @@
 - Connect to temporary database. ##** DONE **##
 - Animation 'anim1' is 'kind-of-hanging' in pages with more content (eg.: 'explore.php'- tab 1) on 'This PC' (RAM: 2GB). Problem with PC or something else?
 - Use AJAX for login (add a loading animation in the 'LOGIN' button).
+- Display profile image after successful login.
+- Debug page!
 
 ####################
 - web content depends on the host?
