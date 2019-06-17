@@ -20,7 +20,7 @@
         }
       ?>
 
-      <div class="header-item"><a href="javascript:void(0)" onclick="javascipt:menu_show()"><i class="material-icons header-icon">menu</i></a></div>
+      <div class="header-item"><a href="javascript:void(0)" onclick="javascript:menu_show()"><i class="material-icons header-icon">menu</i></a></div>
     </div>
     
     <div id="menu_show" style="visibility: hidden">
