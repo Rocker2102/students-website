@@ -8,13 +8,13 @@
       if (isset($_SESSION['uid'])) {
         ?>
           <div class="header-item" style="margin-right: 50px"><a id="logout_btn" href="javascript:void(0)" onclick="javascript:logout()"><i class="material-icons header-icon">power_settings_new</i>Logout</a></div>
-          <div class="header-item"><a href="javascript:void(0)" style="cursor: pointer" onclick="javascript:login_pop()"><i class="material-icons header-icon">exit_to_app</i>Login</a></div>
+          <div class="header-item"><a href="settings.php" style="cursor: pointer"><i class="material-icons header-icon">settings</i>Settings</a></div>
         <?php
       }
       else {
         ?>
-          <div class="header-item" style="margin-right: 50px"><a href="signup.php"><i class="material-icons header-icon">person_add</i>Signup</a></div>
-          <div class="header-item"><a href="javascript:void(0)" style="cursor: pointer" onclick="javascript:login_pop()"><i class="material-icons header-icon">exit_to_app</i>Login</a></div>
+          <div class="header-item" style="margin-right: 50px"><a href="javascript:void(0)" style="cursor: pointer" onclick="javascript:login_pop()"><i class="material-icons header-icon">exit_to_app</i>Login</a></div>
+          <div class="header-item"><a href="signup.php"><i class="material-icons header-icon">person_add</i>Signup</a></div>
         <?php
       }
     ?>

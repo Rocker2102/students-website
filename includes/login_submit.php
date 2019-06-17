@@ -18,7 +18,7 @@
       $_SESSION['uid'] = $uid;
       $_SESSION['username'] = $user;
 
-      echo $login_message.",".$uid.",".$user;
+      echo $login_message.",".$user;
       exit();
     }
     else {

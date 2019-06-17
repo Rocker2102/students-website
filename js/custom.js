@@ -21,12 +21,18 @@ function logout () {
 	$.ajax({
 		type : 'POST',
 		url : 'includes/logout_process.php',
+		beforeSend : function(){
+			$("#logout_btn").html('<i class="material-icons header-icon">query_builder</i>Logging Out ...');
+			},
 		success : function(response) {
-			if(response == "logout_confirmed"){
-				$("#logout_btn").html('<i class="material-icons header-icon">power_settings_new</i>Logging Out...');
-				setTimeout('window.location.href = "?loggedout";', 1000);
+			var recieve = response.split(",");
+			if(recieve[0] == "logout_confirmed"){
+				$("#logout_btn").html('<i class="material-icons header-icon">query_builder</i>Login');
+				setTimeout('window.location.href = "?loggedout";', 2000);
+				alert_message = "User '" + recieve[1] + "' successfully logged out.";
+				alert(alert_message);
 			} else {
-				
+				alert("An unexpected error occurred!");
 			}
 		}
 	});
@@ -65,7 +71,7 @@ $('document').ready(function() {
 			success : function(response) {
 				var recieve = response.split(",");
 				if(recieve[0] == "login_confirmed"){
-					var img_loc = "images/profile_images/" + recieve[2] + ".png";
+					var img_loc = "images/profile_images/" + recieve[1] + ".png";
 					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
 					$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
 					setTimeout('window.location.href = "?loggedin";', 2000);
