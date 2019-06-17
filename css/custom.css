@@ -56,7 +56,7 @@ body {
 /* --------------------------------------------------------------- */
 
 #header {
-  background-color: rgba(0, 0, 0, 0.4);   /* header background */
+  background-color: #ffffff;   /* header background */
   position: fixed;
   z-index: 10;
   top: 0;
