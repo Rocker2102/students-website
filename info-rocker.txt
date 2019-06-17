@@ -84,6 +84,7 @@
 - Display profile image after successful login.
 - Debug page!
 - Style the jQuery error messages.
+- 2-step login.. try it.
 
 ####################
 - web content depends on the host?

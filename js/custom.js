@@ -44,12 +44,14 @@ $('document').ready(function() {
 			url : 'includes/login_submit.php',
 			data : data,
 				beforeSend: function(){
-					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">loop</i>VERIFYING');
+					$("#login_submit_btn").html('<img src="images/loading.gif" class="loading_anim" style="width: 46px; height: 46px">');
 					},
 				success : function(response) {
-					if(response == "login_confirmed"){
+					var recieve = response.split(",");
+					if(recieve[0] == "login_confirmed"){
+						var img_loc = "images/profile_images/" + recieve[2] + ".png";
 						$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
-						$("#user_icon").attr("src","images/icons/user_.png");	// Took help from 'w3 schools'
+						$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
 						setTimeout('window.location.href = "?loggedin";', 2000);
 					} else {
 						alert("Invalid Username or Password !");

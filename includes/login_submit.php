@@ -9,7 +9,11 @@
     $result1 = $connect->query($query1);
 
     if($result1->num_rows > 0) {
-      echo "login_confirmed";
+      while ($row = $result1->fetch_assoc()) {
+        $uid = $row['uid'];
+        $login_message = "login_confirmed";
+      }
+      echo $login_message.",".$uid.",".$user;
     }
     else {
       echo "login_failed";

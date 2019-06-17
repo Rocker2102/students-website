@@ -476,6 +476,11 @@ footer {
   width: 100px;
 }
 
+.loading_anim {
+  vertical-align: middle;
+  margin-top: -10px;
+}
+
 /* Took help from 'stackoverflow.com' for styling 'jQuery.validate()' error messages */
 .error {
   color: #000;

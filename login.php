@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="">
+        <div class="" id="login_submit_button">
           <button class="btn gradient-2 btn-rounded-10 btn-submit" type="submit" id="login_submit_btn" name="login_submit_btn"><i class="material-icons btn-icon" style="padding-right: 10px">swap_horiz</i>LOGIN</button>
         </div>
       </div>
