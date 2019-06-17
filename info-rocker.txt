@@ -82,7 +82,7 @@
 - Animation 'anim1' is 'kind-of-hanging' in pages with more content (eg.: 'explore.php'- tab 1) on 'This PC' (RAM: 2GB). Problem with PC or something else?  ##** [PROBLEM WITH PC, WORKING FINE ON OTHER PC's] **##
 - Use AJAX for login (add a loading animation in the 'LOGIN' button).
 - Display profile image after successful login.
-- Debug page!
+- Debug page! (not working on some hosting sites after uploading)
 - Style the jQuery error messages.
 - 2-step login.. try it.
 
