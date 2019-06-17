@@ -17,6 +17,28 @@ function login_close () {
 	$("#login_submit").validate().resetForm();
 }
 
+function logout () {
+	$.ajax({
+		type : 'POST',
+		url : 'includes/logout_process.php',
+		beforeSend : function(){
+			$("#logout_btn").html('<i class="material-icons header-icon">query_builder</i>Logging Out ...');
+			},
+		success : function(response) {
+			var recieve = response.split(",");
+			if(recieve[0] == "logout_confirmed"){
+				$("#logout_btn").html('<i class="material-icons header-icon">query_builder</i>Login');
+				setTimeout('window.location.href = "?loggedout";', 2000);
+				alert_message = "User '" + recieve[1] + "' successfully logged out.";
+				alert(alert_message);
+			} else {
+				alert("An unexpected error occurred!");
+			}
+		}
+	});
+	return false;
+}
+
 // AJAX query for login (uses jQuery)  [copied from 'phpzag.com']
 $('document').ready(function() {
 	$("#login_submit").validate({
@@ -43,21 +65,21 @@ $('document').ready(function() {
 			type : 'POST',
 			url : 'includes/login_submit.php',
 			data : data,
-				beforeSend: function(){
-					$("#login_submit_btn").html('<img src="images/loading.gif" class="loading_anim" style="width: 46px; height: 46px">');
-					},
-				success : function(response) {
-					var recieve = response.split(",");
-					if(recieve[0] == "login_confirmed"){
-						var img_loc = "images/profile_images/" + recieve[2] + ".png";
-						$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
-						$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
-						setTimeout('window.location.href = "?loggedin";', 2000);
-					} else {
-						alert("Invalid Username or Password !");
-						$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">swap_horiz</i>LOGIN');
-					}
+			beforeSend : function(){
+				$("#login_submit_btn").html('<img src="images/loading.gif" class="loading_anim" style="width: 46px; height: 46px">');
+				},
+			success : function(response) {
+				var recieve = response.split(",");
+				if(recieve[0] == "login_confirmed"){
+					var img_loc = "images/profile_images/" + recieve[1] + ".png";
+					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
+					$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
+					setTimeout('window.location.href = "?loggedin";', 2000);
+				} else {
+					alert("Invalid Username or Password !");
+					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">swap_horiz</i>LOGIN');
 				}
+			}
 		});
 		return false;
 	}
