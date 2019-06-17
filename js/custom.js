@@ -39,6 +39,16 @@ function logout () {
 	return false;
 }
 
+function menu_show() {
+	$("#menu_hide").css({'display': 'none'});
+	$("#menu_show").css({'visibility': 'visible', 'display': 'block'});
+}
+
+function menu_hide() {
+	$("#menu_hide").css({'display': 'block'});
+	$("#menu_show").css({'visibility': 'hidden', 'display': 'none'});
+}
+
 // AJAX query for login (uses jQuery)  [copied from 'phpzag.com']
 $('document').ready(function() {
 	$("#login_submit").validate({
