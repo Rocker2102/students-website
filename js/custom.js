@@ -14,11 +14,26 @@ function login_pop () {
 function login_close () {
 	document.getElementById('login_form').style.display = "none";
 	document.getElementById('login_blur').style.filter = "blur(0px)";
+	$("#login_submit").validate().resetForm();
 }
 
 // AJAX query for login (uses jQuery)  [copied from 'phpzag.com']
 $('document').ready(function() {
 	$("#login_submit").validate({
+		rules: {
+			pwd: {
+				required: true,
+			},
+			user: {
+				required: true,
+			},
+		},
+		messages: {
+			pwd:{
+			  required: "REQUIRED"
+			 },
+			user: "REQUIRED",
+		},
 		submitHandler: submitForm
 	});
 
@@ -29,16 +44,16 @@ $('document').ready(function() {
 			url : 'includes/login_submit.php',
 			data : data,
 				beforeSend: function(){
-					//$("#error").fadeOut();
 					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">loop</i>VERIFYING');
 					},
 				success : function(response) {
 					if(response == "login_confirmed"){
 						$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
-						setTimeout('window.location.href = "?loggedin"; ',2000);
+						$("#user_icon").attr("src","images/icons/user_.png");	// Took help from 'w3 schools'
+						setTimeout('window.location.href = "?loggedin";', 2000);
 					} else {
 						alert("Invalid Username or Password !");
-						$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">error</i>UNABLE TO LOGIN');
+						$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">swap_horiz</i>LOGIN');
 					}
 				}
 		});

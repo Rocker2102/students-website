@@ -458,6 +458,7 @@ footer {
 
 .btn-submit {
   margin-top: 10px;
+  margin-bottom: 20px;
   width: 30%;
   height: 46px;
 }
@@ -467,4 +468,16 @@ footer {
   background-image: none;
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
+}
+
+.user_icon {
+  margin-bottom: 20px;
+  height: 100px;
+  width: 100px;
+}
+
+/* Took help from 'stackoverflow.com' for styling 'jQuery.validate()' error messages */
+.error {
+  color: #000;
+  padding-left: 10px;
 }

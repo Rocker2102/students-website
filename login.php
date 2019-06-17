@@ -4,11 +4,14 @@
     <h1 class="login_head">LOGIN</h1>
     <form class="form-center" id="login_submit" method="POST">
       <div class="row">
+        <img src="images/icons/user.png" class="user_icon" id="user_icon" alt="User_Image">
+      </div>
+      <div class="row">
         <div>
-          <input class="form-control" type="text" id="user" name="user" placeholder="Username" required>
+          <input class="form-control" type="text" id="user" name="user" placeholder="Username" value="">
         </div>
         <div>
-          <input class="form-control" type="password" id="pwd" name="pwd" placeholder="Password" required>
+          <input class="form-control" type="password" id="pwd" name="pwd" placeholder="Password" value="">
         </div>
       </div>
       <div class="row">
