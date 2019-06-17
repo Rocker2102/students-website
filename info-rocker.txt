@@ -8,6 +8,7 @@
 - Menu has been decided (may be changed later on). -> Changed!
     : Flip the navigation bar to show menu (is it possible?).
     : Just change the right side part of the nav bar by flipping, sliding or any other animation and show the menu.
+    : Show profile image of logged in user in menu (extreme left of menu).
 - Login popup (like Bootstrap modal boxes). Animation is must for this. (?)
 - Move header and footer to header.php and footer.php respectively and include them from there.  ##** DONE **##  [FOOTER REMAINING]
 - Make a page for CANS.
@@ -78,10 +79,12 @@
 - Center the popup.  ##** DONE **##
 - Design login form and position input fields accordingly.
 - Connect to temporary database. ##** DONE **##
-- Animation 'anim1' is 'kind-of-hanging' in pages with more content (eg.: 'explore.php'- tab 1) on 'This PC' (RAM: 2GB). Problem with PC or something else?
+- Animation 'anim1' is 'kind-of-hanging' in pages with more content (eg.: 'explore.php'- tab 1) on 'This PC' (RAM: 2GB). Problem with PC or something else?  ##** [PROBLEM WITH PC, WORKING FINE ON OTHER PC's] **##
 - Use AJAX for login (add a loading animation in the 'LOGIN' button).
 - Display profile image after successful login.
 - Debug page!
+- Style the jQuery error messages.
+- 2-step login.. try it.
 
 ####################
 - web content depends on the host?

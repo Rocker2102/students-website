@@ -124,6 +124,7 @@
     </section>
 
     <script src="js/jquery-3.3.1.js"></script>  <!-- Order of files matter. Atleast it does for scripts! -->
+    <script src="js/validate.min.js"></script>
     <script src="js/explore.js"></script>
     <script src="js/custom.js"></script>
 
