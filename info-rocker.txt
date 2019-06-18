@@ -5,14 +5,14 @@
 
 
 /* Use Bootstrap Carousel (or probootstrap carousel) for image slideshow (From previous project).  ##** NOT IMPLEMENTED **## */
-- Menu has been decided (may be changed later on). -> Changed!
+- Menu has been decided (may be changed later on). -> Changed!  ##** DONE **##  [SLIDE IN FROM RIGHT]
     : Flip the navigation bar to show menu (is it possible?).
     : Just change the right side part of the nav bar by flipping, sliding or any other animation and show the menu.
-    : Show profile image of logged in user in menu (extreme left of menu).
-- Login popup (like Bootstrap modal boxes). Animation is must for this. (?)
+    : Show profile image of logged in user in menu (extreme left of menu).  [IDEA DROPPED]
+- Login popup (like Bootstrap modal boxes). Animation is must for this. (?)  ##** DONE **##
 - Move header and footer to header.php and footer.php respectively and include them from there.  ##** DONE **##  [FOOTER REMAINING]
 - Make a page for CANS.
-- Add link to 'CANS' webpage on navbar.
+- Add link to 'CANS' webpage on navbar.  ##** DONE **##
 - Use cookies (after showing consent to user).  [THOUGHT PENDING]
 - Colors of all webpages will be decided in the end.
 - Compress images.
@@ -21,19 +21,19 @@
 - Image subject to copyrights! (all the images used...)
 
 <--------------------------------------------------------->
-[index.html] -> [index.php]
+[index.php]
 28.05.2019, 16:18 - 31.05.2019, 14:12
 - First page of site: Design according to decided layout (layout modified a bit)  ##** DONE **##
 - Colors will be decided later on.
 - Content will be written (typed) later.
 - Align 'Whats New' and 'Notices' tabs.  ##** DONE **##
 - Add the 'Explore' tab.  ##** DONE **##
-- Menu has not been made (waiting for ideas).
+- Menu has not been made (waiting for ideas).  ##** DONE **##
 - Footer needs to be designed and merged.
 - Open to any other suggestions.
 
 <--------------------------------------------------------->
-[signup.html] -> [signup.php]
+[signup.php]
 31.05.2019, 19:30 - 01.06.2019, 15:44 (PAUSED)
 - How to upload files?... more detailed info..
 - Code according to design.
@@ -43,7 +43,7 @@
 
 <--------------------------------------------------------->
 [explore.php]
-01.06.2019, 18:20 - 00.00.000 00:00
+01.06.2019, 18:20 - 10.06.2019 23:17 (PAUSED)
 - Center the images  ##** DONE **##
 - Add some effect  ##** DONE **##
 - Finalize it  ##** DONE **##
@@ -53,7 +53,7 @@
 - Responsive image resizing (according to screen size)  ##** DONE **##  [NOT PERFECT]
 - Downloading of files (Adding links after uploading files).  ##** DONE **##
 - Add key for subject codes (at top or bottom?).
-- Some problem in using class 'doc-row' in rows (actually just the first row) of section 'Assignments & Notes'. ('height-fix' used)  ##** DONE **##
+- Some problem in using class 'doc-row' in rows (actually just the first row) of section 'Assignments & Notes'.  ##** DONE **##  ['HEIGHT-FIX' USED]
 - Move different sections of page to different files and include them (current file has become too large and confusing!).  ##** DONE **##
 - Correct the new sidenavbar (or remove it completely)!  ##** DONE **##  [REMOVED]
 
@@ -73,18 +73,18 @@
 
 <--------------------------------------------------------->
 [login.php]
-07.06.2019, 12:32 - 00.00.0000 00:00
+07.06.2019, 12:32 - 17.06.2019 17:36  [DELAYED DUE TO ERRORS IN BACKEND PART + TRAVELLING]
 - Make popup.  ##** DONE **##
 - Close the opened popup.  ##** DONE **##
 - Center the popup.  ##** DONE **##
-- Design login form and position input fields accordingly.
+- Design login form and position input fields accordingly.  ##** DONE **##
 - Connect to temporary database. ##** DONE **##
 - Animation 'anim1' is 'kind-of-hanging' in pages with more content (eg.: 'explore.php'- tab 1) on 'This PC' (RAM: 2GB). Problem with PC or something else?  ##** [PROBLEM WITH PC, WORKING FINE ON OTHER PC's] **##
-- Use AJAX for login (add a loading animation in the 'LOGIN' button).
-- Display profile image after successful login.
+- Use AJAX for login (add a loading animation in the 'LOGIN' button).  ##** DONE **##
+- Display profile image after successful login.  ##** DONE **##
 - Debug page! (not working on some hosting sites after uploading)
-- Style the jQuery error messages.
-- 2-step login.. try it.
+- Style the jQuery error messages. ##** DONE **##  [+ MORE STYLING LATER]
+- 2-step login.. try it.  ##** NOT IMPLEMENTED **##
 
 ####################
 - web content depends on the host?
