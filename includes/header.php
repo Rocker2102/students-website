@@ -1,7 +1,7 @@
 <div id="header">
   <div id="header-content">
     <div class="logo"><a href="index.php"><img src="images/icons/logo.png" style="height: 50px; width: 50px"></a></div>
-    <div class="logo-text">National Institute of Technology, Sikkim</div>
+    <div class="logo-text">NIT, Sikkim</div>
 
     <div class="menu_hide" id="menu_hide">
       <?php
