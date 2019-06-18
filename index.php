@@ -37,8 +37,8 @@
           <div style="width: 100%; float: left">
             <div class="text-box gradient-0">
               <h2>EXPLORE</h2>
-              <p>Something<br>Just a line change. Something. Just a line change. Something. Just a line change. Something. Just a line change. Something. Just a line change. Something. Just a line change. Something. Just a line change. Something. Just a line change. Something. Just a line change.</p>
-              <p>This is a paragraph break.</p>
+              <p>Find what you need right here.</p>
+              <p></p>
               <p><button class="btn btn-green_aqua btn-rounded-10" onclick="location.href='explore.php'"><i class="material-icons btn-icon">fiber_smart_record</i>GO TO PAGE</button></p>
               <p>Interesting!? It just takes a minute to <a class="explore-links" href="signup.php">signup</a>. Already done, even better... <a class="explore-links" href="javascript:void(0)" onclick="javascript:login_pop()">login here</a>.</p>
             </div>
