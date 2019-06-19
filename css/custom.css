@@ -153,6 +153,8 @@ body {
 
 .container{
   margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .notice_new {
@@ -495,3 +497,37 @@ body {
 }
 
 /* --------------------------------------------------------------- */
+/* [profile.php] */
+
+.image {
+  padding-top: 30px;
+}
+
+.profile_image {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+.profile_image:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.profile_data_box {
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+.profile_data {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  width: 75%;
+  height: auto;
+  border-radius: 10px;
+}
