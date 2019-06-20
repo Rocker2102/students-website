@@ -27,18 +27,6 @@
   cursor: pointer;
 }
 
-#side_navbar {
-  position: fixed;
-  top: 95%;
-  left: 10px;
-  border-radius: 10px;
-  transform: rotateZ(270deg);
-  -webkit-transform: rotateZ(270deg);
-  transform-origin: top left;
-  background: rgba(255, 255, 255, 0.1);
-  animation: animate 1s ease;
-}
-
 .wrapper {
   width: 100%;
   margin: auto;
@@ -126,20 +114,3 @@
     transform: none;
   }
 }
-
-@keyframes animate {
-  25% {
-    opacity: 0.25;
-    transform: translateY(10px);
-  }
-  50% {
-    opacity: 0.5;
-  }
-  75% {
-    opacity: 0.75;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-/* ############### */
