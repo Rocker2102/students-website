@@ -50,6 +50,12 @@ function menu_hide() {
 	$("#menu_hide").css({'display': 'block'});
 }
 
+function edit(data) {
+	var a = "p_data_" + data;
+	$("#" + a).css({'display': 'none'});
+	console.log(a);
+}
+
 // AJAX query for login (uses jQuery)  [copied from 'phpzag.com']
 $('document').ready(function() {
 	$("#login_submit").validate({
