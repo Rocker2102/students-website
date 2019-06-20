@@ -87,6 +87,15 @@
 - Style the jQuery error messages. ##** DONE **##  [+ MORE STYLING LATER]
 - 2-step login.. try it.  ##** NOT IMPLEMENTED **##
 
+<--------------------------------------------------------->
+[profile.php]
+19.06.2019, 17:45 - 00.00.0000 00:00
+- choose a layout.
+- backend.  ##** DONE **##
+- user should be able to modify profile data (on the same page).
+- profile picture upload code!?
+- .....
+
 ####################
 - web content depends on the host?
     : a lot changed after uploading (totally different from what i see on localhost!).

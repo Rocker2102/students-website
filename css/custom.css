@@ -133,6 +133,7 @@ body {
 
 .logo:hover {
   opacity: 0.8;
+  transition: all 0.2s ease;
 }
 
 .logo-text {
@@ -459,6 +460,12 @@ body {
   transition: .3s all ease-out;
 }
 
+.form-control:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: #18f1c2;
+}
+
 .form-control:active, .form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -504,12 +511,16 @@ body {
 }
 
 .profile_image {
+  opacity: 0;
   height: 200px;
   width: 200px;
   border-radius: 50%;
   display: block;
   text-align: center;
   margin: auto;
+  transition: all 0.2s ease-in;
+  transform: translateX(30px);
+  animation: fadeIn 1s ease 1 forwards;
 }
 
 .profile_image:hover {
@@ -517,17 +528,39 @@ body {
   cursor: pointer;
 }
 
-.profile_data_box {
-  display: block;
-  text-align: center;
-  margin: auto;
-}
-
 .profile_data {
+  opacity: 0;
   display: block;
   margin: auto;
   margin-top: 20px;
-  width: 75%;
+  padding-left: 20px;
+  width: 50%;
   height: auto;
   border-radius: 10px;
+  transform: translateX(-30px);
+  animation: fadeIn 1s ease 1 forwards;
+}
+
+.edit-icon {
+  color: rgb(0, 247, 255);
+  font-size: 22px !important;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 50px;
+  border: 5px solid transparent; 
+  margin-bottom: 3px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+}
+
+.edit-icon:hover {
+  color: #2af118;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }

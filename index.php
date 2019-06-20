@@ -19,7 +19,7 @@
 
       <?php include 'login.php'; ?>
 
-      <div id="login_blur">
+      <div id="login_blur" style="opacity:0;transform: translateY(15px);animation: fadeIn 1s ease 1 forwards;">
         <div class="container">
           <div style="width: 50%; float: left">
             <div class="notice_new gradient-1">
