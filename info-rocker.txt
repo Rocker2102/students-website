@@ -89,12 +89,13 @@
 
 <--------------------------------------------------------->
 [profile.php]
-19.06.2019, 17:45 - 00.00.0000 00:00
-- choose a layout.
-- backend.  ##** DONE **##
-- user should be able to modify profile data (on the same page).
-- profile picture upload code!?
-- .....
+19.06.2019, 17:45 - 21.06.2019 11:16
+- Choose a layout.  ##** DONE **##
+- Backend.  ##** DONE **##
+- User should be able to modify profile data (on the same page).  ##** DONE **##
+- Profile picture upload code!?
+- Each field can be updated independently.  ##** DONE **##
+- ..... [+ OTHER MODIFICATIONS LATER ON (OPEN TO SUGGESTIONS)]
 
 ####################
 - web content depends on the host?
