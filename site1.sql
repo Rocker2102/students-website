@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2019 at 08:30 AM
+-- Generation Time: Jun 21, 2019 at 12:51 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.1.30
 
@@ -38,7 +38,7 @@ CREATE TABLE `members` (
   `dob` date DEFAULT NULL,
   `sem` int(2) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
-  `modified` timestamp NOT NULL DEFAULT current_timestamp()
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -46,10 +46,10 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`uid`, `username`, `password`, `name`, `contact`, `email`, `dob`, `sem`, `created`, `modified`) VALUES
-(1, 'rocker', '2102', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-06-20 03:54:11'),
-(2, 'gk', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '2000-10-03', 2, '2019-06-17 04:39:05', '2019-06-20 03:55:20'),
-(4, 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitskkim.ac.in', '2001-03-06', 2, '2019-06-20 06:24:25', '2019-06-20 06:24:25'),
-(5, 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180009@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-06-20 06:25:54');
+(1, 'rocker', '2102', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 3, '2019-06-15 12:58:41', '2019-06-21 09:50:57'),
+(2, 'gouravk3', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '1998-10-03', 2, '2019-06-17 04:39:05', '2019-06-21 10:48:44'),
+(4, 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitskkim.ac.in', '2001-03-06', 3, '2019-06-20 06:24:25', '2019-06-20 06:24:25'),
+(5, 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180010@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-06-21 10:45:14');
 
 --
 -- Indexes for dumped tables

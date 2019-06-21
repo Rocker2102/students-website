@@ -4,7 +4,7 @@ $('.tab-link').click( function() {	// when element with class 'tab-link' is clic
 	$('#tab-'+tabID).addClass('active').siblings().removeClass('active');	// class 'active' is added to the div with id = 'tabID' and class 'active' is removed from all other sibling divs
 });
 
-// the functions 'attr()', 'addClass()', 'removeClass()', 'siblings()', ... and variable 'this' (is it a variable?) are probably pre-defined in the jQuery library
+// the functions 'attr()', 'addClass()', 'removeClass()', 'siblings()', ... and variable 'this' (is it a variable?) are probably pre-defined in the jQuery library.
 
 function login_pop () {
 	document.getElementById('login_form').style.display = "block";
@@ -46,14 +46,8 @@ function menu_show() {
 }
 
 function menu_hide() {
-	$("#menu_show").css({'display': 'none'});
 	$("#menu_hide").css({'display': 'block'});
-}
-
-function edit(data) {
-	var a = "p_data_" + data;
-	$("#" + a).css({'display': 'none'});
-	console.log(a);
+	$("#menu_show").css({'display': 'none'});
 }
 
 // AJAX query for login (uses jQuery)  [copied from 'phpzag.com']
@@ -84,7 +78,7 @@ $('document').ready(function() {
 			data : data,
 			beforeSend : function(){
 				$("#login_submit_btn").html('<img src="images/loading.gif" class="loading_anim" style="width: 46px; height: 46px">');
-				},
+			},
 			success : function(response) {
 				var recieve = response.split(",");
 				if(recieve[0] == "login_confirmed"){
@@ -101,3 +95,83 @@ $('document').ready(function() {
 		return false;
 	}
 });
+
+function edit(data) {
+	var a = "p_data_" + data;
+	var b = data + "_change";
+	$("#" + a).css({'display': 'none'});
+	$("#" + b).removeClass('profile_form');
+}
+
+function close_form(data) {
+	var a = "p_data_" + data;
+	var b = data + "_change";
+	$("#" + a).css({'display': 'block'});
+	$("#" + b).addClass('profile_form');
+}
+
+// AJAX Query for 'profile.php' using jQuery
+function update(data) {
+	var form_id = data + "_change";
+	var a = data + "_submit_btn";
+	var infoText = "<i class='material-icons header-icon' style='padding-right: 5px'>info</i>Some changes have been made to the profile. Please <b><a href='javascript:document.location.reload()'>REFRESH</a></b> to see updated information.";
+	var errorText = "An error occurred. Please try again later !";
+
+	if (form_id == "username_check_change") {
+		form_id = "username_change";
+	}
+	var update_data = $("#" + form_id).serialize();
+	var page_url = "includes/profile_update.php?update=" + data;
+	$.ajax({
+		type : 'POST',
+		url : page_url,
+		data : update_data,
+		beforeSend : function(){
+			if(data == "username_check") {
+				$("#username_check_btn").html('<img src="images/loading.gif" class="loading_anim" style="width: 40px; height: 40px">');
+			}
+			else {
+				$("#" + a).html('<i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>updating...');
+			}
+		},
+		success : function(recieve) {
+			var response = recieve.split(",");
+			if(response[1] == undefined) {
+				response[1] = "";
+			}
+
+			if(data == "username_check") {
+				$("#username_check_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">update</i>check availability');
+			}
+			else {
+				$("#" + a).html('<i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change');
+			}
+
+			if (response[0] == "error") {
+				alert(errorText);
+			}
+			else if (response[0] == "nochange") {
+				alert("No change in " + response[1]);
+			}
+			else if (response[0] == "updated") {
+				alert(response[1] + " updated");
+				showRefreshText();
+			}
+			else if (response[0] == "username_available") {
+				alert("Selected username is available.")
+			}
+			else if (response[0] == "username_na") {
+				alert("Selected username not available !");
+			}
+			else {
+				alert("Request timed out");
+			}
+
+			//alert(response);
+			function showRefreshText() {
+				$("#update_info_text").css({'display': 'block'});
+				$("#update_info_text").html(infoText);	
+			}
+		}
+	});
+}
