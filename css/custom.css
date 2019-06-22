@@ -544,9 +544,10 @@ body {
 .edit-icon {
   color: #000;
   font-size: 26px !important;
-  display: inline-block;
+  /* display: inline-block; */
   vertical-align: middle;
-  margin-left: 50px;
+  float: right;
+  /* margin-left: 50px; */
   border: 5px solid transparent; 
   margin-bottom: 4px;
   border-radius: 50%;
@@ -574,6 +575,10 @@ body {
 
 .profile_form {
   display: none !important;
+}
+
+.p_form_row input {
+  margin-left: 5px !important;
 }
 
 .border_form {
@@ -618,4 +623,40 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
   text-align: center;
   border-radius: 10px;
+}
+
+.btn-available {
+  background-color: green;
+  color: #fff;
+}
+
+.btn-na {
+  background-color: red;
+  color: #fff;
+}
+
+input::-webkit-clear-button,
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: #fff;
+  transition: all 0.2s ease-in;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
