@@ -4,6 +4,7 @@
 <-- DEVELOPMENT PAUSED FROM 11 June 2019 to 15 June 2019 -->
 <-- Website version 1.5 -->  19.06.2019
 <-- Website version 1.7 -->  22.06.2019
+<-- Plans to host website over the LAN itself (23 June 2019) -->
 
 
 /* Use Bootstrap Carousel (or probootstrap carousel) for image slideshow (From previous project).  ##** NOT IMPLEMENTED **## */
@@ -90,14 +91,23 @@
 
 <--------------------------------------------------------->
 [profile.php]
-19.06.2019, 17:45 - 22.06.2019 17:41  (PAUSED)
+19.06.2019, 17:45 - 22.06.2019 17:41 www aa2a2a2a2222q  (PAUSED)
 - Choose a layout.  ##** DONE **##
 - Backend.  ##** DONE **##
 - User should be able to modify profile data (on the same page).  ##** DONE **##
 - Profile picture upload code!?
 - Each field can be updated independently.  ##** DONE **##
 - ..... [+ OTHER MODIFICATIONS LATER ON (OPEN TO SUGGESTIONS)]
-- Rename profile pictures when username is changed (using php).
+- Rename profile pictures when username is changed (using file handling in php).
+
+<--------------------------------------------------------->
+[feedback.php]
+00.00.0000, 00:00 - 00.00.0000, 00:00
+- Think of a layout.
+- 'Submit feedback anonymously' option should be added.
+- Form submit using ajax request.
+- Some animation or gif inside button after pressing submit button.
+- Feedbacks on other pages (like Google).
 
 ####################
 - web content depends on the host?
