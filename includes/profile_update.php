@@ -11,6 +11,7 @@
     if ($result0->num_rows > 0) {
       while ($row = $result0->fetch_assoc()) {
         $o_username = $row['username'];
+        $o_pass = $row['password'];
         $o_name = $row['name'];
         $o_contact = $row['contact'];
         $o_email = $row['email'];
@@ -51,11 +52,46 @@
         exit();
       }
       else {
-        $query2 = "UPDATE members SET username = '$username' WHERE uid = '$uid'";
+        $query = "SELECT uid FROM members WHERE username = '$username'";
+        $result = $connect->query($query);
+        if ($result->num_rows == 0) {
+          $query2 = "UPDATE members SET username = '$username' WHERE uid = '$uid'";
+          $result2 = $connect->query($query2);
+          
+          if(mysqli_affected_rows($connect) == 1) {
+            echo "updated,Username";
+            exit();
+          }
+          else {
+            echo "error";
+            exit();
+          }
+        }
+        else {
+          echo "username_na";
+          exit();
+        }
+      }
+    }
+    else if ($update == "password") {
+      $pass_old = mysqli_real_escape_string($connect, $_POST['password_old']);
+      $pass_new = mysqli_real_escape_string($connect, $_POST['password_new']);
+      $pass_conf = mysqli_real_escape_string($connect, $_POST['password_conf']);
+
+      if($pass_old !== $o_pass) {
+        echo "incorrect,password";
+        exit();
+      }
+      else if ($pass_new == $o_pass) {
+        echo "nochange,password";
+        exit();
+      }
+      else {
+        $query2 = "UPDATE members SET password = '$pass_new' WHERE uid = '$uid'";
         $result2 = $connect->query($query2);
         
         if(mysqli_affected_rows($connect) == 1) {
-          echo "updated,Username";
+          echo "updated,Password";
           exit();
         }
         else {

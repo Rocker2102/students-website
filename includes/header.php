@@ -9,7 +9,7 @@
         if (isset($_SESSION['uid'])) {
           ?>
             <div class="header-item" style="margin-right: 50px"><a id="logout_btn" href="javascript:void(0)" onclick="javascript:logout()"><i class="material-icons header-icon">power_settings_new</i>Logout</a></div>
-            <div class="header-item"><a href="settings.php" style="cursor: pointer"><i class="material-icons header-icon">settings</i>Settings</a></div>
+            <div class="header-item"><a><i class="material-icons header-icon">settings</i>Settings</a></div>
           <?php
         }
         else {

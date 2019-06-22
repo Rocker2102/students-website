@@ -116,12 +116,39 @@ function update(data) {
 	var a = data + "_submit_btn";
 	var infoText = "<i class='material-icons header-icon' style='padding-right: 5px'>info</i>Some changes have been made to the profile. Please <b><a href='javascript:document.location.reload()'>REFRESH</a></b> to see updated information.";
 	var errorText = "An error occurred. Please try again later !";
-
+	
 	if (form_id == "username_check_change") {
 		form_id = "username_change";
 	}
+
 	var update_data = $("#" + form_id).serialize();
 	var page_url = "includes/profile_update.php?update=" + data;
+	var check = data;
+
+	if(check == "password") {
+		if($("#password_new").val() !== $("#password_conf").val()) {
+			alert("Passwords do not match !");
+			return;
+		}
+	}
+	else {
+		if(check == "username_check") {
+			check = "username";
+		}
+
+		if($("#" + check).val().length === 0) {
+			alert("Please fill the form fields !");
+			return;
+		}
+
+		if(check == "sem") {
+			if($("#sem").val() > 8 || $("#sem").val() < 1) {
+				alert("Invalid value !");
+				return;
+			}
+		}
+	}
+	
 	$.ajax({
 		type : 'POST',
 		url : page_url,
@@ -158,16 +185,25 @@ function update(data) {
 				showRefreshText();
 			}
 			else if (response[0] == "username_available") {
-				alert("Selected username is available.")
+				$("#username_check_btn").removeClass('gradient-2');
+				$("#username_check_btn").addClass('btn-available');
+				$("#username_check_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">done</i>Available');
+				setTimeout(function () {$("#username_check_btn").removeClass('btn-available');$("#username_check_btn").removeClass('btn-na');$("#username_check_btn").addClass('gradient-2');$("#username_check_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">update</i>check availability');}, 2000);
+
 			}
 			else if (response[0] == "username_na") {
-				alert("Selected username not available !");
+				$("#username_check_btn").removeClass('gradient-2');
+				$("#username_check_btn").addClass('btn-na');
+				$("#username_check_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">close</i>Not Available');
+				setTimeout(function () {$("#username_check_btn").removeClass('btn-available');$("#username_check_btn").removeClass('btn-na');$("#username_check_btn").addClass('gradient-2');$("#username_check_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">update</i>check availability');}, 2000);
+			}
+			else if (response[0] == "incorrect") {
+				alert("Entered password is not correct !");
 			}
 			else {
-				alert("Request timed out");
+				alert(response[0]);
 			}
 
-			//alert(response);
 			function showRefreshText() {
 				$("#update_info_text").css({'display': 'block'});
 				$("#update_info_text").html(infoText);	
