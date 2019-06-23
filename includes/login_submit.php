@@ -17,8 +17,15 @@
       session_start();
       $_SESSION['uid'] = $uid;
       $_SESSION['username'] = $user;
+      $img_check = "../images/profile_images/".$uid;
+      if(!file_exists($img_check)) {
+        $img_check = 0;
+      }
+      else {
+        $img_check = 1;
+      }
 
-      echo $login_message.",".$user;
+      echo $login_message.",".$uid.",".$img_check;
       exit();
     }
     else {

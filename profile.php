@@ -21,11 +21,6 @@
       </div>
 
       <?php
-        $profile_image = "images/profile_images/".$_SESSION['username'].".png";
-        if (!file_exists($profile_image)) {
-          $profile_image = "images/icons/user.png";
-        }
-
         require_once 'includes/db_connect.php';
         $uid = $_SESSION['uid'];
         $query1 = "SELECT * FROM members WHERE uid = $uid";
@@ -55,7 +50,12 @@
           $dob = "0000-00-00";
           $sem = "0";
           $created = "0000-00-00";
-          $modified = "0000-00-00";  
+          $modified = "0000-00-00";
+        }
+
+        $profile_image = "images/profile_images/".$uid;
+        if (!file_exists($profile_image)) {
+          $profile_image = "images/icons/user.png";
         }
         
         $pass_len = strlen($password);
@@ -70,16 +70,30 @@
       <div class="container">
         <h2 class="section-heading" style="font-size: 36px">PROFILE</h2>
         <p id="update_info_text"></p>
+
         <div class="image">
-          <img src="<?php echo $profile_image ?>" class="profile_image">
+          <img id="profile_pic" src="<?php echo $profile_image ?>" class="profile_image">
         </div>
+
         <div class="profile_data">
+
+          <!--DISPLAY_PROFILE-PICTURE & FORM_FOR_PROFILE-PICTURE-UPDATE-->
+          <p class="p_data" id="p_data_pp"><b>PROFILE PICTURE</b><a href="javascript:void(0)" onclick="javascript:edit('pp')"><i class="edit-icon material-icons">edit</i></a></p>
+          <form class="profile_form border_form" id="pp_change" method="POST" enctype="multipart/form-data">
+            <div class="p_form_row">
+              <h3><a href="javascript:void(0)" onclick="javascript:close_form('pp')"><i class="form-close material-icons">keyboard_arrow_left</i></a>Update Profile Picture (Max. Size: 1 MB)</h3>
+              <input class="form-control" type="file" id="pp" name="pp">
+            </div>
+            <button class="btn gradient-2 btn-rounded-10" type="submit" id="pp_submit_btn" name="pp_submit_btn"><i class="material-icons btn-icon" style="padding-right: 10px">cloud_upload</i>upload</button>
+            <button class="btn btn-na btn-rounded-10" type="button" id="pp_delete_btn" name="pp_delete_btn"><i class="material-icons btn-icon" style="padding-right: 10px">delete_forever</i>delete profile picture</button>
+          </form>
+
           <!--DISPLAY_USERNAME & FORM_FOR_USERNAME-->
           <p class="p_data" id="p_data_username"><b>USERNAME: </b><?php echo $username ?><a href="javascript:void(0)" onclick="javascript:edit('username')"><i class="edit-icon material-icons">edit</i></a></p>
           <form class="profile_form border_form"  id="username_change" method="POST">
             <div class="p_form_row">
               <h3><a href="javascript:void(0)" onclick="javascript:close_form('username')"><i class="form-close material-icons">keyboard_arrow_left</i></a>Change Username</h3>
-              <input class="form-control" type="text" id="username" name="username" placeholder="Username" value="<?php echo $username ?>" required>
+              <input class="form-control" type="text" id="username" name="username" placeholder="Username" value="<?php echo $username ?>">
             </div>
             <button class="btn gradient-2 btn-rounded-10" type="button" id="username_check_btn" name="username_check_btn" onclick="javascript:update('username_check')"><i class="material-icons btn-icon" style="padding-right: 10px">update</i>check availability</button>
             <button class="btn gradient-2 btn-rounded-10" type="button" id="username_submit_btn" name="username_submit_btn" onclick="javascript:update('username')"><i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change</button>

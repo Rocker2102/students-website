@@ -82,13 +82,20 @@ $('document').ready(function() {
 			success : function(response) {
 				var recieve = response.split(",");
 				if(recieve[0] == "login_confirmed"){
-					var img_loc = "images/profile_images/" + recieve[1] + ".png";
+					if(recieve[2] == "1") {
+						var img_loc = "images/profile_images/" + recieve[1];
+						$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
+					}
+					$("#login_submit_btn").removeClass("gradient-2");
+					$("#login_submit_btn").addClass("btn-available");
 					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
-					$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
-					setTimeout('window.location.href = "?loggedin";', 2000);
+					setTimeout(function (){$("#login_submit_btn").addClass("gradient-2");$("#login_submit_btn").removeClass("btn-available");window.location.href = "?loggedin";}, 2000);
 				} else {
-					alert("Invalid Username or Password !");
-					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">swap_horiz</i>LOGIN');
+					//alert("Invalid Username or Password !");
+					$("#login_submit_btn").removeClass("gradient-2");
+					$("#login_submit_btn").addClass("btn-na");
+					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">close</i>UNABLE TO LOGIN');
+					setTimeout(function () {$("#login_submit_btn").addClass("gradient-2");$("#login_submit_btn").removeClass("btn-na");$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">swap_horiz</i>LOGIN');}, 2000);
 				}
 			}
 		});
@@ -178,7 +185,13 @@ function update(data) {
 				alert(errorText);
 			}
 			else if (response[0] == "nochange") {
-				alert("No change in " + response[1]);
+				var c = response[1] + "_submit_btn";
+				$("#" + c).removeClass('gradient-2');
+				$("#" + c).addClass('btn-nc');
+				$("#" + c).html('<i class="material-icons btn-icon" style="padding-right: 10px">info</i>no change');
+				setTimeout(function () {$("#" + c).removeClass('btn-nc');$("#" + c).addClass('gradient-2');$("#" + c).html('<i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change');}, 2000);
+				//alert("No change in " + response[1]);
+
 			}
 			else if (response[0] == "updated") {
 				alert(response[1] + " updated");
@@ -211,3 +224,89 @@ function update(data) {
 		}
 	});
 }
+
+$("#pp_change").on('submit',(function(e) {
+	var infoText = "<i class='material-icons header-icon' style='padding-right: 5px'>info</i>Some changes have been made to the profile. Please <b><a href='javascript:document.location.reload()'>REFRESH</a></b> to see updated information.";
+	e.preventDefault();
+	$.ajax({
+		url: "includes/upload.php?pp=upload",
+		type: "POST",
+		data:  new FormData(this),
+		contentType: false,
+		cache: false,
+		processData:false,
+		beforeSend: function(){
+			$("#pp_submit_btn").removeClass('gradient-2');
+			$("#pp_submit_btn").addClass('btn-nc');
+			$("#pp_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">watch_later</i>uploading ...');
+			$("#pp").attr("disabled", true);
+			$("#pp_submit_btn").attr("disabled", true);
+	 	},
+		success: function(recieve) {
+			var response = recieve.split(",");
+			if(response[0] == "success") {
+				$("#pp_submit_btn").removeClass('gradient-2');
+				$("#pp_submit_btn").removeClass('btn-nc');
+				$("#pp_submit_btn").addClass('btn-available');
+				$("#pp_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">done_all</i>uploaded');
+				showRefreshText();
+				setTimeout(function () {$("#pp").attr("disabled", false);$("#pp_submit_btn").attr("disabled", false);$("#pp_submit_btn").removeClass('btn-available');$("#pp_submit_btn").addClass('gradient-2');$("#pp_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">cloud_upload</i>upload');}, 2000);
+			}
+			else {
+				$("#pp_submit_btn").removeClass('gradient-2');
+				$("#pp_submit_btn").removeClass('btn-nc');
+				$("#pp_submit_btn").addClass('btn-na');
+				$("#pp_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">close</i>invalid | empty | size > 1 MB');
+				setTimeout(function () {$("#pp").attr("disabled", false);$("#pp_submit_btn").attr("disabled", false);$("#pp_submit_btn").removeClass('btn-na');$("#pp_submit_btn").addClass('gradient-2');$("#pp_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">cloud_upload</i>upload');}, 2000);
+			}
+
+			function showRefreshText() {
+				$("#update_info_text").css({'display': 'block'});
+				$("#update_info_text").html(infoText);	
+			}
+		}
+	});
+}));
+
+$("#pp_delete_btn").click(function () {
+	var infoText = "<i class='material-icons header-icon' style='padding-right: 5px'>info</i>Some changes have been made to the profile. Please <b><a href='javascript:document.location.reload()'>REFRESH</a></b> to see updated information.";
+	$.ajax({
+		url: "includes/upload.php?pp=delete",
+		beforeSend: function(){
+			$("#pp_delete_btn").addClass('btn-nc');
+			$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete_sweep</i>deleting ...');
+			$("#pp").attr("disabled", true);
+			$("#pp_delete_btn").attr("disabled", true);
+			$("#pp_submit_btn").attr("disabled", true);
+	 	},
+		success: function(recieve) {
+			var response = recieve.split(",");
+			if(response[0] == "deleted") {
+				$("#pp_delete_btn").removeClass('btn-na');
+				$("#pp_delete_btn").removeClass('btn-nc');
+				$("#pp_delete_btn").addClass('btn-available');
+				$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete</i>Deleted');
+				showRefreshText();
+				setTimeout(function () {$("#pp").attr("disabled", false);$("#pp_submit_btn").attr("disabled", false);$("#pp_delete_btn").attr("disabled", false);$("#pp_delete_btn").removeClass('btn-available');$("#pp_delete_btn").addClass('btn-na');$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete_forever</i>delete profile picture');}, 2000);
+			}
+			else if (response[0] == "img_na") {
+				$("#pp_delete_btn").removeClass('btn-na');
+				$("#pp_delete_btn").addClass('btn-nc');
+				$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">warning</i>no profile picture');
+				showRefreshText();
+				setTimeout(function () {$("#pp").attr("disabled", false);$("#pp_submit_btn").attr("disabled", false);$("#pp_delete_btn").attr("disabled", false);$("#pp_delete_btn").removeClass('btn-nc');$("#pp_delete_btn").removeClass('btn-available');$("#pp_delete_btn").addClass('btn-na');$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete_forever</i>delete profile picture');}, 2000);
+			}
+			else {
+				$("#pp_delete_btn").removeClass('btn-nc');
+				$("#pp_delete_btn").addClass('btn-na');
+				$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">close</i>error');
+				setTimeout(function () {$("#pp").attr("disabled", false);$("#pp_submit_btn").attr("disabled", false);$("#pp_delete_btn").attr("disabled", false);$("#pp_delete_btn").removeClass('btn-available');$("#pp_delete_btn").addClass('btn-na');$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete_forever</i>delete profile picture');}, 2000);
+			}
+
+			function showRefreshText() {
+				$("#update_info_text").css({'display': 'block'});
+				$("#update_info_text").html(infoText);	
+			}
+		}
+	});
+});
