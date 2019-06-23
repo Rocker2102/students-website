@@ -630,10 +630,36 @@ body {
   color: #fff;
 }
 
+.btn-available:hover {
+  background-color: green !important;
+  color: #fff !important;
+}
+
 .btn-na {
   background-color: red;
   color: #fff;
 }
+
+.btn-na:hover {
+  background-color: red !important;
+  color: #fff !important;
+}
+
+.btn-nc {
+  background-color: orange;
+  color: #000;
+}
+
+.btn-nc:hover {
+  background-color: orange !important;
+  color: #000 !important;
+}
+
+#pp_change {
+  display: none !important;
+}
+
+
 
 input::-webkit-clear-button,
 input[type="date"]::-webkit-inner-spin-button {

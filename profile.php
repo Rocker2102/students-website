@@ -21,11 +21,6 @@
       </div>
 
       <?php
-        $profile_image = "images/profile_images/".$_SESSION['username'].".png";
-        if (!file_exists($profile_image)) {
-          $profile_image = "images/icons/user.png";
-        }
-
         require_once 'includes/db_connect.php';
         $uid = $_SESSION['uid'];
         $query1 = "SELECT * FROM members WHERE uid = $uid";
@@ -43,6 +38,7 @@
             $sem = $row['sem'];
             $created = $row['created'];
             $modified = $row['modified'];
+            $img_ext = $row['profile_image'];
           }
         }
         else {
@@ -55,7 +51,13 @@
           $dob = "0000-00-00";
           $sem = "0";
           $created = "0000-00-00";
-          $modified = "0000-00-00";  
+          $modified = "0000-00-00";
+          $img = "UNKNOWN";
+        }
+
+        $profile_image = "images/profile_images/".$uid;
+        if (!file_exists($profile_image)) {
+          $profile_image = "images/icons/user.png";
         }
         
         $pass_len = strlen($password);
@@ -71,7 +73,10 @@
         <h2 class="section-heading" style="font-size: 36px">PROFILE</h2>
         <p id="update_info_text"></p>
         <div class="image">
-          <img src="<?php echo $profile_image ?>" class="profile_image">
+          <form id="pp_change" method="POST" enctype="multipart/form-data">
+            <input type="file" id="pp" name="pp">
+          </form>
+          <img id="profile_pic" src="<?php echo $profile_image ?>" class="profile_image">
         </div>
         <div class="profile_data">
           <!--DISPLAY_USERNAME & FORM_FOR_USERNAME-->

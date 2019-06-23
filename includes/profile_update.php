@@ -54,11 +54,13 @@
       else {
         $query = "SELECT uid FROM members WHERE username = '$username'";
         $result = $connect->query($query);
+
         if ($result->num_rows == 0) {
           $query2 = "UPDATE members SET username = '$username' WHERE uid = '$uid'";
           $result2 = $connect->query($query2);
           
           if(mysqli_affected_rows($connect) == 1) {
+            $_SESSION['username'] = $username;
             echo "updated,Username";
             exit();
           }

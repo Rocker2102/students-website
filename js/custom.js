@@ -82,9 +82,11 @@ $('document').ready(function() {
 			success : function(response) {
 				var recieve = response.split(",");
 				if(recieve[0] == "login_confirmed"){
-					var img_loc = "images/profile_images/" + recieve[1] + ".png";
+					if(recieve[2] == "1") {
+						var img_loc = "images/profile_images/" + recieve[1];
+						$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
+					}				
 					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
-					$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
 					setTimeout('window.location.href = "?loggedin";', 2000);
 				} else {
 					alert("Invalid Username or Password !");
@@ -109,6 +111,9 @@ function close_form(data) {
 	$("#" + a).css({'display': 'block'});
 	$("#" + b).addClass('profile_form');
 }
+
+// Code to open file upload dialogue on clicking image with id 'profile_pic'.
+$('#profile_pic').click(function(){ $('#pp').trigger('click'); });
 
 // AJAX Query for 'profile.php' using jQuery
 function update(data) {
@@ -178,7 +183,13 @@ function update(data) {
 				alert(errorText);
 			}
 			else if (response[0] == "nochange") {
-				alert("No change in " + response[1]);
+				var c = response[1] + "_submit_btn";
+				$("#" + c).removeClass('gradient-2');
+				$("#" + c).addClass('btn-nc');
+				$("#" + c).html('<i class="material-icons btn-icon" style="padding-right: 10px">info</i>no change');
+				setTimeout(function () {$("#" + c).removeClass('btn-nc');$("#" + c).addClass('gradient-2');$("#" + c).html('<i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change');}, 2000);
+				//alert("No change in " + response[1]);
+
 			}
 			else if (response[0] == "updated") {
 				alert(response[1] + " updated");
