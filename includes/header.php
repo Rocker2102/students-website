@@ -30,10 +30,10 @@
         if (isset($_SESSION['uid'])) {
           ?>
             <div class="header-item"><a href="profile.php"><i class="material-icons header-icon">contacts</i>My Profile</a></div>
-            <div class="header-item"><a href="feedback.php"><i class="material-icons header-icon">feedback</i>Feedback</a></div>
           <?php
         }
-        ?>
+      ?>
+      <div class="header-item"><a href="feedback.php"><i class="material-icons header-icon">feedback</i>Feedback</a></div>
       <div class="header-item"><a href="javascript:void(0)" onclick="javascript:menu_hide()"><i class="material-icons header-icon">close</i></a></div>
     </div>
 
