@@ -53,6 +53,26 @@
           $modified = "0000-00-00";
         }
 
+        $branch = strtolower(substr($roll, -2));
+        if($branch == "cs") {
+          $branch = "Computer Science & Engineering";
+        }
+        else if ($branch == "ec") {
+          $branch = "Electronics & Communication Engineering";
+        }
+        else if ($branch == "ee") {
+          $branch = "Electrical & Electronics Engineering";
+        }
+        else if ($branch == "me") {
+          $branch = "Mechanical Engineering";
+        }
+        else if ($branch == "ce") {
+          $branch = "Civil Engineering";
+        }
+        else {
+          $branch = "UNKNOWN";
+        }
+
         $profile_image = "images/profile_images/".$uid;
         if (!file_exists($profile_image)) {
           $profile_image = "images/icons/user.png";
@@ -68,7 +88,7 @@
       ?>
 
       <div class="container">
-        <h2 class="section-heading" style="font-size: 36px">PROFILE</h2>
+        <h2 class="section-heading" style="letter-spacing: 0.001px"><i class="material-icons heading-icon">supervisor_account</i>PROFILE</h2>
         <p id="update_info_text"></p>
 
         <div class="image">
@@ -76,13 +96,13 @@
         </div>
 
         <div class="profile_data">
-
+          <h1 class="p_info_type">User Information</h1>
           <!--DISPLAY_PROFILE-PICTURE & FORM_FOR_PROFILE-PICTURE-UPDATE-->
           <p class="p_data" id="p_data_pp"><b>PROFILE PICTURE</b><a href="javascript:void(0)" onclick="javascript:edit('pp')"><i class="edit-icon material-icons">edit</i></a></p>
           <form class="profile_form border_form" id="pp_change" method="POST" enctype="multipart/form-data">
             <div class="p_form_row">
-              <h3><a href="javascript:void(0)" onclick="javascript:close_form('pp')"><i class="form-close material-icons">keyboard_arrow_left</i></a>Update Profile Picture (Max. Size: 1 MB)</h3>
-              <input class="form-control" type="file" id="pp" name="pp">
+              <h3><a href="javascript:void(0)" onclick="javascript:close_form('pp')"><i class="form-close material-icons">keyboard_arrow_left</i></a>Update Profile Picture (Max. Size: 1 MB) [*.jpg, *.png]</h3>
+              <input class="form-control" type="file" id="pp" name="pp" accept="image/jpeg, image/png">
             </div>
             <button class="btn gradient-2 btn-rounded-10" type="submit" id="pp_submit_btn" name="pp_submit_btn"><i class="material-icons btn-icon" style="padding-right: 10px">cloud_upload</i>upload</button>
             <button class="btn btn-na btn-rounded-10" type="button" id="pp_delete_btn" name="pp_delete_btn"><i class="material-icons btn-icon" style="padding-right: 10px">delete_forever</i>delete profile picture</button>
@@ -111,6 +131,7 @@
             <button class="btn gradient-2 btn-rounded-10" type="button" id="password_submit_btn" name="password_submit_btn" onclick="javascript:update('password')"><i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change</button>
           </form>
 
+          <h1 class="p_info_type">Personal</h1>
           <!--DISPLAY_NAME & FORM_FOR_NAME-->
           <p class="p_data" id="p_data_name"><b>NAME: </b><?php echo $name ?><a href="javascript:void(0)" onclick="javascript:edit('name')"><i class="edit-icon material-icons">edit</i></a></p>
           <form class="profile_form border_form"  id="name_change" method="POST">
@@ -121,9 +142,6 @@
             <button class="btn gradient-2 btn-rounded-10" type="button" id="name_submit_btn" name="name_submit_btn" onclick="javascript:update('name')"><i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change</button>
           </form>
 
-          <!--DISPLAY_ROLL-NUMBER-->
-          <p class="p_data" id="p_data_password"><b>ROLL NUMBER: </b><?php echo $roll ?></p>
-          
           <!--DISPLAY_CONTACT & FORM_FOR_CONTACT-->
           <p class="p_data" id="p_data_contact"><b>CONTACT: </b><?php echo $contact ?><a href="javascript:void(0)" onclick="javascript:edit('contact')"><i class="edit-icon material-icons">edit</i></a></p>
           <form class="profile_form border_form"  id="contact_change" method="POST">
@@ -154,6 +172,14 @@
             <button class="btn gradient-2 btn-rounded-10" type="button" id="dob_submit_btn" name="dob_submit_btn" onclick="javascript:update('dob')"><i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change</button>
           </form>
 
+          <h1 class="p_info_type">Others</h1>
+          <!--DISPLAY_ROLL-NUMBER-->
+          <p class="p_data" id="p_data_roll"><b>ROLL NUMBER: </b><?php echo $roll ?></p>
+
+          <!--DISPLAY_BRANCH-->
+          <p class="p_data" id="p_data_branch"><b>BRANCH: </b><?php echo $branch ?></p>
+          
+
           <!--DISPLAY_SEMESTER & FORM_FOR_SEMESTER-->
           <p class="p_data" id="p_data_sem"><b>SEMESTER: </b><?php echo $sem ?><a href="javascript:void(0)" onclick="javascript:edit('sem')"><i class="edit-icon material-icons">edit</i></a></p>
           <form class="profile_form border_form"  id="sem_change" method="POST">
@@ -164,6 +190,7 @@
             <button class="btn gradient-2 btn-rounded-10" type="button" id="sem_submit_btn" name="sem_submit_btn" onclick="javascript:update('sem')"><i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change</button>
           </form>
 
+          <h1 class="p_info_type">System Information</h1>
           <!--DISPLAY_ACCOUNT-CREATED-->
           <p class="p_data"><b>ACCOUNT CREATED: </b><?php echo $created ?></p>
 
@@ -176,6 +203,7 @@
 
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/validate.min.js"></script>
+    <script src="js/profile.js"></script>
     <script src="js/custom.js"></script>
     
   </body>
