@@ -45,6 +45,15 @@ body {
   background: 0 0;
 }
 
+::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .fixed-background {
   background-image: url('../images/background.jpg');
   background-repeat: no-repeat;
@@ -112,18 +121,24 @@ body {
   color: #000;
   float: right;
   padding: 8px;
+  transition: all 0.4s ease;
+}
+
+.header-item:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 }
 
 .header-icon {
   display: inline-block;
   vertical-align: middle;
-  padding-right: 4px;
+  margin-right: 4px;
   padding-bottom: 2px;
 }
 
 .header-menu {
   float: right;
-  padding-right: 10px;
+  margin-right: 10px;
 }
 
 .logo {
@@ -559,6 +574,13 @@ body {
   }
 }
 
+.p_info_type {
+  text-transform: uppercase;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 900;
+}
+
 .p_form_row {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -689,4 +711,9 @@ input[type="number"] {
   font-size: 72px;
   padding-bottom: 5px;
   margin-right: 20px;
+}
+
+.p_form_row textarea{
+  margin-left: 5px !important;
+  font-family: 'Google Sans';
 }
