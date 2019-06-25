@@ -114,6 +114,7 @@
         $result3 = $connect->query($query3);
         
         if(mysqli_affected_rows($connect) == 1) {
+          $_SESSION['name'] = $name;
           echo "updated,Name";
           exit();
         }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2019 at 03:07 AM
+-- Generation Time: Jun 26, 2019 at 02:37 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.1.30
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `site1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(5) NOT NULL,
+  `name` varchar(255) NOT NULL DEFAULT '-',
+  `username` varchar(255) NOT NULL DEFAULT '-',
+  `type` varchar(255) NOT NULL,
+  `bug_url` varchar(255) NOT NULL DEFAULT '-',
+  `details` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -47,14 +63,21 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`uid`, `roll_no`, `username`, `password`, `name`, `contact`, `email`, `dob`, `sem`, `created`, `modified`) VALUES
-(1, 'B1800037CS', 'rocker', '2102', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-06-23 19:07:28'),
+(1, 'B1800037CS', 'rocker', '2904', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-06-25 16:40:22'),
 (2, 'B1800091EC', 'gk', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '1998-10-03', 2, '2019-06-17 04:39:05', '2019-06-23 18:40:54'),
 (3, 'B1800038CS', 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitskkim.ac.in', '2001-03-06', 2, '2019-06-20 06:24:25', '2019-06-23 19:10:43'),
-(4, 'B180009CS', 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180010@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-06-23 19:28:39');
+(4, 'B180009CS', 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180010@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-06-25 06:56:09');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `members`
@@ -68,10 +91,16 @@ ALTER TABLE `members`
 --
 
 --
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+--
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `uid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `uid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

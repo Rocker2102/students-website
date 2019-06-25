@@ -21,9 +21,9 @@
   padding-bottom: 4px;
   font-family: 'Google Sans';
   text-transform: uppercase;
-  letter-spacing: .1em;
-  -webkit-transition: .3s all ease-in;
-  transition: .3s all ease-in;
+  letter-spacing: 0.1em;
+  -webkit-transition: 0.3s all ease-in;
+  transition: 0.3s all ease-in;
   cursor: pointer;
 }
 
