@@ -5,7 +5,7 @@
 <-- Website version 1.5 -->  19.06.2019
 <-- Website version 1.7 -->  22.06.2019
 <-- Plans to host website over the LAN itself (23 June 2019) -->
-<-- DEVELOPMENT PAUSED FROM 25 June 2019, 00:00 to 26 June 2019, 20:00 (EXAMS) -->
+<-- DEVELOPMENT PAUSED FROM 26 June 2019, 00:00 to 27 June 2019, 20:00 (EXAM) -->
 
 
 /* Use Bootstrap Carousel (or probootstrap carousel) for image slideshow (From previous project).  ##** NOT IMPLEMENTED **## */
@@ -106,11 +106,12 @@
 <--------------------------------------------------------->
 [feedback.php]
 24.06.2019, 11:15 - 00.00.0000, 00:00
-- Think of a layout.  ##** DONE **##  [LIKE PROFILE PAGE]
-- 'Submit feedback anonymously' option should be added.
+- Think of a layout.  ##** DONE **##  [LIKE PROFILE PAGE & EXPLORE PAGE]
+- 'Submit feedback anonymously' option should be added.  ##** DONE **##
 - Form submit using ajax request.
 - Some animation or gif inside button after pressing submit button.
 - Feedbacks on other pages (like Google).
+
 
 ####################
 - web content depends on the host?

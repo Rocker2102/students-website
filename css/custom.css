@@ -33,12 +33,12 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #fff;
-  border-radius: 1.5px;
+  background: none;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -716,4 +716,13 @@ input[type="number"] {
 .p_form_row textarea{
   margin-left: 5px !important;
   font-family: 'Google Sans';
+  min-width: 40%;
+}
+
+.p_form_row button {
+  margin-bottom: 20px;
+}
+
+.btn-hidden {
+  display: none !important;
 }

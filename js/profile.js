@@ -130,7 +130,7 @@ $("#pp_change").on('submit',(function(e) {
 		data:  new FormData(this),
 		contentType: false,
 		cache: false,
-		processData:false,
+		processData: false,
 		beforeSend: function(){
 			$("#pp_submit_btn").removeClass('gradient-2');
 			$("#pp_submit_btn").addClass('btn-nc');
