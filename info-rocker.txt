@@ -25,6 +25,7 @@
 - Image subject to copyrights! (all the images used...)
 - Custom alerts added !  [29.06.2019 17:36]
 - Fix bugs in custom alerts.. (when two different alerts are to be shown, etc...).
+- Assign id's to alerts (or a new attribute) so that newer alerts can be positioned below (or above) the older alert(s) by cheking the id (or the new attribute) of previous alert(s).
 
 <--------------------------------------------------------->
 [index.php]
