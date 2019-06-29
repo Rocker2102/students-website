@@ -49,6 +49,8 @@
 - Proper alignment.  ##** DONE **##
 - Layout!  ##** DONE **##
 - Show alerts during profile picture upload.
+- Add 'skip' option (for profile picture) (and other 'not-so-important' inputs).
+- Show (Review) the information entered by user at end (4th step of signup).
 
 <--------------------------------------------------------->
 [explore.php]
