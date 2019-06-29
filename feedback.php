@@ -31,7 +31,7 @@
       ?>
 
       <div id="login_blur" style="opacity:0;transform: translateY(15px);animation: fadeIn 1s ease 1 forwards;">
-        <h2 class="section-heading"><i class="material-icons heading-icon">feedback</i>Feedback</h2>
+        <h2 class="section-heading"><i class="material-icons">feedback</i>Feedback</h2>
 
         <?php
           if(isset($_SESSION['uid'])) {
