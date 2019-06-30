@@ -38,3 +38,16 @@
 .hidden {
 	display: none;
 }
+
+.s_info_type {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 10px !important;
+}
+
+#signup-tab-4 p {
+  margin-left: 10px;
+  width: 100%;
+  line-height: normal !important;
+}

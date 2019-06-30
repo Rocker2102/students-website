@@ -46,18 +46,21 @@ $("#feedback_form_about").on('submit',(function(e) {
         success : function(recieve) {
             var response = recieve.split(",");
             if (response[0] == "submitted") {
+                customAlert(3000, "Feedback submitted", "greenyellow", "success", "greenyellow");
                 $("#btn_about_submit").removeClass('btn-nc');
                 $("#btn_about_submit").addClass('btn-available');
                 $("#btn_about_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">done_all</i>submitted');
                 setTimeout(function(){$("#btn_about_submit").attr("disabled", false);$("#btn_about_submit").removeClass('btn-available');$("#btn_about_submit").addClass('gradient-2');$("#btn_about_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">check</i>submit');}, 5000);
             }
             else if (response[0] == "empty") {
+                customAlert(3000, "Please fill the fields", "red", "warning");
                 $("#btn_about_submit").removeClass('btn-nc');
                 $("#btn_about_submit").addClass('btn-na');
                 $("#btn_about_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">error</i>Fill the fields completely !');
                 setTimeout(function(){$("#btn_about_submit").attr("disabled", false);$("#btn_about_submit").removeClass('btn-na');$("#btn_about_submit").addClass('gradient-2');$("#btn_about_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">check</i>submit');}, 3000);
             }
             else {
+                customAlert(3000, "An error occurred !", "red", "error", "error");
                 $("#btn_about_submit").removeClass('btn-nc');
                 $("#btn_about_submit").addClass('btn-na');
                 $("#btn_about_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">close</i>an error occurred');
@@ -90,18 +93,21 @@ $("#feedback_form_bug").on('submit',(function(e) {
         success : function(recieve) {
             var response = recieve.split(",");
             if (response[0] == "submitted") {
+                customAlert(3000, "Feedback submitted", "greenyellow", "success", "greenyellow");
                 $("#btn_bug_submit").removeClass('btn-nc');
                 $("#btn_bug_submit").addClass('btn-available');
                 $("#btn_bug_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">done_all</i>submitted');
                 setTimeout(function(){$("#btn_bug_submit").attr("disabled", false);$("#btn_bug_submit").removeClass('btn-available');$("#btn_bug_submit").addClass('gradient-2');$("#btn_bug_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">check</i>submit');}, 5000);
             }
             else if (response[0] == "empty") {
+                customAlert(3000, "Please fill the fields", "red", "warning");
                 $("#btn_bug_submit").removeClass('btn-nc');
                 $("#btn_bug_submit").addClass('btn-na');
                 $("#btn_bug_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">error</i>Fill the fields completely !');
                 setTimeout(function(){$("#btn_bug_submit").attr("disabled", false);$("#btn_bug_submit").removeClass('btn-na');$("#btn_bug_submit").addClass('gradient-2');$("#btn_bug_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">check</i>submit');}, 3000);
             }
             else {
+                customAlert(3000, "An error occurred !", "red", "error", "error");
                 $("#btn_bug_submit").removeClass('btn-nc');
                 $("#btn_bug_submit").addClass('btn-na');
                 $("#btn_bug_submit").html('<i class="material-icons btn-icon" style="padding-right: 10px">close</i>an error occurred');

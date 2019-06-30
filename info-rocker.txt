@@ -23,6 +23,8 @@
 - Change heading fonts (if a better font is found).  ##** DONE **##
 - Convert website to a mobile friendly site.  [THOUGHT PENDING]
 - Image subject to copyrights! (all the images used...)
+- Custom alerts added !  [29.06.2019 17:36]
+- Fix bugs in custom alerts.. (when two different alerts are to be shown, etc...).
 
 <--------------------------------------------------------->
 [index.php]
@@ -38,12 +40,14 @@
 
 <--------------------------------------------------------->
 [signup.php]
-31.05.2019, 19:30 - 01.06.2019, 15:44 (PAUSED)
-- How to upload files?... more detailed info..
-- Code according to design.
-- Step-by-step progress... can it be made?
-- How to add calender popup (for DOB)? See how to!
-- Proper alignment.
+31.05.2019, 19:30 - 01.06.2019, 15:44 (PAUSED); 28.06.2019, 16:15 - 00.00.0000, 00:00
+- How to upload files?... more detailed info..  ##** DONE **##
+- Code according to design.  ##** DONE **##  [DESIGN CHANGED]
+- Step-by-step progress... can it be made?  ##** DONE **##
+- How to add calender popup (for DOB)? See how to!  ##** DONE **##
+- Proper alignment.  ##** DONE **##
+- Layout!  ##** DONE **##
+- Show alerts during profile picture upload.
 
 <--------------------------------------------------------->
 [explore.php]
@@ -108,14 +112,9 @@
 24.06.2019, 11:15 - 26.06.2019, 17:52
 - Think of a layout.  ##** DONE **##  [LIKE PROFILE PAGE & EXPLORE PAGE]
 - 'Submit feedback anonymously' option should be added.  ##** DONE **##
-- Form submit using ajax request.
+- Form submit using ajax request.  ##** DONE **##
 - Some animation or gif inside button after pressing submit button.
 - Feedbacks on other pages (like Google).
-
-<--------------------------------------------------------->
-[signup.php]
-28.06.2019, 16:15 - 00.00.0000, 00:00
-- Layout!
 
 
 ####################
