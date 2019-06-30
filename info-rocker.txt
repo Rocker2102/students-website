@@ -109,6 +109,7 @@
 - ..... [+ OTHER MODIFICATIONS LATER ON (OPEN TO SUGGESTIONS)]
 - Rename profile pictures when username is changed (using file handling in php).  ##** DONE **##
 - Save profile picture with custom name (not with username... something more reliable).  ##** DONE **##  ['uid' IS USED TO SAVE PROFILE PICTURES]
+- Perform client-side form (or input) validation (and server-side ofcourse).
 
 <--------------------------------------------------------->
 [feedback.php]

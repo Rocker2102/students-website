@@ -68,19 +68,19 @@
                 </div>
                 <div class="s_form_row">
                   <button type="button" class="btn btn-prev btn-rounded-10" prev-index="3"><i class="material-icons btn-icon">navigate_before</i></button>
-                  <button type="button" class="btn btn-next btn-rounded-10" skip-index="3"><i class="material-icons btn-icon">skip_next</i>skip</button>
+                  <button type="button" class="btn btn-next btn-rounded-10" skip-index="3" next-index="3"><i class="material-icons btn-icon">skip_next</i>skip</button>
                   <button type="button" class="btn btn-next btn-rounded-10" next-index="3"><i class="material-icons btn-icon">navigate_next</i></button>
                 </div>
               </div>
               <div id="signup-tab-4" class="hidden">
                 <h1 class="p_info_type"><i class="material-icons">looks_4</i>Review Information</h1>
                 <p style="text-align: center">(Don't worry, this information can be changed later)</p>
-                <h1 class="s_info_type">Personal Information</h1>
+                <h1 class="s_info_type"><i class="material-icons s_icon">toc</i>Personal Information</h1>
                 <p id="s_name"></p>
                 <p id="s_contact"></p>
                 <p id="s_email"></p>
                 <p id="s_dob"></p>
-                <h1 class="s_info_type">Other Information</h1>
+                <h1 class="s_info_type"><i class="material-icons s_icon">toc</i>Other Information</h1>
                 <p id="s_roll"></p>
                 <p id="s_username"></p>
                 <p id="s_password"></p>
