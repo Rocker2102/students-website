@@ -178,7 +178,7 @@
         $result6 = $connect->query($query6);
         
         if(mysqli_affected_rows($connect) == 1) {
-          echo "updated,DOB";
+          echo "updated,Date of Birth";
           exit();
         }
         else {
@@ -199,7 +199,7 @@
         $result7 = $connect->query($query7);
         
         if(mysqli_affected_rows($connect) == 1) {
-          echo "updated,sem";
+          echo "updated,Semester";
           exit();
         }
         else {

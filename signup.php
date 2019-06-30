@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=1600">
+    <meta name="viewport" content="width=1280">
     <link rel="icon" type="image/png" href="images/icons/logo.png"/>
     <title>Signup</title>
     
@@ -26,7 +26,7 @@
         <div class="">
           <div class="signup_data">
             
-            <form class="form-center" id="" method="POST" enctype="multipart/form-data">
+            <form class="form-center" id="signup_submit" method="POST" enctype="multipart/form-data">
               <div id="signup-tab-1" class="active">
                 <h1 class="p_info_type"><i class="material-icons">looks_one</i>Personal Information</h1>
                 <div class="s_form_row">
@@ -42,7 +42,7 @@
                   <input class="form-control" type="date" id="dob" name="dob" placeholder="Date of Birth">
                 </div>
                 <div class="s_form_row">
-                  <button type="button" class="btn btn-next btn-rounded-10" id="" form-index="1"><i class="material-icons btn-icon">navigate_next</i></button>
+                  <button type="button" class="btn btn-next btn-rounded-10" next-index="1"><i class="material-icons btn-icon">navigate_next</i></button>
                 </div>
               </div>
               <div id="signup-tab-2" class="hidden">
@@ -57,8 +57,37 @@
                   <input class="form-control" type="password" id="password" name="password" placeholder="Password">
                 </div>
                 <div class="s_form_row">
-                  <button type="button" class="btn btn-prev btn-rounded-10" id="" form-index="2"><i class="material-icons btn-icon">navigate_before</i></button>
-                  <button type="button" class="btn btn-next btn-rounded-10" id="" form-index="2"><i class="material-icons btn-icon">navigate_next</i></button>
+                  <button type="button" class="btn btn-prev btn-rounded-10" prev-index="2"><i class="material-icons btn-icon">navigate_before</i></button>
+                  <button type="button" class="btn btn-next btn-rounded-10" next-index="2"><i class="material-icons btn-icon">navigate_next</i></button>
+                </div>
+              </div>
+              <div id="signup-tab-3" class="hidden">
+                <h1 class="p_info_type"><i class="material-icons">looks_3</i>Upload Profile Picture</h1>
+                <div class="s_form_row">
+                  <input class="form-control" type="file" id="pp" name="pp" accept="image/jpeg, image/png">
+                </div>
+                <div class="s_form_row">
+                  <button type="button" class="btn btn-prev btn-rounded-10" prev-index="3"><i class="material-icons btn-icon">navigate_before</i></button>
+                  <button type="button" class="btn btn-next btn-rounded-10" skip-index="3"><i class="material-icons btn-icon">skip_next</i>skip</button>
+                  <button type="button" class="btn btn-next btn-rounded-10" next-index="3"><i class="material-icons btn-icon">navigate_next</i></button>
+                </div>
+              </div>
+              <div id="signup-tab-4" class="hidden">
+                <h1 class="p_info_type"><i class="material-icons">looks_4</i>Review Information</h1>
+                <p style="text-align: center">(Don't worry, this information can be changed later)</p>
+                <h1 class="s_info_type">Personal Information</h1>
+                <p id="s_name"></p>
+                <p id="s_contact"></p>
+                <p id="s_email"></p>
+                <p id="s_dob"></p>
+                <h1 class="s_info_type">Other Information</h1>
+                <p id="s_roll"></p>
+                <p id="s_username"></p>
+                <p id="s_password"></p>
+
+                <div class="s_form_row" style="margin-top: 10px">
+                  <button type="button" class="btn btn-prev btn-rounded-10" prev-index="4"><i class="material-icons btn-icon">navigate_before</i>Back</button>
+                  <button type="submit" class="btn gradient-2 btn-rounded-10" id="signup_form_submit_btn"><i class="material-icons btn-icon">done</i>submit</button>
                 </div>
               </div>
             </form>

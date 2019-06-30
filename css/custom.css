@@ -100,6 +100,31 @@ body {
   }
 }
 
+.custom_alert {
+  opacity: 0;
+  z-index: 1000;
+  max-width: 30%;
+  position: fixed;
+  display: none;
+  right: 10px;
+  top: 85px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  animation: slideright 0.5s ease 1 forwards;
+  -webkit-animation: slideright 0.5s ease 1 forwards;
+}
+
+.custom_alert p {
+  color: #fff;
+  margin: 10px;
+}
+
+.custom_alert p i {  
+  vertical-align: middle;
+  margin-bottom: 4px;
+  margin-right: 5px;
+}
+
 /* --------------------------------------------------------------- */
 
 #header {
