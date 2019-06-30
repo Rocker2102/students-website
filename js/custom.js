@@ -33,8 +33,8 @@ function customAlert(timeout = 2000, line1 = "NULL", borderColor = "red", alertT
     if (line3 != "NULL") {
         $("#alertline3").html(text3);
     }
-    
-    setTimeout(function(){$(".custom_alert").css({'display': 'none'});$(".custom_alert p").html('');}, timeout);
+
+	setTimeout(function(){$(".custom_alert").css({'display': 'none'});$(".custom_alert p").html('');}, timeout);
 }
 
 function login_pop () {
