@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2019 at 02:25 PM
+-- Generation Time: Jul 01, 2019 at 08:58 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.1.30
 
@@ -39,6 +39,13 @@ CREATE TABLE `feedback` (
   `status` varchar(255) NOT NULL DEFAULT 'unsolved'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `name`, `username`, `type`, `bug_url`, `details`, `timestamp`, `status`) VALUES
+(1, '-', '-', 'bug', 'https://rocker.ga', 'unknown', '2019-07-01 12:35:54', 'unsolved');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +64,7 @@ CREATE TABLE `members` (
   `sem` int(2) NOT NULL DEFAULT 0,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `admin` varchar(255) NOT NULL DEFAULT 'false',
   `ver_status` varchar(255) NOT NULL DEFAULT 'not_verified'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -64,11 +72,11 @@ CREATE TABLE `members` (
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`uid`, `roll_no`, `username`, `password`, `name`, `contact`, `email`, `dob`, `sem`, `created`, `modified`, `ver_status`) VALUES
-(1, 'B180037CS', 'rocker', '2904', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-07-01 21:23:24', 'not_verified'),
-(2, 'B180091EC', 'gk', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '1998-10-03', 2, '2019-06-17 04:39:05', '2019-07-01 03:08:50', 'not_verified'),
-(3, 'B180038CS', 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitsikkim.ac.in', '2001-03-06', 2, '2019-06-20 06:24:25', '2019-07-01 03:27:06', 'not_verified'),
-(4, 'B180009CS', 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180009@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-07-01 04:47:14', 'not_verified');
+INSERT INTO `members` (`uid`, `roll_no`, `username`, `password`, `name`, `contact`, `email`, `dob`, `sem`, `created`, `modified`, `admin`, `ver_status`) VALUES
+(1, 'B180037CS', 'rocker', '2904', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-07-01 15:34:52', 'true', 'verified'),
+(2, 'B180091EC', 'gk', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '1998-10-03', 2, '2019-06-17 04:39:05', '2019-07-01 03:08:50', 'false', 'not_verified'),
+(3, 'B180038CS', 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitsikkim.ac.in', '2001-03-06', 2, '2019-06-20 06:24:25', '2019-07-01 03:27:06', 'false', 'not_verified'),
+(4, 'B180009CS', 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180009@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-07-01 04:47:14', 'false', 'not_verified');
 
 --
 -- Indexes for dumped tables

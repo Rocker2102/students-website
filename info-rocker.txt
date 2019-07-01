@@ -132,10 +132,16 @@
 
 <--------------------------------------------------------->
 [admin.php]
-00.00.0000, 00:00 - 00.00.0000, 00:00
+01.07.2019, 21:46 - 00.00.0000, 00:00
+- Center the table.  ##** DONE **##
+- The table should be made scrollable.  ##** DONE **##
+- Create different forms for each 'uid'.  ##** DONE **##
+- Give different "id's" to different input elements.  ##** DONE **##
+- Animation on submit buttons.
 - Verify users email and contact.
 - Deleting users (or deactivating).
 - Feedback status change.
+- Remove 'id' from submit buttons if not required.
 
 <--------------------------------------------------------->
 [about.html]

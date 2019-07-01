@@ -38,17 +38,6 @@ function customAlert(timeout = 2000, line1 = "NULL", borderColor = "red", alertT
 	return line1;
 }
 
-function login_pop () {
-	document.getElementById('login_form').style.display = "block";
-	document.getElementById('login_blur').style.filter = "blur(2.5px)";
-}
-
-function login_close () {
-	document.getElementById('login_form').style.display = "none";
-	document.getElementById('login_blur').style.filter = "blur(0px)";
-	$("#login_submit").validate().resetForm();
-}
-
 function logout () {
 	$.ajax({
 		type : 'POST',
@@ -80,6 +69,17 @@ function menu_show() {
 function menu_hide() {
 	$("#menu_hide").css({'display': 'block'});
 	$("#menu_show").css({'display': 'none'});
+}
+
+function login_pop () {
+	document.getElementById('login_form').style.display = "block";
+	document.getElementById('login_blur').style.filter = "blur(2.5px)";
+}
+
+function login_close () {
+	document.getElementById('login_form').style.display = "none";
+	document.getElementById('login_blur').style.filter = "blur(0px)";
+	$("#login_submit").validate().resetForm();
 }
 
 // AJAX query for login (uses jQuery)  [copied from 'phpzag.com']

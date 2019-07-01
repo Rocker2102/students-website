@@ -166,6 +166,7 @@
               $_SESSION['name'] = $row['name'];
               $_SESSION['username'] = $row['username'];
               $_SESSION['uid'] = $uid;
+              $_SESSION['admin_stat'] = "false";
             }
           }
           else{

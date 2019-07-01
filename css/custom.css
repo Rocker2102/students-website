@@ -54,6 +54,13 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none !important;
+}
+
 .fixed-background {
   background-image: url('../images/background.jpg');
   background-repeat: no-repeat;
@@ -329,6 +336,10 @@ body {
   color: #000;
 }
 
+.section-heading i {
+  margin-bottom: 8px !important;
+}
+
 .left-head {
   display: flex;
   float: left;
@@ -504,6 +515,7 @@ body {
   -webkit-box-shadow: none;
   box-shadow: none;
   border-color: #18f1c2;
+  border-radius: 5px;
 }
 
 .form-control:active, .form-control:focus {
