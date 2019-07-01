@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2019 at 02:37 AM
+-- Generation Time: Jul 01, 2019 at 06:45 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.1.30
 
@@ -34,9 +34,16 @@ CREATE TABLE `feedback` (
   `username` varchar(255) NOT NULL DEFAULT '-',
   `type` varchar(255) NOT NULL,
   `bug_url` varchar(255) NOT NULL DEFAULT '-',
-  `details` varchar(255) NOT NULL,
+  `details` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `name`, `username`, `type`, `bug_url`, `details`, `timestamp`) VALUES
+(13, '-', '-', 'about', '-', 'Awesome !', '2019-06-30 06:03:16');
 
 -- --------------------------------------------------------
 
@@ -63,9 +70,9 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`uid`, `roll_no`, `username`, `password`, `name`, `contact`, `email`, `dob`, `sem`, `created`, `modified`) VALUES
-(1, 'B1800037CS', 'rocker', '2904', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-06-25 16:40:22'),
-(2, 'B1800091EC', 'gk', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '1998-10-03', 2, '2019-06-17 04:39:05', '2019-06-23 18:40:54'),
-(3, 'B1800038CS', 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitskkim.ac.in', '2001-03-06', 2, '2019-06-20 06:24:25', '2019-06-23 19:10:43'),
+(1, 'B180037CS', 'rocker', '2904', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-07-01 03:08:53'),
+(2, 'B180091EC', 'gk', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '1998-10-03', 2, '2019-06-17 04:39:05', '2019-07-01 03:08:50'),
+(3, 'B180038CS', 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitsikkim.ac.in', '2001-03-06', 2, '2019-06-20 06:24:25', '2019-07-01 03:27:06'),
 (4, 'B180009CS', 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180010@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-06-25 06:56:09');
 
 --
@@ -100,7 +107,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `uid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `uid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

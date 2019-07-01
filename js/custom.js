@@ -35,6 +35,7 @@ function customAlert(timeout = 2000, line1 = "NULL", borderColor = "red", alertT
     }
 
 	setTimeout(function(){$(".custom_alert").css({'display': 'none'});$(".custom_alert p").html('');}, timeout);
+	return line1;
 }
 
 function login_pop () {
