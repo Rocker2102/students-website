@@ -40,7 +40,7 @@ function customAlert(timeout = 2000, line1 = "NULL", borderColor = "red", alertT
 
 function login_pop () {
 	document.getElementById('login_form').style.display = "block";
-	document.getElementById('login_blur').style.filter = "blur(2px)";
+	document.getElementById('login_blur').style.filter = "blur(2.5px)";
 }
 
 function login_close () {
@@ -63,14 +63,12 @@ function logout () {
 				setTimeout('window.location.href = "?loggedout";', 2000);
 				alertMessage = "User '" + recieve[1] + "' successfully logged out.";
 				customAlert(2000, alertMessage, "green", "success", "greenyellow");
-				//alert(alertMessage);
 			} else {
 				$("#logout_btn").html('<i class="material-icons header-icon">power_settings_new</i>Logout');
 				customAlert(2500, "An unexpected error occurred", "red", "error", "red");
 			}
 		}
 	});
-	return false;
 }
 
 function menu_show() {

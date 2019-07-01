@@ -74,7 +74,7 @@ $("#feedback_form_bug").on('submit',(function(e) {
     e.preventDefault();
     var feed_data = $("#feedback_form_bug").serializeArray();
     feed_data.push({ name: "type", value: "bug"});
-    if($("#btn_bug_hide").hasClass('btn-hidden')) {
+    if($("#anonymous_btn_bug_hide").hasClass('btn-hidden')) {
         feed_data.push({ name: "anonymity", value: "true"});
     }
     else {

@@ -48,7 +48,6 @@ $(".btn-next").click(function () {
                 }
             }
         });
-        
         return check;
     }
 
@@ -66,8 +65,13 @@ $(".btn-next").click(function () {
                 }
                 else {
                     $("#s_" + info[i]).html(Number(i+1) + ". " + temp_info + ": " + $("#" + info[i]).val());
-                }
-                
+                }   
+            }
+            if ($("#pp").val().length === 0) {
+                $("#s_pp").html(Number(i+1) + ". PROFILE PICTURE: [NONE]");
+            }
+            else {
+                $("#s_pp").html(Number(i+1) + ". PROFILE PICTURE: [SET]");
             }
         }
         $("div.active").addClass('hidden');
@@ -82,7 +86,7 @@ $(".btn-next").click(function () {
                 success();
             }
             else {
-                customAlert(3000, "Duplicate entry for email or contact", "red", "alert");
+                customAlert(3000, "Duplicate entry for email or contact", "orange", "warning");
             }
         }
         else {
@@ -97,7 +101,7 @@ $(".btn-next").click(function () {
                 success();
             }
             else {
-                customAlert(3000, "Duplicate entry for username or roll number", "red", "alert");
+                customAlert(3000, "Duplicate entry for username or roll number", "orange", "warning");
             }
         }
         else {
@@ -115,7 +119,7 @@ $(".btn-next").click(function () {
             success();
         }
         else {
-            customAlert(3000, "Upload a picture OR skip", "red", "alert");
+            customAlert(3000, "Upload a picture or skip this step", "red", "alert");
             return;
         }
     }
@@ -151,19 +155,78 @@ function hidePassword() {
 
 $("#signup_submit").on('submit',(function(e) {
     e.preventDefault();
+    var send = 'includes/signup_process.php?request=complete';
+
+    if ($("#pp").val().length === 0){
+        send = send + "&pp=false";
+    }
+    else {
+        send = send + "&pp=true";
+    }
+
     $.ajax({
-        url: 'includes/signup_process.php?request=complete',
+        url: send,
         type: 'POST',
         data:  new FormData(this),
 		contentType: false,
 		cache: false,
         processData: false,
         beforeSend: function() {
-
+            $(".btn").attr("disabled", true);
+            $("#signup_form_submit_btn").removeClass('gradient-2').addClass('btn-nc');
+            $("#signup_form_submit_btn").html('<i class="material-icons btn-icon">autorenew</i>submitting ...');
         },
         success: function(recieve){
+            function submitSuccess() {
+                $("#signup_form_submit_btn").removeClass('btn-nc gradient-2').addClass('btn-available');
+                $("#signup_form_submit_btn").html('<i class="material-icons btn-icon">done</i>submitted');
+                setTimeout(function(){location.reload(true)}, 4000);
+            }
+
+            function submitFailure() {
+                $("#signup_form_submit_btn").removeClass('btn-nc gradient-2').addClass('btn-na');
+                $("#signup_form_submit_btn").html('<i class="material-icons btn-icon">close</i>unable to submit');
+            }
+
+            function resetButtons() {
+                setTimeout(function(){
+                    $(".btn").attr("disabled", false);
+                    $("#signup_form_submit_btn").removeClass('btn-na btn-available').addClass('gradient-2');
+                    $("#signup_form_submit_btn").html('<i class="material-icons btn-icon">done</i>submit');
+                }, 4000);
+            }
+
             var response = recieve.split(",");
 
+            if (response[0] == "success") {
+                submitSuccess();
+                if (response[1] == -1) {
+                    customAlert(4000, "Successfully signed up but failed to upload profile picture", "orange", "success", "greenyellow");
+                }
+                else if (response[1] == 0 || response[1] == 1) {
+                    customAlert(4000, "Successfully signed up. Please wait...", "green", "success", "greenyellow");
+                }
+                else {
+                    return;
+                }
+            }
+            else if (response[0] == "error") {
+                customAlert(4000, "An error occurred !", "red", "error", "red");
+                submitFailure();
+                resetButtons();
+                console.log("error: " + response[0] + " " +  response[1] + " " + response[2]);
+            }
+            else if (response[0] == "invalid") {
+                submitFailure();
+                resetButtons();
+                customAlert(4000, "Invalid profile picture of Size exceeds 1 MB", "warning", "error");
+            }
+            else {
+                submitFailure();
+                resetButtons();
+                customAlert(4000, "An unknown error occurred !", "red", "error", "red");
+                console.log(response[0] + response[1] + response[2]);
+            }
         }
     });
 }));

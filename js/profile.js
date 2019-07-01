@@ -165,7 +165,7 @@ $("#pp_change").on('submit',(function(e) {
 }));
 
 $("#pp_delete_btn").click(function () {
-	var infoText = "<i class='material-icons header-icon' style='padding-right: 5px'>info</i>Some changes have been made to the profile. Please <b><a href='javascript:document.location.reload()'>REFRESH</a></b> to see updated information.";
+	var infoText = "<i class='material-icons header-icon' style='padding-right: 5px'>info</i>Some changes have been made to the profile. Please <b><a href='javascript:location.reload(true)'>REFRESH</a></b> to see updated information.";
 	$.ajax({
 		url: "includes/upload.php?pp=delete",
 		beforeSend: function(){
@@ -206,4 +206,47 @@ $("#pp_delete_btn").click(function () {
 			}
 		}
 	});
+});
+
+$("#del_profile_btn").click(function(){
+	$(".delete_confirm").css({'display': 'block'});
+});
+
+$("#deleteClose").click(function(){
+	$(".delete_confirm").css({'display': 'none'});
+});
+
+$("#delete_confirmed").click(function(){
+	if ($("#del_pass_conf").val().length === 0) {
+		customAlert(2500, "Please type your password", "orange", "warning", "orange");
+	}
+	else {
+		$.ajax({
+			url: "includes/profile_update.php?update=delete",
+			type: 'POST',
+			data: {'del_pass_conf': $("#del_pass_conf").val()},
+			beforeSend: function(){
+				$("#del_pass_conf").attr("disabled", true);
+			},
+			success: function(recieve) {
+				response = recieve.split(",");
+				if (response[0] == "deleted"){
+					customAlert(4000, "Account successfully deleted! Please wait...", "red", "success", "greenyellow");
+					setTimeout(function(){location.reload(true);}, 4200);
+				}
+				else if (response[0] == "incorrect") {
+					customAlert(2500, "Incorrect Password", "red", "error");
+					setTimeout(function(){$("#del_pass_conf").attr("disabled", false);}, 2700);
+				}
+				else if (response[0] == "empty") {
+					customAlert(2500, "Please type your password", "orange", "warning", "orange");
+					setTimeout(function(){$("#del_pass_conf").attr("disabled", false);}, 2700);
+				}
+				else {
+					customAlert(2500, "An error occurred", "red", "error", "red");
+					setTimeout(function(){$("#del_pass_conf").attr("disabled", false);}, 2700);
+				}
+			}
+		});
+	}
 });

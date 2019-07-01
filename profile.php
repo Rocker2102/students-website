@@ -196,9 +196,20 @@
 
           <!--DISPLAY_ACCOUNT-MODIFIED-->
           <p class="p_data"><b>ACCOUNT MODIFIED: </b><?php echo $modified ?></p>
+
+          <!--DELETE PROFILE-->
+          <div class="delete_confirm">
+            <i class="material-icons" id="deleteClose">close</i>
+            <h2 class="delete_head">Are you sure you want to <b>DELETE</b> your profile?</h2>
+            <p>This can't be undone !</p>
+            <div class="p_form_row">
+              <input class="form-control" type="password" id="del_pass_conf" name="del_pass_conf" placeholder="Enter password to continue">
+            </div>
+            <button class="btn btn-na btn-rounded-10" type="button" id="delete_confirmed" name="delete_confirmed" style="margin-bottom: 20px"><i class="material-icons btn-icon" style="padding-right: 10px">delete_sweep</i>confirm</button>
+          </div>
+          <button class="btn btn-na btn-rounded-10" type="button" id="del_profile_btn" name="del_profile_btn" style="margin-bottom: 20px"><i class="material-icons btn-icon" style="padding-right: 10px">delete</i>DELETE PROFILE</button>
         </div>
       </div>
-
     </section>
 
     <script src="js/jquery-3.3.1.js"></script>
