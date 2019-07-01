@@ -9,5 +9,6 @@
     }
     else{
         echo "error";
+        exit();
     }
 ?>
