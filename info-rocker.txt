@@ -21,6 +21,7 @@
 - Colors of all webpages will be decided in the end.
 - Compress images.
 - Change heading fonts (if a better font is found).  ##** DONE **##
+- * AJAX - Asynchronous Javascript And XML
 - Convert website to a mobile friendly site.  [THOUGHT PENDING]
 - Image subject to copyrights! (all the images used...)
 - Custom alerts added !  [29.06.2019 17:36]

@@ -32,6 +32,26 @@ $(".btn-next").click(function () {
         return 1;
     }
 
+    function validateServer(request, a = "0") {
+        var check = 0;
+        var send = 'includes/signup_process.php?request=' + request + "&" + a + "=" + $("#" + a).val();
+        $.ajax({
+            url: send,
+            async: false,
+            success: function(recieve){
+                var response = recieve.split(",");
+                if (response[0] == "available") {
+                    check = 1;
+                }
+                else {
+                    check = 0;
+                }
+            }
+        });
+        
+        return check;
+    }
+
     function success() {
         if (temp == 4) {
             var info = ["name", "contact", "email", "dob", "roll", "username", "password"];
@@ -56,8 +76,14 @@ $(".btn-next").click(function () {
 
     if (temp == 2) {
         var validate = validateForm('name', 'contact', 'email', 'dob');
+        
         if(validate == 1) {
-            success();
+            if (validateServer('emailCheck','email') == 1 && validateServer('contactCheck','contact') == 1) {
+                success();
+            }
+            else {
+                customAlert(3000, "Duplicate entry for email or contact", "red", "alert");
+            }
         }
         else {
             customAlert(3000, "Please fill the details completely", "red", "alert");
@@ -67,7 +93,12 @@ $(".btn-next").click(function () {
     else if (temp == 3) {
         var validate = validateForm('roll', 'username', 'password');
         if(validate == 1) {
-            success();
+            if (validateServer('rollCheck','roll') == 1 && validateServer('usernameCheck','username') == 1) {
+                success();
+            }
+            else {
+                customAlert(3000, "Duplicate entry for username or roll number", "red", "alert");
+            }
         }
         else {
             customAlert(3000, "Please fill the details completely", "red", "alert");
@@ -79,13 +110,12 @@ $(".btn-next").click(function () {
         if (skip == 'true') {
             validate = 1;
         }
-        console.log(skip);
-        console.log(validate);
+        
         if(validate == 1) {
             success();
         }
         else {
-            customAlert(3000, "Upload a picture or skip", "red", "alert");
+            customAlert(3000, "Upload a picture OR skip", "red", "alert");
             return;
         }
     }
@@ -122,7 +152,7 @@ function hidePassword() {
 $("#signup_submit").on('submit',(function(e) {
     e.preventDefault();
     $.ajax({
-        url: 'includes/signup_process.php',
+        url: 'includes/signup_process.php?request=complete',
         type: 'POST',
         data:  new FormData(this),
 		contentType: false,
