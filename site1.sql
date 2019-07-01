@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2019 at 02:37 AM
+-- Generation Time: Jul 01, 2019 at 02:25 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.1.30
 
@@ -34,8 +34,9 @@ CREATE TABLE `feedback` (
   `username` varchar(255) NOT NULL DEFAULT '-',
   `type` varchar(255) NOT NULL,
   `bug_url` varchar(255) NOT NULL DEFAULT '-',
-  `details` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+  `details` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(255) NOT NULL DEFAULT 'unsolved'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -53,20 +54,21 @@ CREATE TABLE `members` (
   `contact` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `dob` date DEFAULT NULL,
-  `sem` int(2) NOT NULL,
+  `sem` int(2) NOT NULL DEFAULT 0,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
-  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `ver_status` varchar(255) NOT NULL DEFAULT 'not_verified'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`uid`, `roll_no`, `username`, `password`, `name`, `contact`, `email`, `dob`, `sem`, `created`, `modified`) VALUES
-(1, 'B1800037CS', 'rocker', '2904', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-06-25 16:40:22'),
-(2, 'B1800091EC', 'gk', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '1998-10-03', 2, '2019-06-17 04:39:05', '2019-06-23 18:40:54'),
-(3, 'B1800038CS', 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitskkim.ac.in', '2001-03-06', 2, '2019-06-20 06:24:25', '2019-06-23 19:10:43'),
-(4, 'B180009CS', 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180010@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-06-25 06:56:09');
+INSERT INTO `members` (`uid`, `roll_no`, `username`, `password`, `name`, `contact`, `email`, `dob`, `sem`, `created`, `modified`, `ver_status`) VALUES
+(1, 'B180037CS', 'rocker', '2904', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-07-01 21:23:24', 'not_verified'),
+(2, 'B180091EC', 'gk', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '1998-10-03', 2, '2019-06-17 04:39:05', '2019-07-01 03:08:50', 'not_verified'),
+(3, 'B180038CS', 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitsikkim.ac.in', '2001-03-06', 2, '2019-06-20 06:24:25', '2019-07-01 03:27:06', 'not_verified'),
+(4, 'B180009CS', 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180009@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-07-01 04:47:14', 'not_verified');
 
 --
 -- Indexes for dumped tables
@@ -84,7 +86,10 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `members`
   ADD PRIMARY KEY (`uid`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `roll_no` (`roll_no`),
+  ADD UNIQUE KEY `contact` (`contact`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -94,13 +99,13 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `uid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `uid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

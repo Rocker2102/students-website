@@ -1,6 +1,20 @@
 <?php
-$type = $_POST['type'];
-$comment = $_POST['comment'];
+if (isset($_POST['type'])) {
+  $type = $_POST['type'];
+}
+else {
+  echo "error";
+  exit();
+}
+
+if (isset($_POST['comment'])) {
+  $comment = $_POST['comment'];
+}
+else {
+  echo "error";
+  exit();
+}
+
 require_once('db_connect.php');
 
   if ($type == "about") {

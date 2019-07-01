@@ -1,4 +1,3 @@
-
 function edit(data) {
 	var a = "p_data_" + data;
 	var b = data + "_change";
@@ -30,7 +29,7 @@ function update(data) {
 
 	if(check == "password") {
 		if($("#password_new").val() !== $("#password_conf").val()) {
-			alert("Passwords do not match !");
+			customAlert(3000, "Passwords do not match", "red", "error");
 			return;
 		}
 	}
@@ -40,13 +39,13 @@ function update(data) {
 		}
 
 		if($("#" + check).val().length === 0) {
-			alert("Please fill the form fields !");
+			customAlert(3000, "Please fill the details completely", "red", "alert");
 			return;
 		}
 
 		if(check == "sem") {
 			if($("#sem").val() > 8 || $("#sem").val() < 1) {
-				alert("Invalid value !");
+				customAlert(3000, "Invalid Value", "orange", "warning");
 				return;
 			}
 		}
@@ -78,19 +77,18 @@ function update(data) {
 			}
 
 			if (response[0] == "error") {
-				alert(errorText);
+				customAlert(4000, errorText, "red", "error", "red");
 			}
 			else if (response[0] == "nochange") {
+				customAlert(2000, "No change", "orange", "info", "orange");
 				var c = response[1] + "_submit_btn";
 				$("#" + c).removeClass('gradient-2');
 				$("#" + c).addClass('btn-nc');
 				$("#" + c).html('<i class="material-icons btn-icon" style="padding-right: 10px">info</i>no change');
 				setTimeout(function () {$("#" + c).removeClass('btn-nc');$("#" + c).addClass('gradient-2');$("#" + c).html('<i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change');}, 2000);
-				//alert("No change in " + response[1]);
-
 			}
 			else if (response[0] == "updated") {
-				alert(response[1] + " updated");
+				customAlert(4000, response[1] + " updated", "greenyellow", "success", "greenyellow");
 				showRefreshText();
 			}
 			else if (response[0] == "username_available") {
@@ -107,10 +105,10 @@ function update(data) {
 				setTimeout(function () {$("#username_check_btn").removeClass('btn-available');$("#username_check_btn").removeClass('btn-na');$("#username_check_btn").addClass('gradient-2');$("#username_check_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">update</i>check availability');}, 2000);
 			}
 			else if (response[0] == "incorrect") {
-				alert("Entered password is not correct !");
+				customAlert(3000, "Entered password is not correct", "red", "info", "red");
 			}
 			else {
-				alert(response[0]);
+				customAlert(3000, response[0], "red", "error", "red");
 			}
 
 			function showRefreshText() {
@@ -141,6 +139,7 @@ $("#pp_change").on('submit',(function(e) {
 		success: function(recieve) {
 			var response = recieve.split(",");
 			if(response[0] == "success") {
+				customAlert(3000, "Profile picture updated", "greenyellow", "success", "greenyellow");
 				$("#pp_submit_btn").removeClass('gradient-2');
 				$("#pp_submit_btn").removeClass('btn-nc');
 				$("#pp_submit_btn").addClass('btn-available');
@@ -149,6 +148,7 @@ $("#pp_change").on('submit',(function(e) {
 				setTimeout(function () {$("#pp").attr("disabled", false);$("#pp_submit_btn").attr("disabled", false);$("#pp_submit_btn").removeClass('btn-available');$("#pp_submit_btn").addClass('gradient-2');$("#pp_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">cloud_upload</i>upload');}, 2000);
 			}
 			else {
+				customAlert(4000, "Invalid file | Empty File | File Size > 1 MB", "red", "warning", "orange");
 				$("#pp_submit_btn").removeClass('gradient-2');
 				$("#pp_submit_btn").removeClass('btn-nc');
 				$("#pp_submit_btn").addClass('btn-na');
@@ -165,7 +165,7 @@ $("#pp_change").on('submit',(function(e) {
 }));
 
 $("#pp_delete_btn").click(function () {
-	var infoText = "<i class='material-icons header-icon' style='padding-right: 5px'>info</i>Some changes have been made to the profile. Please <b><a href='javascript:document.location.reload()'>REFRESH</a></b> to see updated information.";
+	var infoText = "<i class='material-icons header-icon' style='padding-right: 5px'>info</i>Some changes have been made to the profile. Please <b><a href='javascript:location.reload(true)'>REFRESH</a></b> to see updated information.";
 	$.ajax({
 		url: "includes/upload.php?pp=delete",
 		beforeSend: function(){
@@ -178,6 +178,7 @@ $("#pp_delete_btn").click(function () {
 		success: function(recieve) {
 			var response = recieve.split(",");
 			if(response[0] == "deleted") {
+				customAlert(2000, "Profile picture deleted", "red", "success", "greenyellow");
 				$("#pp_delete_btn").removeClass('btn-na');
 				$("#pp_delete_btn").removeClass('btn-nc');
 				$("#pp_delete_btn").addClass('btn-available');
@@ -186,10 +187,10 @@ $("#pp_delete_btn").click(function () {
 				setTimeout(function () {$("#pp").attr("disabled", false);$("#pp_submit_btn").attr("disabled", false);$("#pp_delete_btn").attr("disabled", false);$("#pp_delete_btn").removeClass('btn-available');$("#pp_delete_btn").addClass('btn-na');$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete_forever</i>delete profile picture');}, 2000);
 			}
 			else if (response[0] == "img_na") {
+				customAlert(2000, "No profile picture", "red", "warning");
 				$("#pp_delete_btn").removeClass('btn-na');
 				$("#pp_delete_btn").addClass('btn-nc');
 				$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">warning</i>no profile picture');
-				showRefreshText();
 				setTimeout(function () {$("#pp").attr("disabled", false);$("#pp_submit_btn").attr("disabled", false);$("#pp_delete_btn").attr("disabled", false);$("#pp_delete_btn").removeClass('btn-nc');$("#pp_delete_btn").removeClass('btn-available');$("#pp_delete_btn").addClass('btn-na');$("#pp_delete_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete_forever</i>delete profile picture');}, 2000);
 			}
 			else {
@@ -205,4 +206,47 @@ $("#pp_delete_btn").click(function () {
 			}
 		}
 	});
+});
+
+$("#del_profile_btn").click(function(){
+	$(".delete_confirm").css({'display': 'block'});
+});
+
+$("#deleteClose").click(function(){
+	$(".delete_confirm").css({'display': 'none'});
+});
+
+$("#delete_confirmed").click(function(){
+	if ($("#del_pass_conf").val().length === 0) {
+		customAlert(2500, "Please type your password", "orange", "warning", "orange");
+	}
+	else {
+		$.ajax({
+			url: "includes/profile_update.php?update=delete",
+			type: 'POST',
+			data: {'del_pass_conf': $("#del_pass_conf").val()},
+			beforeSend: function(){
+				$("#del_pass_conf").attr("disabled", true);
+			},
+			success: function(recieve) {
+				response = recieve.split(",");
+				if (response[0] == "deleted"){
+					customAlert(4000, "Account successfully deleted! Please wait...", "red", "success", "greenyellow");
+					setTimeout(function(){location.reload(true);}, 4200);
+				}
+				else if (response[0] == "incorrect") {
+					customAlert(2500, "Incorrect Password", "red", "error");
+					setTimeout(function(){$("#del_pass_conf").attr("disabled", false);}, 2700);
+				}
+				else if (response[0] == "empty") {
+					customAlert(2500, "Please type your password", "orange", "warning", "orange");
+					setTimeout(function(){$("#del_pass_conf").attr("disabled", false);}, 2700);
+				}
+				else {
+					customAlert(2500, "An error occurred", "red", "error", "red");
+					setTimeout(function(){$("#del_pass_conf").attr("disabled", false);}, 2700);
+				}
+			}
+		});
+	}
 });

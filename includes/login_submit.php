@@ -1,7 +1,6 @@
 <?php
   session_start();
   if (isset($_POST['login_submit_btn'])) {
-
     require_once('db_connect.php');
     $user = mysqli_real_escape_string($connect, $_POST['user']);
     $pwd = mysqli_real_escape_string($connect, $_POST['pwd']);

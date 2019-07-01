@@ -39,16 +39,7 @@
               </section>
               <section style="height: auto">
                 <h1 class="section-heading">Assignments & Notes</h1>
-                <!--div id="side_navbar">
-                  <button class="btn-nav btn-purple btn-rounded-10" onclick="javascript:location.href='#t1_exams'">Exams</button>
-                  <button class="btn-nav btn-purple btn-rounded-10" onclick="javascript:location.href='#t1_cs11101'">CS</button>
-                  <button class="btn-nav btn-purple btn-rounded-10" onclick="javascript:location.href='#t1_cs11102'">ICS</button>
-                  <button class="btn-nav btn-purple btn-rounded-10" onclick="javascript:location.href='#t1_ee11101'">Electrical</button>
-                  <button class="btn-nav btn-purple btn-rounded-10" onclick="javascript:location.href='#t1_hs11101'">HSE</button>
-                  <button class="btn-nav btn-purple btn-rounded-10" onclick="javascript:location.href='#t1_ma11101'">Maths</button>
-                  <button class="btn-nav btn-purple btn-rounded-10" onclick="javascript:location.href='#t1_ph11101'">Physics</button>
-                </div-->
-                
+               
                 <div id="t1_cs11101" style="height: auto">
                   <?php include 'includes/sections/t1_cs11101.php'; ?>
                 </div>
@@ -125,8 +116,8 @@
 
     <script src="js/jquery-3.3.1.js"></script>  <!-- Order of files matter. Atleast it does for scripts! -->
     <script src="js/validate.min.js"></script>
-    <script src="js/explore.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/explore.js"></script>
 
   </body>
 </html>

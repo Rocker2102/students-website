@@ -178,7 +178,7 @@
         $result6 = $connect->query($query6);
         
         if(mysqli_affected_rows($connect) == 1) {
-          echo "updated,DOB";
+          echo "updated,Date of Birth";
           exit();
         }
         else {
@@ -199,13 +199,46 @@
         $result7 = $connect->query($query7);
         
         if(mysqli_affected_rows($connect) == 1) {
-          echo "updated,sem";
+          echo "updated,Semester";
           exit();
         }
         else {
           echo "error";
           exit();
         }
+      }
+    }
+    else if($update == "delete") {
+      if(!empty($_POST['del_pass_conf'])) {
+        if ($_POST['del_pass_conf'] == $o_pass) {
+          $query = "DELETE FROM members WHERE uid = '$uid'";
+          $result = $connect->query($query);
+          
+          if (mysqli_affected_rows($connect) > 0){
+            $img = "../images/profile_images/".$uid;
+            if (file_exists($img)) {
+              if (unlink($img)) {
+                $imgStatus = "deleted";
+              }
+            }
+            session_unset();
+            session_destroy();
+            echo "deleted";
+            exit();
+          }
+          else{
+            echo "error";
+            exit();
+          }          
+        }
+        else {
+          echo "incorrect";
+          exit();
+        }
+      }
+      else {
+        echo "empty";
+        exit();
       }
     }
 
