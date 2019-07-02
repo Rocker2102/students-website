@@ -50,6 +50,7 @@
                 <th>Admin Status</th>
                 <th>Verification Status</th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
 
@@ -88,7 +89,7 @@
                     <input type="date" class="table_input" id="dob<?php echo $uid;?>" name="dob<?php echo $uid;?>"  value="<?php echo $row['dob']; ?>">
                   </td>
                   <td>
-                    <input type="text" class="table_input" id="sem<?php echo $uid;?>" name="sem<?php echo $uid;?>"  value="<?php echo $row['sem']; ?>">
+                    <input type="number" class="table_input" id="sem<?php echo $uid;?>" name="sem<?php echo $uid;?>"  value="<?php echo $row['sem']; ?>">
                   </td>
                   <td>
                     <?php echo $row['created']; ?>
@@ -104,6 +105,9 @@
                   </td>
                   <td>
                     <button type="button" class="btn-save btn btn-rounded-10" id="<?php echo $uid;?>" onclick="javascript:submitForm(<?php echo $uid;?>)"><i class="material-icons btn-icon">save</i>SAVE</button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn-delete btn btn-rounded-10" id="del-<?php echo $uid;?>" onclick=""><i class="material-icons btn-icon">delete_sweep</i></button>
                   </td>
                 </tr>
               </form>

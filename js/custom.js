@@ -20,8 +20,8 @@ function customAlert(timeout = 2000, line1 = "NULL", borderColor = "red", alertT
 	}
     
     var text1 = icon + line1;
-    var text2 = icon + line2;
-	var text3 = icon + line3;
+    var text2 = line2;
+	var text3 = line3;
 	$(".custom_alert").css({'border': '2px solid ' + borderColor, 'display': 'block'});
 	$(".custom_alert p").css({'color': textColor});
     if (line1 != "NULL") {

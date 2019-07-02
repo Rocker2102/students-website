@@ -10,7 +10,6 @@ body {
 
 table, th, td {
   border: 2px dashed black;
-  border-radius: 20px;
   border-collapse: collapse;
 }
 
@@ -24,6 +23,12 @@ th, td {
   padding: 5px;
   padding-left: 15px;
   padding-right: 15px;
+  -webkit-transition: .3s all ease-out;
+  transition: .3s all ease-out;
+}
+
+td:hover {
+  background: rgba(60, 235, 16, 0.2);
 }
 
 table {
@@ -35,7 +40,7 @@ table {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  max-width: 80%;
+  max-width: 90%;
   max-height: 750px;
   overflow-x: scroll;
   overflow-y: scroll;
@@ -54,16 +59,30 @@ table {
 }
 
 input:focus {
-  border: 1px solid rgba(131, 15, 226, 0.616);
+  /* border: 1px solid rgba(131, 15, 226, 0.616); */
   text-decoration: none;
   border-radius: 5px;
 }
 
 .btn-save {
-  background: rgba(15, 199, 45, 0.767);
+  background: rgba(15, 199, 45, 0.8);
   white-space: nowrap !important;
 }
 
 .btn-save:hover {
   background: green;
+}
+
+.btn-delete {
+  background: rgba(235, 11, 11, 1);
+  white-space: nowrap !important;
+}
+
+.btn-delete:hover {
+  background: rgba(235, 11, 11, 0.8);
+}
+
+.loading_anim {
+  vertical-align: middle;
+  margin-top: -8px;
 }

@@ -54,6 +54,6 @@
 
 <div class="custom_alert">
   <p id="alertline1"></p>
-  <p id="alertline2"></p>
+  <p id="alertline2" style="text-align: center"></p>
   <p id="alertline3"></p>
 </div>
