@@ -137,11 +137,12 @@
 - The table should be made scrollable.  ##** DONE **##
 - Create different forms for each 'uid'.  ##** DONE **##
 - Give different "id's" to different input elements.  ##** DONE **##
-- Animation on submit buttons.
-- Verify users email and contact.
+- Animation on submit buttons.  ##** DONE **##
+- Verify users email and contact.  ##** DONE **##
 - Deleting users (or deactivating).
 - Feedback status change.
 - Remove 'id' from submit buttons if not required.
+- Remove bugs (may contain a lot).
 
 <--------------------------------------------------------->
 [about.html]

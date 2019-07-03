@@ -71,25 +71,25 @@
                     <?php echo $row['uid']; ?>
                   </td>
                   <td>
-                    <input type="text" class="table_input" id="roll<?php echo $uid;?>" name="roll<?php echo $uid;?>" value="<?php echo $row['roll_no']; ?>">
+                    <input type="text" class="table_input" id="roll<?php echo $uid;?>" name="roll<?php echo $uid;?>" maxlength="9" value="<?php echo $row['roll_no']; ?>">
                   </td>
                   <td>
-                    <input type="text" class="table_input" id="user<?php echo $uid;?>" name="user<?php echo $uid;?>"  value="<?php echo $row['username']; ?>">
+                    <input type="text" class="table_input" id="user<?php echo $uid;?>" name="user<?php echo $uid;?>" value="<?php echo $row['username']; ?>">
                   </td>
                   <td>
-                    <input type="text" class="table_input" id="name<?php echo $uid;?>" name="name<?php echo $uid;?>"  value="<?php echo $row['name']; ?>">
+                    <input type="text" class="table_input" id="name<?php echo $uid;?>" name="name<?php echo $uid;?>" value="<?php echo $row['name']; ?>">
                   </td>
                   <td>
-                    <input type="text" class="table_input" id="contact<?php echo $uid;?>" name="contact<?php echo $uid;?>"  value="<?php echo $row['contact']; ?>">
+                    <input type="tel" class="table_input" id="contact<?php echo $uid;?>" name="contact<?php echo $uid;?>" maxlength="10" value="<?php echo $row['contact']; ?>">
                   </td>
                   <td>
-                    <input type="email" class="table_input" id="email<?php echo $uid;?>" name="email<?php echo $uid;?>"  value="<?php echo $row['email']; ?>">
+                    <input type="email" class="table_input" id="email<?php echo $uid;?>" name="email<?php echo $uid;?>" value="<?php echo $row['email']; ?>">
                   </td>
                   <td>
-                    <input type="date" class="table_input" id="dob<?php echo $uid;?>" name="dob<?php echo $uid;?>"  value="<?php echo $row['dob']; ?>">
+                    <input type="date" class="table_input" id="dob<?php echo $uid;?>" name="dob<?php echo $uid;?>" value="<?php echo $row['dob']; ?>">
                   </td>
                   <td>
-                    <input type="number" class="table_input" id="sem<?php echo $uid;?>" name="sem<?php echo $uid;?>"  value="<?php echo $row['sem']; ?>">
+                    <input type="number" class="table_input" id="sem<?php echo $uid;?>" name="sem<?php echo $uid;?>" value="<?php echo $row['sem']; ?>">
                   </td>
                   <td>
                     <?php echo $row['created']; ?>
@@ -98,16 +98,16 @@
                     <?php echo $row['modified']; ?>
                   </td>
                   <td>
-                    <input type="text" class="table_input" id="admin<?php echo $uid;?>" name="admin<?php echo $uid;?>"  value="<?php echo $row['admin']; ?>">
+                    <input type="text" class="table_input" id="admin<?php echo $uid;?>" name="admin<?php echo $uid;?>" value="<?php echo $row['admin']; ?>">
                   </td>
                   <td>
-                    <input type="text" class="table_input" id="ver<?php echo $uid;?>" name="ver<?php echo $uid;?>"  value="<?php echo $row['ver_status']; ?>">
+                    <input type="text" class="table_input" id="ver<?php echo $uid;?>" name="ver<?php echo $uid;?>" value="<?php echo $row['ver_status']; ?>">
                   </td>
                   <td>
                     <button type="button" class="btn-save btn btn-rounded-10" id="<?php echo $uid;?>" onclick="javascript:submitForm(<?php echo $uid;?>)"><i class="material-icons btn-icon">save</i>SAVE</button>
                   </td>
                   <td>
-                    <button type="button" class="btn-delete btn btn-rounded-10" id="del-<?php echo $uid;?>" onclick=""><i class="material-icons btn-icon">delete_sweep</i></button>
+                    <button type="button" class="btn-delete btn btn-rounded-10" id="del-<?php echo $uid;?>" onclick="javascript:deleteProfile(<?php echo $uid;?>)"><i class="material-icons btn-icon">delete_sweep</i></button>
                   </td>
                 </tr>
               </form>
@@ -118,7 +118,18 @@
               ?>
             <tbody>
           </table>
+
+          <div class="delete_confirm">
+            <i class="material-icons" id="deleteClose">close</i>
+            <h2 class="delete_head">Are you sure you want to <b>DELETE</b> this profile?</h2>
+            <p>This can't be undone !</p>
+            <div class="p_form_row">
+              <input class="form-control" type="password" id="del_pass_conf" name="del_pass_conf" placeholder="Enter password to continue">
+            </div>
+            <button class="btn btn-na btn-rounded-10" type="button" id="delete_confirmed" name="delete_confirmed" style="margin-bottom: 20px"><i class="material-icons btn-icon" style="padding-right: 10px">delete_sweep</i>confirm</button>
+          </div>
         </div>
+
       </div>
     </section>
 

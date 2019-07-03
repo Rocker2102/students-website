@@ -60,6 +60,7 @@ table {
 
 input:focus {
   /* border: 1px solid rgba(131, 15, 226, 0.616); */
+  color: rgb(229, 255, 0);
   text-decoration: none;
   border-radius: 5px;
 }

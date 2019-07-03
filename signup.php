@@ -38,7 +38,7 @@
                   <input class="form-control" type="text" id="name" name="name" placeholder="Name" required>
                 </div>
                 <div class="s_form_row">
-                  <input class="form-control" type="text" id="contact" name="contact" placeholder="Contact" required>
+                  <input class="form-control" type="tel" id="contact" name="contact" maxlength="10" placeholder="Contact (10 Digits)" required>
                 </div>
                 <div class="s_form_row">
                   <input class="form-control" type="email" id="email" name="email" placeholder="E-Mail" required>
@@ -53,7 +53,7 @@
               <div id="signup-tab-2" class="hidden">
                 <h1 class="p_info_type"><i class="material-icons">looks_two</i>Other Information</h1>
                 <div class="s_form_row">
-                  <input class="form-control" type="text" id="roll" name="roll" placeholder="Roll Number" required>
+                  <input class="form-control" type="text" id="roll" name="roll" maxlength="9" placeholder="Roll Number" required>
                 </div>
                 <div class="s_form_row">
                   <input class="form-control" type="text" id="username" name="username" placeholder="Username" required>
