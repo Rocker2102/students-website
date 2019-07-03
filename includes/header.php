@@ -9,8 +9,19 @@
         if (isset($_SESSION['uid'])) {
           ?>
             <div class="header-item" style="margin-right: 50px"><a id="logout_btn" href="javascript:void(0)" onclick="javascript:logout()"><i class="material-icons header-icon">power_settings_new</i>Logout</a></div>
-            <div class="header-item"><a><i class="material-icons header-icon">settings</i>Settings</a></div>
           <?php
+            if (isset($_SESSION['admin_stat'])) {
+              if ($_SESSION['admin_stat'] == "true") {
+                ?>
+                  <div class="header-item"><a href="javascript:void(0)" onclick="javascript:location.href='admin.php'" style="cursor: pointer"><i class="material-icons header-icon">lock</i></a></div>
+                <?php
+              }
+              else {
+                ?>
+                  <div class="header-item"><a><i class="material-icons header-icon">settings</i>Settings</a></div>
+                <?php
+              }
+            }
         }
         else {
           ?>
@@ -43,6 +54,6 @@
 
 <div class="custom_alert">
   <p id="alertline1"></p>
-  <p id="alertline2"></p>
+  <p id="alertline2" style="text-align: center"></p>
   <p id="alertline3"></p>
 </div>

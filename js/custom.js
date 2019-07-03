@@ -20,8 +20,8 @@ function customAlert(timeout = 2000, line1 = "NULL", borderColor = "red", alertT
 	}
     
     var text1 = icon + line1;
-    var text2 = icon + line2;
-	var text3 = icon + line3;
+    var text2 = line2;
+	var text3 = line3;
 	$(".custom_alert").css({'border': '2px solid ' + borderColor, 'display': 'block'});
 	$(".custom_alert p").css({'color': textColor});
     if (line1 != "NULL") {
@@ -36,17 +36,6 @@ function customAlert(timeout = 2000, line1 = "NULL", borderColor = "red", alertT
 
 	setTimeout(function(){$(".custom_alert").css({'display': 'none'});$(".custom_alert p").html('');}, timeout);
 	return line1;
-}
-
-function login_pop () {
-	document.getElementById('login_form').style.display = "block";
-	document.getElementById('login_blur').style.filter = "blur(2.5px)";
-}
-
-function login_close () {
-	document.getElementById('login_form').style.display = "none";
-	document.getElementById('login_blur').style.filter = "blur(0px)";
-	$("#login_submit").validate().resetForm();
 }
 
 function logout () {
@@ -80,6 +69,17 @@ function menu_show() {
 function menu_hide() {
 	$("#menu_hide").css({'display': 'block'});
 	$("#menu_show").css({'display': 'none'});
+}
+
+function login_pop () {
+	document.getElementById('login_form').style.display = "block";
+	document.getElementById('login_blur').style.filter = "blur(2.5px)";
+}
+
+function login_close () {
+	document.getElementById('login_form').style.display = "none";
+	document.getElementById('login_blur').style.filter = "blur(0px)";
+	$("#login_submit").validate().resetForm();
 }
 
 // AJAX query for login (uses jQuery)  [copied from 'phpzag.com']

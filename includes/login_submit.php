@@ -5,13 +5,19 @@
     $user = mysqli_real_escape_string($connect, $_POST['user']);
     $pwd = mysqli_real_escape_string($connect, $_POST['pwd']);
     
-    $query1 = "SELECT uid, name FROM members WHERE username = '$user' AND password = '$pwd'";
+    $query1 = "SELECT uid, name, admin FROM members WHERE username = '$user' AND password = '$pwd'";
     $result1 = $connect->query($query1);
 
     if($result1->num_rows > 0) {
       while ($row = $result1->fetch_assoc()) {
         $uid = $row['uid'];
+        if(isset($_SESSION['uid'])) {
+          session_destroy();
+          session_start();
+        }
+
         $_SESSION['name'] = $row['name'];
+        $_SESSION['admin_stat'] = $row['admin'];
         $login_message = "login_confirmed";
       }
 

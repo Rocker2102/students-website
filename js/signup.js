@@ -80,8 +80,13 @@ $(".btn-next").click(function () {
 
     if (temp == 2) {
         var validate = validateForm('name', 'contact', 'email', 'dob');
+
         
-        if(validate == 1) {
+        if(validate == 1) {    
+            if ($("#contact").val().length !== 10) {
+                customAlert(2500, "Invalid Contact", "red", "warning");
+                return;
+            }
             if (validateServer('emailCheck','email') == 1 && validateServer('contactCheck','contact') == 1) {
                 success();
             }
