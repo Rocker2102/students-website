@@ -216,8 +216,85 @@ session_start();
       exit();
     }
   }
+  else if (isset($_GET['request'])) {
+    if(!empty($_GET['request'])) {
+      $request = $_GET['request'];
+      if ($request == "authenticate") {
+        if (isset($_POST['del_pass_conf'])) {
+          if (!empty($_POST['del_pass_conf'])) {
+            $temp_pass = $_POST['del_pass_conf'];
+            $temp_uid = $_SESSION['uid'];
+            $query = "SELECT uid FROM members WHERE password = '$temp_pass' AND uid = '$temp_uid'";
+            require ('db_connect.php');
+            $result = $connect->query($query);
+            if($result->num_rows > 0) {
+              $token = md5(uniqid('authid-'));
+              $_SESSION['token'] = $token;
+              echo "success,".$token;
+              exit();
+            }
+            else {
+              echo "incorrect";
+              exit();
+            }
+          }
+          else {
+            echo "empty,password";
+            exit();
+          }
+        }
+        else {
+          echo "invalid,access_denied";
+          exit();
+        }
+      }
+      else if ($request == "delete") {
+        if (isset($_POST['authid']) && isset($_GET['pid'])) {
+          if (empty($_POST['authid']) || empty($_GET['pid'])) {
+            echo "empty";
+            exit();
+          }
+          else {
+            $authid = $_POST['authid'];
+            $pid = $_GET['pid'];
+            if ($authid === $_SESSION['token']) {
+              unset($_SESSION['token']);
+              $query = "DELETE FROM members WHERE uid = '$pid'";
+              require ('db_connect.php');
+              $result = $connect->query($query);
+
+              if (mysqli_affected_rows($connect) == 1) {
+                echo "deleted";
+                exit();
+              }
+              else {
+                echo "error";
+                exit();
+              }
+            }
+            else {
+              echo "error";
+              exit();
+            }
+          }
+        }
+        else {
+          echo "incomplete,data";
+          exit();
+        }
+      }
+      else {
+        echo "invalid,request";
+        exit();
+      }
+    }
+    else {
+      echo "empty,request";
+      exit();
+    }
+  }
   else {
-    echo "error,uid";
+    echo "error,?";
     exit();
   }
 

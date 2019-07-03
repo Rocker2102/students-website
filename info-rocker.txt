@@ -134,15 +134,18 @@
 [admin.php]
 01.07.2019, 21:46 - 00.00.0000, 00:00
 - Center the table.  ##** DONE **##
+- Make 'User Accounts' table.  ##** DONE **##
 - The table should be made scrollable.  ##** DONE **##
 - Create different forms for each 'uid'.  ##** DONE **##
 - Give different "id's" to different input elements.  ##** DONE **##
 - Animation on submit buttons.  ##** DONE **##
-- Verify users email and contact.  ##** DONE **##
-- Deleting users (or deactivating).
+- Verify users email and contact (by site admins).  ##** DONE **##
+- Deleting users (or deactivating).  ##** DONE **##
 - Feedback status change.
 - Remove 'id' from submit buttons if not required.
 - Remove bugs (may contain a lot).
+- Make 'Feedback table'.
+- Make a page to execute queries directly (only for level 3 admins).
 
 <--------------------------------------------------------->
 [about.html]

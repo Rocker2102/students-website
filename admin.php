@@ -32,7 +32,10 @@
       </div>
 
       <div class="animate_fadein">
-        <h2 class="section-heading"><i class="material-icons">next_week</i>ADMINISTRATOR</h2>
+        <h2 class="section-heading"><i class="material-icons">security</i>ADMINISTRATOR</h2>
+        <p id="admin_refresh"><a href="javascript:void(0)" onclick="javascript:location.reload(true)"><i class="material-icons refresh_icon">sync</i></a></p>
+        
+        <h2 class="a_h_1"><i class="material-icons a_h_i_1">people_outline</i>User Accounts</h2>
         <div class="a_table1">
           <table style="margin: 0px auto;">
             <thead>
@@ -121,10 +124,10 @@
 
           <div class="delete_confirm">
             <i class="material-icons" id="deleteClose">close</i>
-            <h2 class="delete_head">Are you sure you want to <b>DELETE</b> this profile?</h2>
+            <h2 class="delete_head">Are you sure you want to <b>DELETE</b> this (uid = <span id="del_uid"></span>) profile?</h2>
             <p>This can't be undone !</p>
             <div class="p_form_row">
-              <input class="form-control" type="password" id="del_pass_conf" name="del_pass_conf" placeholder="Enter password to continue">
+              <input class="form-control" type="password" id="del_pass_conf" name="del_pass_conf" placeholder="Administrator Password">
             </div>
             <button class="btn btn-na btn-rounded-10" type="button" id="delete_confirmed" name="delete_confirmed" style="margin-bottom: 20px"><i class="material-icons btn-icon" style="padding-right: 10px">delete_sweep</i>confirm</button>
           </div>

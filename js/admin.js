@@ -90,6 +90,7 @@ function submitForm(id) {
             
             if (response[0] == "updated") {
                 customAlert(3000, "Information updated (uid = " + response[1] + ")", "green", "success", "greenyellow");
+                $("#admin_refresh").css({'visibility': 'visible'});
                 resetButtons();
                 return;
             }
@@ -151,41 +152,70 @@ function submitForm(id) {
 
 function deleteProfile(id) {
     $(".delete_confirm").css({'display': 'block'});
+    $("#del_uid").html(id);
 
     $("#deleteClose").click(function(){
         $(".delete_confirm").css({'display': 'none'});
+        $("#del_pass_conf").val("");
     });
 
     $("#delete_confirmed").click(function () {
-        console.log(id);
         if ($("#del_pass_conf").val().length === 0) {
-            customAlert(2500, "Please type your password", "orange", "warning", "orange");
+            customAlert(2500, "Please type Administrator Password", "orange", "warning", "orange");
         }
         else {
+            function resetButton() {
+                setTimeout(function () {
+                    $("#delete_confirmed").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete_sweep</i>confirm');
+                    $("#delete_confirmed").attr("disabled", false);
+                }, 3500);
+            }
+
             $.ajax({
-                url: "includes/admin_process.php?request=delete&uid=" + id,
+                url: "includes/admin_process.php?request=authenticate",
                 type: 'POST',
+                async: false,
                 data: {'del_pass_conf': $("#del_pass_conf").val()},
                 beforeSend: function(){
-                    $("#del_pass_conf").attr("disabled", true);
+                    $("#delete_confirmed").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete</i>deleting ...');
+                    $("#delete_confirmed").attr("disabled", true);
                 },
                 success: function(recieve) {
                     response = recieve.split(",");
-                    if (response[0] == "deleted"){
-                        customAlert(4000, "Account successfully deleted! Please wait...", "red", "success", "greenyellow");
-                        setTimeout(function(){location.reload(true);}, 4200);
+                    if (response[0] == "success" && response[1] != undefined){
+                        $.ajax({
+                            url: "includes/admin_process.php?request=delete&pid=" + id,
+                            type: 'POST',
+                            data: {'authid': response[1]},
+                            success: function (data) {
+                                text = data.split(",");
+                                if (text[0] == "deleted") {
+                                    customAlert(4000, "Account successfully deleted! Please wait...", "red", "success", "greenyellow");
+                                    setTimeout(function(){location.reload(true);}, 3500);
+                                }
+                                else {
+                                    customAlert(2500, "Error (Token/Session expired)", "red", "error", "red");
+                                    resetButton();
+                                }
+                            }
+                        });
+                        return;
                     }
                     else if (response[0] == "incorrect") {
                         customAlert(2500, "Incorrect Password", "red", "error");
-                        setTimeout(function(){$("#del_pass_conf").attr("disabled", false);}, 2700);
+                        resetButton();
+                    }
+                    else if (response[0] == "invalid") {
+                        customAlert(2500, "Invalid request", "red", "alert");
+                        resetButton();
                     }
                     else if (response[0] == "empty") {
-                        customAlert(2500, "Please type your password", "orange", "warning", "orange");
-                        setTimeout(function(){$("#del_pass_conf").attr("disabled", false);}, 2700);
+                        customAlert(2500, "Incomplete data", "red", "error", "red");
+                        resetButton();
                     }
                     else {
-                        customAlert(2500, "An error occurred", "red", "error", "red");
-                        setTimeout(function(){$("#del_pass_conf").attr("disabled", false);}, 2700);
+                        customAlert(2500, "Error (Authentication Failed)", "red", "error", "red");
+                        resetButton();
                     }
                 }
             });

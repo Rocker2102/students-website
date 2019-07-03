@@ -87,3 +87,27 @@ input:focus {
   vertical-align: middle;
   margin-top: -8px;
 }
+
+#admin_refresh {
+  visibility: hidden;
+}
+
+.refresh_icon {
+  font-size: 36px !important;
+}
+
+.a_h_1 {
+  transition: 0.8s all ease;
+}
+
+.a_h_1:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.a_h_i_1 {
+  font-size: 30px !important;
+  vertical-align: middle;
+  margin-bottom: 4px;
+  margin-right: 5px;
+}
