@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2019 at 08:23 PM
+-- Generation Time: Jul 04, 2019 at 08:27 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.1.30
 
@@ -36,6 +36,7 @@ CREATE TABLE `feedback` (
   `bug_url` varchar(255) NOT NULL DEFAULT '-',
   `details` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `last_update` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` varchar(255) NOT NULL DEFAULT 'unsolved'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -43,8 +44,8 @@ CREATE TABLE `feedback` (
 -- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`id`, `name`, `username`, `type`, `bug_url`, `details`, `timestamp`, `status`) VALUES
-(1, '-', '-', 'bug', 'https://rocker.ga', 'unknown', '2019-07-01 12:35:54', 'unsolved');
+INSERT INTO `feedback` (`id`, `name`, `username`, `type`, `bug_url`, `details`, `timestamp`, `last_update`, `status`) VALUES
+(1, '-', '-', 'bug', 'https://rocker.ga', 'unknown', '2019-07-01 12:35:54', '2019-07-04 06:21:33', 'unsolved');
 
 -- --------------------------------------------------------
 
@@ -113,7 +114,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `uid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `uid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
