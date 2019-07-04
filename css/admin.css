@@ -2,6 +2,19 @@ body {
   text-align: center;
 }
 
+::-webkit-scrollbar {
+  width: 2px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: 0 0;
+}
+
 .animate_fadein {
   opacity: 0;
   transform: translateY(15px);
@@ -39,6 +52,7 @@ table {
 .a_table1 {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   text-align: center;
   max-width: 90%;
   max-height: 750px;

@@ -283,6 +283,64 @@ session_start();
           exit();
         }
       }
+      else if ($request == "updatestatus") {
+        if (isset($_GET['fid'])) {
+          if (isset($_POST['f-status'.$_GET['fid']])) {
+            if (empty($_POST['f-status'.$_GET['fid']]) || empty($_GET['fid'])) {
+              echo "empty";
+              exit();
+            }
+            else {
+              $id = $_GET['fid'];
+              $status = $_POST['f-status'.$_GET['fid']];
+              $status = strtolower($status);
+              if($status == "unsolved" || $status == "seen" || $status == "solved") {
+                $query1 = "SELECT status FROM feedback WHERE id = '$id'";
+                require ('db_connect.php');
+                $result1= $connect->query($query1);
+                if ($result1->num_rows > 0) {
+                  while($row = $result1->fetch_assoc()) {
+                    $status_o = $row['status'];
+                  }
+                }
+                else {
+                  echo "error";
+                  exit();
+                }
+
+                if ($status_o == $status) {
+                  echo "no_change";
+                  exit();
+                }
+                else {
+                  $query = "UPDATE feedback SET status = '$status' WHERE id = '$id'";
+                  $result = $connect->query($query);
+                  if(mysqli_affected_rows($connect) == 1) {
+                    echo "updated,".$id;
+                    exit();
+                  }
+                  else {
+                    echo "error";
+                    exit();
+                  }
+                }
+              }
+              else {
+                echo "invalid";
+                exit();
+              }
+            }
+          }
+          else {
+            echo "empty";
+            exit();
+          }
+        }
+        else {
+          echo "empty";
+          exit();
+        }
+      }
       else {
         echo "invalid,request";
         exit();
