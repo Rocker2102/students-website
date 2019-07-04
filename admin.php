@@ -181,9 +181,16 @@
                       <?php echo $row['type']; ?>
                     </td>
                     <td>
-                      <?php echo $row['bug_url']; ?>
+                      <?php
+                        if ($row['bug_url'] == "-") {
+                          echo "[NA]";
+                        }
+                        else {
+                          echo $row['bug_url'];
+                        }
+                      ?>
                     </td>
-                    <td style="white-space: unset">
+                    <td class="f_details">
                       <?php echo $row['details']; ?>
                     </td>
                     <td>
@@ -209,22 +216,23 @@
             </table>
           </div>
 
+          <h1><a href="admin_query.php"><i class="material-icons">edit</i><i class="material-icons">code</i><i class="material-icons">query_builder</i></a></h1>
 
           <div class="delete_confirm">
             <i class="material-icons" id="deleteClose">close</i>
             <h2 class="delete_head">Are you sure you want to <b>DELETE</b> this <span id="del_uid"></span></h2>
             <p>This can't be undone !</p>
-            <div class="p_form_row">
-              <input class="form-control" type="password" id="del_pass_conf" name="del_pass_conf" placeholder="Administrator Password">
-            </div>
-            <button class="btn btn-na btn-rounded-10" type="button" id="delete_confirmed" name="delete_confirmed" style="margin-bottom: 20px"><i class="material-icons btn-icon" style="padding-right: 10px">delete_sweep</i>confirm</button>
+            <form id="del_prof_form">
+              <div class="p_form_row">
+                <input class="form-control" type="password" id="del_pass_conf" name="del_pass_conf" placeholder="Administrator Password">
+              </div>
+              <button class="btn btn-na btn-rounded-10" type="button" id="delete_confirmed" name="delete_confirmed" style="margin-bottom: 20px"><i class="material-icons btn-icon" style="padding-right: 10px">delete_sweep</i>confirm</button>
+            </form>            
           </div>
         </div>
-
     </section>
 
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/validate.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/admin.js"></script>
 

@@ -72,66 +72,61 @@ function menu_hide() {
 }
 
 function login_pop () {
-	document.getElementById('login_form').style.display = "block";
-	document.getElementById('login_blur').style.filter = "blur(2.5px)";
+	$("#login_form").css({'display': 'block'});
+	$("#login_blur").css({'filter': 'blur(2.5px)'});
 }
 
 function login_close () {
-	document.getElementById('login_form').style.display = "none";
-	document.getElementById('login_blur').style.filter = "blur(0px)";
-	$("#login_submit").validate().resetForm();
+	$("#login_form").css({'display': 'none'});
+	$("#login_blur").css({'filter': 'blur(0px)'});
+	$("#user").val("");
+	$("#pwd").val("");
 }
 
 // AJAX query for login (uses jQuery)  [copied from 'phpzag.com']
-$('document').ready(function() {
-	$("#login_submit").validate({
-		rules: {
-			pwd: {
-				required: true,
-			},
-			user: {
-				required: true,
-			},
-		},
-		messages: {
-			pwd:{
-			  required: "REQUIRED"
-			 },
-			user: "REQUIRED",
-		},
-		submitHandler: submitForm
-	});
+$("#login_submit").on('submit',(function(e) {
+	e.preventDefault();
 
-	function submitForm() {
-		var data = $("#login_submit").serialize();
-		$.ajax({
-			type : 'POST',
-			url : 'includes/login_submit.php',
-			data : data,
-			beforeSend : function(){
-				$("#login_submit_btn").html('<img src="images/loading.gif" class="loading_anim" style="width: 46px; height: 46px">');
-			},
-			success : function(response) {
-				var recieve = response.split(",");
-				if(recieve[0] == "login_confirmed"){
-					if(recieve[2] == "1") {
-						var img_loc = "images/profile_images/" + recieve[1];
-						$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
-					}
-					customAlert(3000, "LOGGED IN !", "green", "success", "greenyellow");
-					$("#login_submit_btn").removeClass("gradient-2");
-					$("#login_submit_btn").addClass("btn-available");
-					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
-					setTimeout(function (){$("#login_submit_btn").addClass("gradient-2");$("#login_submit_btn").removeClass("btn-available");window.location.href = "?loggedin";}, 2000);
-				} else {
-					customAlert(2500, "Invalid Username or Password", "red", "info");
-					$("#login_submit_btn").removeClass("gradient-2");
-					$("#login_submit_btn").addClass("btn-na");
-					$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">close</i>UNABLE TO LOGIN');
-					setTimeout(function () {$("#login_submit_btn").addClass("gradient-2");$("#login_submit_btn").removeClass("btn-na");$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">swap_horiz</i>LOGIN');}, 2000);
-				}
-			}
-		});
-		return false;
+	if ($("#user").val().length === 0 || $("#pwd").val().length === 0) {
+		customAlert(2000, "Enter Username and Password", "red", "info");
+		return;
 	}
-});
+
+	var data = $("#login_submit").serialize();
+	$.ajax({
+		type : 'POST',
+		url : 'includes/login_submit.php',
+		data : data,
+		beforeSend : function(){
+			$("#login_submit_btn").html('<img src="images/loading.gif" class="loading_anim" style="width: 46px; height: 46px">');
+		},
+		success : function(response) {
+			var recieve = response.split(",");
+			if(recieve[0] == "login_confirmed"){
+				if(recieve[2] == "1") {
+					var img_loc = "images/profile_images/" + recieve[1];
+					$("#user_icon").attr("src",img_loc);	// Took help from 'w3 schools'
+				}
+				customAlert(3000, "LOGGED IN !", "green", "success", "greenyellow");
+				$("#login_submit_btn").removeClass("gradient-2");
+				$("#login_submit_btn").addClass("btn-available");
+				$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">verified_user</i>LOGGED IN');
+				setTimeout(function (){$("#login_submit_btn").addClass("gradient-2");$("#login_submit_btn").removeClass("btn-available");window.location.href = "?loggedin";}, 2000);
+			}
+			else if (recieve[0] == "login_failed") {
+				customAlert(2500, "Incorrect username or password", "red", "alert");
+				$("#login_submit_btn").removeClass("gradient-2");
+				$("#login_submit_btn").addClass("btn-na");
+				$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">close</i>UNABLE TO LOGIN');
+				setTimeout(function () {$("#login_submit_btn").addClass("gradient-2");$("#login_submit_btn").removeClass("btn-na");$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">swap_horiz</i>LOGIN');}, 2000);
+			}
+			else {
+				customAlert(2500, "An error occurred", "red", "info");
+				$("#login_submit_btn").removeClass("gradient-2");
+				$("#login_submit_btn").addClass("btn-na");
+				$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">close</i>UNABLE TO LOGIN');
+				setTimeout(function () {$("#login_submit_btn").addClass("gradient-2");$("#login_submit_btn").removeClass("btn-na");$("#login_submit_btn").html('<i class="material-icons btn-icon" style="padding-right: 10px">swap_horiz</i>LOGIN');}, 2000);
+			}
+		}
+	});
+}));

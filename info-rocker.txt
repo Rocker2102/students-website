@@ -30,10 +30,11 @@
 - Fix bugs in custom alerts.. (when two different alerts are to be shown, etc...).
 - Assign id's to alerts (or a new attribute) so that newer alerts can be positioned below (or above) the older alert(s) by cheking the id (or the new attribute) of previous alert(s).
 - Give codes to errors and log them in the console.
-- Encrypt passwords stored in database (not by md5().. check about bcrypt()).
+- * Encrypt passwords stored in database (not by md5().. check about bcrypt()).
 - Fix the bug in 'logout_process.php' which occurs everytime when trying to logout from 'signup.php'.  ##** DONE **##
 - Disable everything in the background when popup is shown.
 - Close popup if clicked anywhere outside (login.php).
+- Authorisation (auth.php) on every page.
 
 <--------------------------------------------------------->
 [index.php]
@@ -102,9 +103,9 @@
 - Use AJAX for login (add a loading animation in the 'LOGIN' button).  ##** DONE **##
 - Display profile image after successful login.  ##** DONE **##
 - Debug page! (not working on some hosting sites after uploading)
-- Style the jQuery error messages. ##** DONE **##  [+ MORE STYLING LATER]
+- Style the jQuery error messages. ##** DONE **##  [+ MORE STYLING LATER] -> [ERROR MESSAGES REPLACED BY CUSTOM ALERTS]
 - 2-step login.. try it.  ##** NOT IMPLEMENTED **##
-- Get rid of 'validate.min.js'... it is not required!
+- Get rid of 'validate.min.js'... it is not required!  ##** DONE **##
 
 <--------------------------------------------------------->
 [profile.php]
@@ -120,6 +121,7 @@
 - Perform client-side form (or input) validation (and server-side ofcourse).  ##** DONE **##
 - Option to delete user profile.  ##** DONE **##  [ADDED ON 01.07.2019, 17:42]
 - Bug: profile picture is not deleted after deleting profile.  ##** DONE **##  [FIXED]
+- Show alert/info icon if profile is not verified.
 
 <--------------------------------------------------------->
 [feedback.php]
@@ -144,9 +146,9 @@
 - Deleting users (or deactivating).  ##** DONE **##
 - Feedback status change.  ##** DONE **##
 - Remove 'id' from submit buttons if not required.  ##** DONE **##  [REQUIRED]
-- Remove bugs (may contain a lot).
+- Remove bugs (may contain a lot).  [WILL START ALPHA TESTING ON (05/06).07.2019]
 - Make 'Feedback table'.  ##** DONE **##
-- Add 'Last Updated' column in feedback table to check its last status change.
+- Add 'Last Updated' column in feedback table to check its last status change.  ##** DONE **##
 - Make a page to execute queries directly (only for level 3 admins).
 
 <--------------------------------------------------------->

@@ -9,6 +9,12 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.5) !important;
   border-radius: 10px !important;
+  transition: 0.4s all ease;
+  -webkit-transition: 0.4s all ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(206, 228, 9, 0.5) !important;
 }
 
 ::-webkit-scrollbar-track {

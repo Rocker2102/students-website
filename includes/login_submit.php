@@ -1,6 +1,7 @@
 <?php
   session_start();
-  if (isset($_POST['login_submit_btn'])) {
+
+  if (isset($_POST['user']) && isset($_POST['pwd'])) {
     require_once('db_connect.php');
     $user = mysqli_real_escape_string($connect, $_POST['user']);
     $pwd = mysqli_real_escape_string($connect, $_POST['pwd']);
@@ -15,12 +16,11 @@
           session_destroy();
           session_start();
         }
-
         $_SESSION['name'] = $row['name'];
         $_SESSION['admin_stat'] = $row['admin'];
-        $login_message = "login_confirmed";
       }
 
+      $login_message = "login_confirmed";
       $_SESSION['uid'] = $uid;
       $_SESSION['username'] = $user;
       $img_check = "../images/profile_images/".$uid;

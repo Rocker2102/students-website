@@ -1,5 +1,12 @@
 <?php
   session_start();
+  if (isset($_SESSION['uid'])) {
+    
+  }
+  else {
+    header("location: ../index.php");
+  }
+
   if (isset($_GET['update'])) {
     $update = $_GET['update'];
     $uid = $_SESSION['uid'];

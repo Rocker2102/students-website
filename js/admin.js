@@ -86,7 +86,7 @@ function submitForm(id) {
             function resetButtons() {
                 setTimeout(function() {
                     $("#" + formId).html('<i class="material-icons btn-icon">save</i>SAVE');$(".btn-save").attr("disabled", false);
-                }, 1500);
+                }, 3000);
             }
             
             if (response[0] == "updated") {
@@ -173,11 +173,13 @@ function deleteProfile(id) {
                 }, 3500);
             }
 
+            var pass_data = $("#del_prof_form").serialize();
+            
             $.ajax({
                 url: "includes/admin_process.php?request=authenticate",
                 type: 'POST',
                 async: false,
-                data: {'del_pass_conf': $("#del_pass_conf").val()},
+                data: pass_data,
                 beforeSend: function(){
                     $("#delete_confirmed").html('<i class="material-icons btn-icon" style="padding-right: 10px">delete</i>deleting ...');
                     $("#delete_confirmed").attr("disabled", true);
@@ -196,7 +198,7 @@ function deleteProfile(id) {
                                     setTimeout(function(){location.reload(true);}, 3500);
                                 }
                                 else {
-                                    customAlert(2500, "Error (Token/Session expired)", "red", "error", "red");
+                                    customAlert(2500, data, "red", "error", "red");
                                     resetButton();
                                 }
                             }
@@ -231,8 +233,10 @@ function submitFForm(id) {
     var send = "includes/admin_process.php?request=updatestatus&fid=" + id;
 
     function resetButtons() {
-        $("#f-s" + id).html('<i class="material-icons btn-icon">save</i>SAVE');
-        $(".btn-save").attr("disabled", false);
+        setTimeout(function() {
+            $("#f-s" + id).html('<i class="material-icons btn-icon">save</i>SAVE');
+            $(".btn-save").attr("disabled", false);
+        },3000);
     }
 
     var fStatus = $("#f-status" + id).val();
@@ -258,7 +262,7 @@ function submitFForm(id) {
             function resetButtons() {
                 setTimeout(function() {
                     $("#f-s" + id).html('<i class="material-icons btn-icon">save</i>SAVE');$(".btn-save").attr("disabled", false);
-                }, 1500);
+                }, 3000);
             }
             
             if (response[0] == "updated") {

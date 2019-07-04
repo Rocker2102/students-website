@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2019 at 08:27 AM
+-- Generation Time: Jul 04, 2019 at 12:49 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.1.30
 
@@ -45,7 +45,9 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id`, `name`, `username`, `type`, `bug_url`, `details`, `timestamp`, `last_update`, `status`) VALUES
-(1, '-', '-', 'bug', 'https://rocker.ga', 'unknown', '2019-07-01 12:35:54', '2019-07-04 06:21:33', 'unsolved');
+(1, '-', '-', 'bug', 'https://rocker.ga', 'unknown', '2019-07-01 12:35:54', '2019-07-04 10:14:43', 'seen'),
+(2, 'Ankush Yadav', 'rocker', 'bug', '[ip]/site1/admin.php', 'Remove bugs', '2019-07-04 08:42:36', '2019-07-04 08:43:02', 'seen'),
+(3, '-', '-', 'about', '-', 'Add more features !', '2019-07-04 10:05:19', '2019-07-04 10:05:36', 'seen');
 
 -- --------------------------------------------------------
 
@@ -74,10 +76,10 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`uid`, `roll_no`, `username`, `password`, `name`, `contact`, `email`, `dob`, `sem`, `created`, `modified`, `admin`, `ver_status`) VALUES
-(1, 'B180037CS', 'rocker', '2904', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-06-15 12:58:41', '2019-07-03 12:56:32', 'true', 'verified'),
+(1, 'B180037CS', 'rocker', '2904', 'Ankush Yadav', '9589203992', 'b180037@nitsikkim.ac.in', '2000-09-29', 2, '2019-07-04 08:56:48', '2019-07-04 09:35:50', 'true', 'verified'),
 (2, 'B180091EC', 'gk', '0310', 'Gourav Kumar Prasad', '9563201212', 'b180091@nitsikkim.ac.in', '1998-10-03', 2, '2019-06-17 04:39:05', '2019-07-02 10:40:59', 'false', 'verified'),
 (3, 'B180038CS', 'dimi', '0603', 'Divyanshu Gautam', '8377840227', 'b180038@nitsikkim.ac.in', '2001-03-06', 2, '2019-06-20 06:24:25', '2019-07-03 18:04:41', 'false', 'verified'),
-(4, 'B180009CS', 'pokhi', '0503', 'Anupa Pokhariya', '9670728515', 'b180009@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-07-02 08:14:02', 'false', 'verified');
+(4, 'B180009CS', 'anupa', '0503', 'Pokhi Pokhii', '9670728515', 'b180009@nitsikkim.ac.in', '2000-03-05', 3, '2019-06-20 06:25:54', '2019-07-04 10:04:17', 'false', 'verified');
 
 --
 -- Indexes for dumped tables
@@ -108,7 +110,7 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `members`
