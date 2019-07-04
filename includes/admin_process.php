@@ -202,7 +202,7 @@ session_start();
           exit();
         }
         else {
-          echo "no_change,None of the rows were affected";
+          echo "no_change,None of the rows were affected (No change)";
           exit();
         }
       }
@@ -264,6 +264,12 @@ session_start();
               $result = $connect->query($query);
 
               if (mysqli_affected_rows($connect) == 1) {
+                $profile_pic = "../images/profile_images/".$pid;
+                if (file_exists($profile_pic)) {
+                  if (unlink($profile_pic)) {
+                    $img_status = "deleted";
+                  }
+                }
                 echo "deleted";
                 exit();
               }

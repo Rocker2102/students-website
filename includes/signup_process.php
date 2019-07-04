@@ -7,6 +7,10 @@
     exit();
   }
 
+  if (isset($_SESSION['uid'])) {
+    header("location: ../index.php");
+  }
+
   function check($check) {
     require ('db_connect.php');
     if (isset($_POST[$check])) {

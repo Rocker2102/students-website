@@ -15,8 +15,13 @@
     <section class="fixed-background">
       <div class="home-section">
         <?php
-          include 'includes/header.php';
-          include 'includes/auth.php';
+          include 'includes/header.php';    
+          if (isset($_SESSION['uid'])) {
+            
+          }
+          else {
+            header("location: index.php");
+          }
         ?>
       </div>
 
@@ -147,7 +152,7 @@
           <form class="profile_form border_form"  id="contact_change" method="POST">
             <div class="p_form_row">
               <h3><a href="javascript:void(0)" onclick="javascript:close_form('contact')"><i class="form-close material-icons">keyboard_arrow_left</i></a>Edit Contact</h3>
-              <input class="form-control" type="text" id="contact" name="contact" placeholder="Contact" value="<?php echo $contact ?>">
+              <input class="form-control" type="tel" maxlength="10" id="contact" name="contact" placeholder="Contact (10 digits)" value="<?php echo $contact ?>">
             </div>
             <button class="btn gradient-2 btn-rounded-10" type="button" id="contact_submit_btn" name="contact_submit_btn" onclick="javascript:update('contact')"><i class="material-icons btn-icon" style="padding-right: 10px">autorenew</i>change</button>
           </form>
@@ -213,7 +218,6 @@
     </section>
 
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/validate.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/profile.js"></script>
     
