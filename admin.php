@@ -121,10 +121,98 @@
               ?>
             <tbody>
           </table>
+        </div>
+
+       
+          <h2 class="a_h_1"><i class="material-icons a_h_i_1">feedback</i>Feedbacks</h2>
+          <div class="a_table1">
+            <table style="margin: 0px auto;">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Username</th>
+                  <th>Type</th>
+                  <th>Bug URL</th>
+                  <th>Details</th>
+                  <th>Submitted On</th>
+                  <th>Last Updated</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+                $query = "SELECT * FROM feedback";
+                require ('includes/db_connect.php');
+                $result = $connect->query($query);
+
+                if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                    $id = $row['id'];
+                  // while loop begins
+              ?>
+                <form id="f-form<?php echo $id;?>" method="POST">
+                  <tr>
+                    <td>
+                      <?php echo $row['id']; ?>
+                    </td>
+                    <td>
+                      <?php
+                        if ($row['name'] == '-') {
+                          echo "Anonymous";
+                        }
+                        else {
+                          echo $row['name'];
+                        }
+                      ?>
+                    </td>
+                    <td>
+                    <?php
+                        if ($row['username'] == '-') {
+                          echo "Anonymous";
+                        }
+                        else {
+                          echo $row['username'];
+                        }
+                      ?>
+                    </td>
+                    <td>
+                      <?php echo $row['type']; ?>
+                    </td>
+                    <td>
+                      <?php echo $row['bug_url']; ?>
+                    </td>
+                    <td style="white-space: unset">
+                      <?php echo $row['details']; ?>
+                    </td>
+                    <td>
+                      <?php echo $row['timestamp']; ?>
+                    </td>
+                    <td>
+                      <?php echo $row['last_update']; ?>
+                    </td>
+                    <td>
+                      <input type="text" class="table_input" id="f-status<?php echo $id;?>" name="f-status<?php echo $id;?>" value="<?php echo $row['status']; ?>">
+                    </td>
+                    <td>
+                      <button type="button" class="btn-save btn btn-rounded-10" id="f-s<?php echo $id;?>" onclick="javascript:submitFForm(<?php echo $id;?>)"><i class="material-icons btn-icon">save</i>SAVE</button>
+                    </td>
+                  </tr>
+                </form>
+                <?php
+                    // while loop ends
+                    }
+                  }
+                ?>
+              </tbody>
+            </table>
+          </div>
+
 
           <div class="delete_confirm">
             <i class="material-icons" id="deleteClose">close</i>
-            <h2 class="delete_head">Are you sure you want to <b>DELETE</b> this (uid = <span id="del_uid"></span>) profile?</h2>
+            <h2 class="delete_head">Are you sure you want to <b>DELETE</b> this <span id="del_uid"></span></h2>
             <p>This can't be undone !</p>
             <div class="p_form_row">
               <input class="form-control" type="password" id="del_pass_conf" name="del_pass_conf" placeholder="Administrator Password">
@@ -133,10 +221,10 @@
           </div>
         </div>
 
-      </div>
     </section>
 
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/validate.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/admin.js"></script>
 

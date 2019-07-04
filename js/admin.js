@@ -1,3 +1,4 @@
+// submit/save profile data
 function submitForm(id) {
     $(".btn-save").attr("disabled", true);
     var formId = id;
@@ -150,9 +151,10 @@ function submitForm(id) {
     });
 }
 
+// delete profile
 function deleteProfile(id) {
     $(".delete_confirm").css({'display': 'block'});
-    $("#del_uid").html(id);
+    $("#del_uid").html('(uid = ' + id + ') profile?');
 
     $("#deleteClose").click(function(){
         $(".delete_confirm").css({'display': 'none'});
@@ -221,4 +223,75 @@ function deleteProfile(id) {
             });
         }
     });  
+}
+
+function submitFForm(id) {
+    //$(".btn-save").attr("disabled", true);
+    var update_data = $("#f-form" + id).serialize();
+    var send = "includes/admin_process.php?request=updatestatus&fid=" + id;
+
+    function resetButtons() {
+        $("#f-s" + id).html('<i class="material-icons btn-icon">save</i>SAVE');
+        $(".btn-save").attr("disabled", false);
+    }
+
+    var fStatus = $("#f-status" + id).val();
+    if (fStatus == "unsolved" || fStatus == "seen" || fStatus == "solved") {
+
+    }
+    else {
+        customAlert(2500, "Invalid value for Status", "red", "warning", "#fff", "(unsolved, seen, solved)");
+        resetButtons();
+        return;
+    }
+    
+    $.ajax({
+        url: send,
+        data: update_data,
+        type: 'POST',
+        beforeSend: function () {
+            $("#f-s" + id).html('<img src="images/loading.gif" class="loading_anim_admin" style="width: 36px; height: 36px">');
+            $(".btn-save").attr("disabled", true);
+        },
+        success: function (recieve) {
+            var response = recieve.split(",");
+            function resetButtons() {
+                setTimeout(function() {
+                    $("#f-s" + id).html('<i class="material-icons btn-icon">save</i>SAVE');$(".btn-save").attr("disabled", false);
+                }, 1500);
+            }
+            
+            if (response[0] == "updated") {
+                customAlert(3000, "Status updated (id = " + response[1] + ")", "green", "success", "greenyellow");
+                $("#admin_refresh").css({'visibility': 'visible'});
+                resetButtons();
+                return;
+            }
+            else if (response[0] == "no_change") {
+                customAlert(2500,"No Change", "orange", "warning");
+                resetButtons();
+                return;
+            }
+            else if (response[0] == "invalid") {
+                customAlert(2500, "An invalid value was sent", "red", "alert");
+                resetButtons();
+                return;
+            }
+            else if (response[0] == "empty") {
+                customAlert(2500, "Complete information not recieved !", "red", "error");
+                resetButtons();
+                return;
+            }
+            else if (response[0] == "error") {
+                customAlert(2500, "An error occurred", "red", "error");
+                resetButtons();
+                return;
+            }
+            else {
+                customAlert(2500, recieve, "red", "error");
+                resetButtons();
+                return;
+            }
+        }
+    });
 }
