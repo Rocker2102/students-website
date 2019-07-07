@@ -73,7 +73,7 @@
                 </div>
                 <div class="s_form_row">
                   <button type="button" class="btn btn-prev btn-rounded-10" prev-index="3"><i class="material-icons btn-icon">navigate_before</i></button>
-                  <button type="button" class="btn btn-next btn-rounded-10" skip-index="3" next-index="3"><i class="material-icons btn-icon">skip_next</i>skip</button>
+                  <button type="button" class="btn btn-skip btn-rounded-10" skip-index="3" next-index="3"><i class="material-icons btn-icon">skip_next</i>skip</button>
                   <button type="button" class="btn btn-next btn-rounded-10" next-index="3"><i class="material-icons btn-icon">navigate_next</i></button>
                 </div>
               </div>
@@ -96,6 +96,7 @@
                   <button type="submit" class="btn gradient-2 btn-rounded-10" id="signup_form_submit_btn"><i class="material-icons btn-icon">done</i>submit</button>
                 </div>
               </div>
+              <p id="validate_info"></p>
             </form>
           </div>
         </div>

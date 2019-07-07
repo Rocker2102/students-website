@@ -200,8 +200,7 @@
                 $ppUpload = 1;
               }
               else {
-                echo "error,signup_process,err_failed_to_move_file";
-                exit();
+                $ppUpload = 0;
               }
             }
             else {

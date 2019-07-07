@@ -1,4 +1,4 @@
-$(".btn-next").click(function () {
+$(".btn-next, .btn-skip").click(function () {
     var formId = $(this).attr('next-index');
     var skipAttr = $(this).attr('skip-index');
     var temp = Number(formId) + 1;
@@ -39,6 +39,7 @@ $(".btn-next").click(function () {
             url: send,
             async: false,
             success: function(recieve){
+                $("#validate_info").html('');
                 var response = recieve.split(",");
                 if (response[0] == "available") {
                     check = 1;
@@ -74,6 +75,7 @@ $(".btn-next").click(function () {
                 $("#s_pp").html(Number(i+1) + ". PROFILE PICTURE: [SET]");
             }
         }
+        $('.btn-next').css({'background': 'rgba(30, 255, 0, 0.6)'});
         $("div.active").addClass('hidden');
         $("#signup-tab-" + temp).removeClass('hidden').addClass('active');
     }
@@ -81,7 +83,6 @@ $(".btn-next").click(function () {
     if (temp == 2) {
         var validate = validateForm('name', 'contact', 'email', 'dob');
 
-        
         if(validate == 1) {    
             if ($("#contact").val().length !== 10) {
                 customAlert(2500, "Invalid Contact", "red", "warning");
