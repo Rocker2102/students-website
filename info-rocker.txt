@@ -7,7 +7,8 @@
 <-- Plans to host website over the LAN itself (23 June 2019) -->
 <-- DEVELOPMENT PAUSED FROM 26 June 2019, 00:00 to 28 June 2019, 16:00 (EXAM) -->
 <-- Website version 2.0 -->  01.07.2019
-<-- Website version 2.1 -->  04.07.2019  [Introduces 'admin.php' (FUNCTIONAL)]
+<-- Website version 2.1 -->  04.07.2019  [Introduced 'admin.php' (FUNCTIONAL)]
+<-- DEVELOPMENT PAUSED FROM 4 July 2019 to 6 July 2019 -->
 
 
 /* Use Bootstrap Carousel (or probootstrap carousel) for image slideshow (From previous project).  ##** NOT IMPLEMENTED **## */
@@ -35,6 +36,7 @@
 - Disable everything in the background when popup is shown.
 - Close popup if clicked anywhere outside (login.php).
 - Authorisation (auth.php) on every page.
+- File for SQL error log (inaccessbile by clients).
 
 <--------------------------------------------------------->
 [index.php]
@@ -135,7 +137,7 @@
 
 <--------------------------------------------------------->
 [admin.php]
-01.07.2019, 21:46 - 00.00.0000, 00:00
+01.07.2019, 21:46 - 04.07.2019, 23:00 (PAUSED)
 - Center the table.  ##** DONE **##
 - Make 'User Accounts' table.  ##** DONE **##
 - The table should be made scrollable.  ##** DONE **##
@@ -146,10 +148,10 @@
 - Deleting users (or deactivating).  ##** DONE **##
 - Feedback status change.  ##** DONE **##
 - Remove 'id' from submit buttons if not required.  ##** DONE **##  [REQUIRED]
-- Remove bugs (may contain a lot).  [WILL START ALPHA TESTING ON (05/06).07.2019]
+- Remove bugs (may contain a lot).  [WILL START ALPHA TESTING ON (05/06/07/08).07.2019]
 - Make 'Feedback table'.  ##** DONE **##
 - Add 'Last Updated' column in feedback table to check its last status change.  ##** DONE **##
-- Make a page to execute queries directly (only for level 3 admins).
+- Make a page to execute queries directly.
 
 <--------------------------------------------------------->
 [about.html]

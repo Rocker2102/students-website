@@ -73,3 +73,15 @@
   color: #7af118;
   background-color: rgba(0, 0, 0, 0.2);
 }
+
+#validate_info {
+  opacity: 0;
+  transition: 0.4s all ease;
+  animation: fadeIn 0.5s ease 1 forwards;
+  -webkit-animation: fadeIn 0.5s ease 1 forwards;
+}
+
+#validate_info:hover {
+  background:rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}

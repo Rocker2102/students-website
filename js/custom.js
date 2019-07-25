@@ -1,4 +1,4 @@
-function customAlert(timeout = 2000, line1 = "NULL", borderColor = "red", alertType = "alert", textColor = "#fff", line2 = "NULL", line3 = "NULL") {
+function customAlert(timeout, line1 = "NULL", borderColor = "red", alertType = "alert", textColor = "#fff", line2 = "NULL", line3 = "NULL") {
 	var icon = "";
 	if (alertType == "info") {
 		icon = "<i class='material-icons'>info</i>";
@@ -35,7 +35,7 @@ function customAlert(timeout = 2000, line1 = "NULL", borderColor = "red", alertT
     }
 
 	setTimeout(function(){$(".custom_alert").css({'display': 'none'});$(".custom_alert p").html('');}, timeout);
-	return line1;
+	return "alertShown";
 }
 
 function logout () {
