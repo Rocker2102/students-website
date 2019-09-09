@@ -58,7 +58,7 @@
                         <button class="btn btn-green_aqua btn-rounded-10" style="letter-spacing: 0.001em" onclick="javascript:location.href='download.php?tid=sem2&sid=1&fid=6&drive=true'"><i class="material-icons btn-icon">link</i>Drive</button>
                         <button class="btn btn-green_aqua btn-rounded-10" style="letter-spacing: 0.001em" onclick="javascript:location.href='download.php?tid=sem2&sid=1&fid=6'"><i class="material-icons btn-icon">get_app</i>Local</button>
                       </div>
-                      <div class="image-text">END-SEM: MA12101</div>
+                      <div class="image-text">MID SEM 1: MA12101</div>
                     </div>
                   </div>
                   <div style="width: 20%; float: left">

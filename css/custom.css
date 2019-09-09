@@ -62,7 +62,7 @@ button:focus {
 }
 
 .fixed-background {
-  background-image: url('../images/background.jpg');
+  background-image: radial-gradient(rgba(241, 24, 223, 0.5), rgba(113, 37, 212, 0.5), rgba(22, 228, 108, 0.5));
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 100%;
@@ -135,14 +135,13 @@ button:focus {
 /* --------------------------------------------------------------- */
 
 #header {
-  background-color: rgba(0, 0, 0, 0.4);   /* header background */
+  background-color: rgba(0, 0, 0, 0.8);   /* header background */
   position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
   height: 75px;
-  border-radius: 10px;
 }
 
 #header #header-content {
@@ -150,14 +149,17 @@ button:focus {
 }
 
 .header-item {
-  color: #000;
   float: right;
   padding: 8px;
   transition: all 0.4s ease;
 }
 
+.header-item a{
+  color: #fff;
+}
+
 .header-item:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
 }
 
@@ -184,7 +186,7 @@ button:focus {
 }
 
 .logo-text {
-  color: #000;
+  color: #fff;
   font-size: 20px;
   float: left;
   padding: 8px;
@@ -212,6 +214,11 @@ button:focus {
   margin-right: 10px;
   border-radius: 10px;
   height: 300px;
+}
+
+.notice_new p i {
+  vertical-align: middle;
+  padding-bottom: 4px;
 }
 
 .text-box {
@@ -397,7 +404,7 @@ button:focus {
 }
 
 .icon-box:hover{
-  background-image: radial-gradient(rgba(42, 144, 212, 0.4), rgba(37, 212, 174, 0.4), rgba(228, 22, 183, 0.4));
+  box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.2);
   transition: all .5s ease;
   overflow-y: scroll;
 }

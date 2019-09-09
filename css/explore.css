@@ -51,7 +51,7 @@
   margin: 0 1%;
   list-style: none;
   padding: 10px 40px;
-  color: #aaa;
+  color: #000;
   cursor: pointer;
   font-weight: 700;
   transition: all ease 0.5s;
@@ -70,8 +70,8 @@
 }
 
 .tab-link:nth-of-type(1).active {
-  color: #EE6534;
-  border-color: #EE6534;
+  color: rgb(222, 236, 22);
+  border-color: rgb(222, 236, 22);
 }
 
 .tab-link:nth-of-type(2).active {
