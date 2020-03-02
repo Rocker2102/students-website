@@ -2,7 +2,7 @@
     //error_reporting(0);
 
     $db_host = "localhost";
-    $db_name = "nitskm_site";
+    $db_name = "students_website";
     $db_user = "root";
     $db_password = "";
 
@@ -14,7 +14,6 @@
         $error = $connect->connect_error;
         $server = 0;
         $serverError = "Connection failed: ".$error;
-        //die("Connection failed: ".$error);
     }
     else{
         $server = 1;
