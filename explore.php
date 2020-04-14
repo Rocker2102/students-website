@@ -11,6 +11,7 @@
     </head>
 
     <body>
+        <?php $pageName = "Explore"; ?> <!-- '$pagename' is checked in 'header.php' -->
         <?php include "includes/header.php"; ?>
 
         <main class="container">
@@ -107,8 +108,6 @@
                 </div>
             </div>
 
-            <?php include "includes/login.html"; ?>
-
             <div class="my-gap-30"></div>
         </main>
 
@@ -124,8 +123,6 @@
 
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/materialize.min.js"></script>
-    <script src="assets/js/google-oauth-2.0.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/login.js"></script>
     <script src="assets/js/explore.js"></script>
 </html>

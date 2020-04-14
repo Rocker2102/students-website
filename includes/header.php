@@ -1,67 +1,87 @@
-<?php
-    // paths are relative from the file where this file is being included
-    require "db/db_op.php";
-    require "db/basic_op.php";
-
-    $db = new dbHandler();
-    $data = new dataHandler();
-
-    if($db->getAuthStatus()){
-        $loginStat = 1;
-        $userInfoClass = "";
-        if(isset($_SESSION["g_login"]))
-            $userImgSrc = " src='".$_SESSION["img"]."' ";
-        else
-            $userImgSrc = " src='".$data->getEncodedImage($_SESSION["username"], $_SESSION["img_ext"])."' ";
-        $userName = $_SESSION["name"];
-    }
-    else{
-        $loginStat = 0;
-        $userInfoClass = " class='hide' ";
-        $userImgSrc = " src='' ";
-        $userName = "";
-    }
+<?php   
+    if(!isset($pageName))
+        $pageName = "Home";
 ?>
 
 <header class="navbar-fixed">
     <nav>
-        <div class="nav-wrapper blue">
-            <a class="brand-logo center-align">Explore</a>
+        <div class="nav-wrapper indigo">
+            <a class="brand-logo center-align" id="page-name"><?php echo $pageName; ?></a>
             <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li <?php echo $userInfoClass; ?> id="user-info">
-                    <div class="chip">
-                        <img id="user-img" <?php echo $userImgSrc; ?>>
-                        <span id="user-name"><?php echo $userName; ?></span>
-                    </div>
-                </li>
-                <li><a class="waves-effect" href="signup.html"><i class="material-icons left">person_add</i>Signup</a></li>
+                <li><a class="waves-effect" href="index.php"><i class="material-icons left">home</i>Home</a></li>
                 <li><a class="waves-effect" href="explore.php"><i class="material-icons left">bookmark</i>Explore</a></li>
-                <?php
-                    if($loginStat == 1){
-                        echo '<li><a class="waves-effect" onclick="logout()" id="d-logout-btn"><i class="material-icons left">power_settings_new</i>Logout</a></li>';
-                        echo '<li><a class="waves-effect modal-trigger hide" href="#login-popup" id="d-login-btn"><i class="material-icons left">exit_to_app</i>Login</a></li>';
-                    }
-                    else{
-                        echo '<li><a class="waves-effect hide" onclick="logout()" id="d-logout-btn"><i class="material-icons left">power_settings_new</i>Logout</a></li>';
-                        echo '<li><a class="waves-effect modal-trigger" href="#login-popup" id="d-login-btn"><i class="material-icons left">exit_to_app</i>Login</a></li>';
-                    }
-                ?>
+                <li><a class="waves-effect" href="javascript:void(0)" onclick="showToast('Student\'s website', 'yellow black-text', 'gavel')"><i class="material-icons left">info</i>About</a></li>
             </ul>
         </div>
     </nav>
     <ul class="sidenav" id="mobile-menu">
-        <li><a class="waves-effect" href="signup.html"><i class="material-icons left">person_add</i>Signup</a></li>
-        <li><a class="waves-effect" href="explore.html"><i class="material-icons left">bookmark</i>Explore</a></li>
-        <?php
-            if($loginStat == 1){
-                echo '<li><a class="waves-effect" onclick="logout()" id="d-logout-btn"><i class="material-icons left">power_settings_new</i>Logout</a></li>';
-                echo '<li><a class="waves-effect modal-trigger hide" href="#login-popup" id="d-login-btn"><i class="material-icons left">exit_to_app</i>Login</a></li>';
-            }
-            else{
-                echo '<li><a class="waves-effect hide" onclick="logout()" id="d-logout-btn"><i class="material-icons left">power_settings_new</i>Logout</a></li>';
-                echo '<li><a class="waves-effect modal-trigger" href="#login-popup" id="d-login-btn"><i class="material-icons left">exit_to_app</i>Login</a></li>';
-            }
-        ?>
+        <li><a class="waves-effect" href="index.php"><i class="material-icons left">home</i>Home</a></li>
+        <li><a class="waves-effect" href="explore.php"><i class="material-icons left">bookmark</i>Explore</a></li>
+        <li><a class="waves-effect" href="javascript:void(0)" onclick="showToast('Student\'s website', 'yellow black-text', 'gavel')"><i class="material-icons left">info</i>About</a></li>
     </ul>
+
+    <div id="modal-feedback" class="modal">
+        <div class="modal-content container">
+            <div class="row">
+                <form class="col m12 s12" id="new-feedback">
+                    <div class="row"> 
+                        <div class="input-field col s12 m12">
+                            <select id="select-feedback">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">About Website</option>
+                                <option value="2">Report Bug</option>
+                            </select>
+                            <label>Feedback Options</label>
+                        </div>
+                    </div>
+                    <div class="feedback-main row">
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">person</i>
+                            <input id="feedback-name" type="text" class="validate" required>
+                            <label for="feedback-name">Name</label>
+                            <span class="helper-text">(Optional)</span>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">mail</i>
+                            <input id="icon_telephone" type="tel" class="validate" required>
+                            <label for="icon_telephone">Email</label>
+                            <span class="helper-text">(Optional)</span>
+                        </div>
+                    </div>
+                    <div class="feedback-website">
+                        <div class="row">
+                            <div class="input-field col s12 m12">
+                                <i class="material-icons prefix">feedback</i>
+                                <textarea id="textarea-website" class="materialize-textarea" data-length="150"></textarea>
+                                <label for="textarea-website">Feedback</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feedback-bug">
+                        <div class="row">
+                            <div class="input-field col s12 m12">
+                                <i class="material-icons prefix">link</i>
+                                <input id="bug-url" type="text" class="validate">
+                                <label for="bug-url">URL</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12">
+                                <i class="material-icons prefix">feedback</i>
+                                <textarea id="textarea-bug" class="materialize-textarea" data-length="150"></textarea>
+                                <label for="textarea-bug">Details about the Bug</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col m12 s12 center-align">
+                            <button type="submit" class="btn waves-effect waves-light"><i class="material-icons right">keyboard_arrow_right</i>Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </header>

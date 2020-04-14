@@ -141,3 +141,20 @@ main.container{
     margin: 0 6px;
     border-radius: 50%;
 }
+
+#modal-feedback{
+	padding: 2% 0;
+	max-height: fit-content;
+}
+
+.feedback-main{
+	display: none;
+}
+
+.feedback-website{
+	display: none;
+}
+
+.feedback-bug{
+	display: none;
+}

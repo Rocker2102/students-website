@@ -4,13 +4,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Students Website</title>
+        <title>Home</title>
         <link rel="icon" href="assets/img/logo.png" type="image/png" />
         <link rel="stylesheet" href="assets/css/materialize.min.css" type="text/css" />
         <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     </head>
 
     <body>
+        <?php $pageName = "Home"; ?> <!-- '$pagename' is checked in 'header.php' -->
         <?php include "includes/header.php"; ?>
 
         <main class="container">
@@ -21,7 +22,7 @@
                     <li class="active">
                         <div class="collapsible-header deep-purple lighten-4"><i class="material-icons">filter_drama</i>Notices</div>
                         <div class="collapsible-body deep-purple lighten-5">
-                            <p><i class="material-icons left">label</i>The students are requested to <a href="signup.html">Signup</a>.</p>
+                            <p><i class="material-icons left">label</i>Nothing new...</p>
                         </div>
                     </li>
                     <li>
@@ -30,7 +31,6 @@
                             <p><i class="material-icons left">label</i>Added previous year's (2018-19) question papers of 1<sup>st</sup> Semester.</p>
                             <p><i class="material-icons left">label</i>Added previous year's (2018-19) question papers of 2<sup>nd</sup> Semester.</p>
                             <p><i class="material-icons left">label</i>Added previous year's (2019-20) question papers of 3<sup>rd</sup> Semester.</p>
-                            <!-- <p><i class="material-icons left">label</i>Updated CANS page. <a href="cans.html">Click to visit</a></p> -->
                         </div>
                     </li>
                 </ul>
@@ -47,8 +47,6 @@
                 </ul>
             </div>
 
-            <?php include "includes/login.html"; ?>
-
             <div class="my-gap-30"></div>
         </main>
 
@@ -56,7 +54,7 @@
     </body>
 
     <script>
-        // breadcrumb data used in main.js to dynamically show breadcrumbs
+        /* breadcrumb data used in main.js to dynamically show breadcrumbs */
         let breadcrumbData = {
             name: ["Home"],
             link: ["#!"]
@@ -65,7 +63,5 @@
 
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/materialize.min.js"></script>
-    <script src="assets/js/google-oauth-2.0.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/login.js"></script>
 </html>
