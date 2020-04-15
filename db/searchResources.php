@@ -1,16 +1,22 @@
 <?php
-    //session_start();
-
-    // creates a standard class
+    /* creates a standard class */
     $send = new stdClass;
+    require_once("connect.php");
 
-    // function to exit at will
+    /* function to exit at will */
     function customExit($receive){
         echo json_encode($receive);
         exit();
     }
 
-    // returns image file name from file type
+    /* '$server' variable is initialized in 'connect.php' */
+    if($server == -1) {
+        $send->error = 1;
+        $send->errorInfo = "Server offline!";
+        customExit($send);
+    }
+
+    /* returns image file name from file type */
     function getIcon($icon){
         if($icon == "pdf")
             return "icon_adobe.png";
@@ -30,7 +36,7 @@
             return "user.png";
     }
 
-    // returns 'tagged' link or 'toast_error' from link data
+    /* returns 'tagged' link or 'toast_error' from link data */
     function getLink($data){
         if(empty($data))
             return "onclick='showToast(\"No links found\", \"red\", \"link_off\")'";
@@ -38,7 +44,7 @@
             return "href='".$data."'";
     }
 
-    // returns formatted resource type
+    /* returns formatted resource type */
     function getResourceType($data){
         switch($data){
             case 1: return "Mid-Sem 1";
@@ -50,7 +56,7 @@
         return false;
     }
 
-    // returns formatted semester data
+    /* returns formatted semester data */
     function getFormattedSem($data){
         switch($data){
             case 1: return "<b>1<sup>st</sup> Semester</b>"; break;
@@ -66,9 +72,7 @@
         return false;
     }
 
-    require_once("connect.php");
-
-    // base query... is modified according to search criteria dynamically
+    /* base query... is modified according to search criteria dynamically */
     $query = "SELECT * FROM resource_data WHERE 1";
     $search = "";
 
@@ -107,7 +111,7 @@
 
     $send->query = $query;
 
-    // result is collected and formatted according to html page and sent later. '$count' counts number of rows (easier way is to use built-in 'mysqli_result' variable property 'num_rows')
+    /* result is collected and formatted according to html page and sent later. '$count' counts number of rows (easier way is to use built-in 'mysqli_result' variable property 'num_rows') */
     if($result->num_rows > 0){
         $dataset .= "<ul class='collection'>";
 

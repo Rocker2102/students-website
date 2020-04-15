@@ -1,4 +1,4 @@
-// fires when semester value is changed (to change the subjects menu)
+/* fires when semester value is changed (to change the subjects menu) */
 $("#search-sem").on("change", function(e){
     let currentSemValue = Number($(this).val());
     let currentMenu = "";
@@ -19,14 +19,13 @@ $("#search-sem").on("change", function(e){
         case 4: currentMenu = allOption + sem4Menu; break;
         case 6: currentMenu = allOption + sem6Menu; break;
         default: currentMenu = allOption; break;
-        //default: currentMenu = allOption + sem1Menu + sem2Menu + sem3Menu + sem4Menu + sem5Menu + sem6Menu + sem7Menu + sem8Menu; break;
     }
 
     $("#search-sub").html(currentMenu);
-    $('select').formSelect();   // re-initialize the materialize select menu to show updated '<select>' menu
+    $('select').formSelect();   /* re-initialize the materialize select menu to show updated '<select>' menu */
 });
 
-// fires when search form is submitted
+/* fires when search form is submitted */
 $("#new-search").on("submit", function(e){
     e.preventDefault();
 
@@ -34,10 +33,10 @@ $("#new-search").on("submit", function(e){
     $("#search-result-name").attr("data-badge-caption", "").html("-");
     $("#search-result-name").removeClass("orange green red blue black-text").addClass("orange");
 
-    // 'loaderData' is the minified version of a multi-color preloader
+    /* 'loaderData' is the minified version of a multi-color preloader */
     let loaderData = "<div class='preloader-wrapper active'><div class='spinner-layer spinner-blue'><div class='circle-clipper left'><div class='circle'></div></div><div class='gap-patch'><div class='circle'></div></div><div class='circle-clipper right'><div class='circle'></div></div></div><div class='spinner-layer spinner-red'><div class='circle-clipper left'><div class='circle'></div></div><div class='gap-patch'><div class='circle'></div></div><div class='circle-clipper right'><div class='circle'></div></div></div><div class='spinner-layer spinner-yellow'><div class='circle-clipper left'><div class='circle'></div></div><div class='gap-patch'><div class='circle'></div></div><div class='circle-clipper right'><div class='circle'></div></div></div><div class='spinner-layer spinner-green'><div class='circle-clipper left'><div class='circle'></div></div><div class='gap-patch'><div class='circle'></div></div><div class='circle-clipper right'><div class='circle'></div></div></div></div>";
 
-    // 'formData' variable is used to store all the formdata collected (data is manually collected)
+    /* 'formData' variable is used to store all the formdata collected (data is manually collected) */
     let formData = Array();
     formData.push({name: "sem", value: $("#search-sem").val()});
     formData.push({name: "batch", value: $("#search-batch").val()});
@@ -45,7 +44,7 @@ $("#new-search").on("submit", function(e){
     formData.push({name: "type", value: $("#search-type").val()});
     formData.push({name: "name", value: $("#search-hint").val()});
 
-    // ajax request to search resources according to given search criteria
+    /* ajax request to search resources according to given search criteria */
     $.ajax({
         url: "db/searchResources.php",
         method: "POST",

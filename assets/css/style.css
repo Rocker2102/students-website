@@ -47,7 +47,7 @@ main{
 }
 
 main.container{
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .nav-wrapper{
@@ -107,52 +107,12 @@ main.container{
     background-color: #e8f5e9 !important;
 }
 
-.scale-effect{
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.scale-effect:hover{
-    color: green !important;
-    transform: scale(1.2);
-}
-
-.soon-icon-huge{
-    font-size: 108px;
-}
-
-.g-signin-seperator{
-    margin: 0 1.5em 0 0;
-    font-weight: bold;
-    font-size: 1.2em
-}
-
-.g-signin-btn{
-    text-transform: none;
-    font-weight: 500;
-    width: fit-content;
-}
-
-.g-signin-img{
-    background-color: #fff;
-    vertical-align: middle;
-    height: 1.6em;
-    width: 1.6em;
-    margin: 0 6px;
-    border-radius: 50%;
-}
-
 #modal-feedback{
 	padding: 2% 0;
-	max-height: fit-content;
-}
-
-.feedback-main{
-	display: none;
 }
 
 .feedback-website{
-	display: none;
+	display: block;
 }
 
 .feedback-bug{

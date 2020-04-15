@@ -26,10 +26,9 @@
             <div class="row">
                 <form class="col m12 s12" id="new-feedback">
                     <div class="row"> 
-                        <div class="input-field col s12 m12">
+                        <div class="input-field col s12">
                             <select id="select-feedback">
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="1">About Website</option>
+                                <option value="1" selected>About Website</option>
                                 <option value="2">Report Bug</option>
                             </select>
                             <label>Feedback Options</label>
@@ -38,22 +37,22 @@
                     <div class="feedback-main row">
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">person</i>
-                            <input id="feedback-name" type="text" class="validate" required>
+                            <input id="feedback-name" type="text">
                             <label for="feedback-name">Name</label>
                             <span class="helper-text">(Optional)</span>
                         </div>
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">mail</i>
-                            <input id="icon_telephone" type="tel" class="validate" required>
-                            <label for="icon_telephone">Email</label>
+                            <input id="feedback-email" type="tel">
+                            <label for="feedback-email">Email</label>
                             <span class="helper-text">(Optional)</span>
                         </div>
                     </div>
                     <div class="feedback-website">
                         <div class="row">
-                            <div class="input-field col s12 m12">
+                            <div class="input-field col s12">
                                 <i class="material-icons prefix">feedback</i>
-                                <textarea id="textarea-website" class="materialize-textarea" data-length="150"></textarea>
+                                <textarea id="textarea-website" class="materialize-textarea validate" data-length="150" required></textarea>
                                 <label for="textarea-website">Feedback</label>
                             </div>
                         </div>
@@ -62,14 +61,15 @@
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <i class="material-icons prefix">link</i>
-                                <input id="bug-url" type="text" class="validate">
-                                <label for="bug-url">URL</label>
+                                <input id="url-bug" type="text" class="validate">
+                                <label for="url-bug">URL</label>
+                                <span class="helper-text">Example: https://studentsnitsk.ml/explore.php</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <i class="material-icons prefix">feedback</i>
-                                <textarea id="textarea-bug" class="materialize-textarea" data-length="150"></textarea>
+                                <textarea id="textarea-bug" class="materialize-textarea validate" data-length="150"></textarea>
                                 <label for="textarea-bug">Details about the Bug</label>
                             </div>
                         </div>
@@ -77,7 +77,8 @@
 
                     <div class="row">
                         <div class="col m12 s12 center-align">
-                            <button type="submit" class="btn waves-effect waves-light"><i class="material-icons right">keyboard_arrow_right</i>Submit</button>
+                            <button type="button" class="btn red waves-effect" onclick="$('#modal-feedback').modal('close')"><i class="material-icons left">close</i>Close</button>
+                            <button id="feedback-submit-btn" type="submit" class="btn green waves-effect waves-light"><i class="material-icons right">keyboard_arrow_right</i>Submit</button>
                         </div>
                     </div>
                 </form>

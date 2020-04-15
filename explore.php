@@ -11,12 +11,10 @@
     </head>
 
     <body>
-        <?php $pageName = "Explore"; ?> <!-- '$pagename' is checked in 'header.php' -->
+        <?php $pageName = "Resources"; ?> <!-- '$pagename' is checked in 'header.php' -->
         <?php include "includes/header.php"; ?>
 
         <main class="container">
-            <div class="my-gap-20"></div>
-
             <div class="card z-depth-2 hoverable">
                 <div class="card-tabs">
                     <div>

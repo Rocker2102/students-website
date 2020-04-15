@@ -15,8 +15,6 @@
         <?php include "includes/header.php"; ?>
 
         <main class="container">
-            <div class="my-gap-20"></div>
-
             <div>
                 <ul class="collapsible">
                     <li class="active">
@@ -30,7 +28,6 @@
                         <div class="collapsible-body orange lighten-5">
                             <p><i class="material-icons left">label</i>Added previous year's (2018-19) question papers of 1<sup>st</sup> Semester.</p>
                             <p><i class="material-icons left">label</i>Added previous year's (2018-19) question papers of 2<sup>nd</sup> Semester.</p>
-                            <p><i class="material-icons left">label</i>Added previous year's (2019-20) question papers of 3<sup>rd</sup> Semester.</p>
                         </div>
                     </li>
                 </ul>
@@ -40,8 +37,8 @@
                     <li>
                         <div class="collapsible-header lime lighten-4"><i class="material-icons">bookmark</i>Explore</div>
                         <div class="collapsible-body lime lighten-5">
-                            <p>Find what you need right at your fingertips!</p>
-                            <p><a class="btn waves-effect light-blue accent-3 z-depth-3" href="explore.php"><i class="material-icons left">fiber_smart_record</i>Go to Page</a></p>
+                            <p>Find what you need right here!</p>
+                            <p><a class="btn waves-effect light-blue accent-3 z-depth-2" href="explore.php"><i class="material-icons left">fiber_smart_record</i>Go to Page</a></p>
                         </div>
                     </li>
                 </ul>

@@ -3,14 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2020 at 10:23 AM
+-- Generation Time: Apr 15, 2020 at 04:47 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+05:30";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -33,7 +33,9 @@ CREATE TABLE `feedback` (
   `type` varchar(32) DEFAULT NULL,
   `name` varchar(256) DEFAULT NULL,
   `email` varchar(128) DEFAULT NULL,
-  `message` varchar(1024) NOT NULL
+  `feedback` varchar(2048) NOT NULL,
+  `bug_url` varchar(512) DEFAULT NULL,
+  `submitted_on` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
