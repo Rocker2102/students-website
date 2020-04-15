@@ -4,6 +4,6 @@ Technologies used: <b>HTML5</b>, <b>CSS3</b>, <b>JavaScript</b>, <b>jQuery 3.4.1
 <br><br>
 Will be made open-source after deployment.<br>
 
-<a href="https://studentsnitsk.ml/students-website">Visit Site</a>
+<a href="https://studentsnitsk.ml/studentswebsite">Visit Site</a>
 <br>
 &copy; Rocker
