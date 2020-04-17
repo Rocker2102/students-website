@@ -56,6 +56,14 @@ $("#new-search").on("submit", function(e){
         },
         success: function(receive){
             $("#result-preloader").fadeOut();
+            try {
+                JSON.parse(receive);
+            }
+            catch(e) {
+                showToast("Data Error!", "red white-text", "warning");
+                return;
+            }
+
             let data = JSON.parse(receive);
 
             if(Number(data.error) == 0){
@@ -67,7 +75,7 @@ $("#new-search").on("submit", function(e){
             else{
                 $("#search-result-name").attr("data-badge-caption", "Result(s)").html("0");
                 $("#search-result-name").removeClass("orange green red blue black-text").addClass("red");
-                showToast(data.info, "red", "clear");
+                showToast(data.errorInfo, "red", "clear");
             }
         },
         error: function(){

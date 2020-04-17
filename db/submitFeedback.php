@@ -10,7 +10,7 @@
     }
 
     /* '$server' variable is initialized in 'connect.php' */
-    if($server == -1) {
+    if($server != 1) {
         $send->error = 1;
         $send->errorInfo = "Server offline!";
         customExit($send);

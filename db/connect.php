@@ -1,5 +1,5 @@
 <?php
-    //error_reporting(0);
+    // error_reporting(0);
 
     $db_host = "localhost";
     $db_name = "students_website";

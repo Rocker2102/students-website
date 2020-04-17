@@ -10,7 +10,7 @@
     }
 
     /* '$server' variable is initialized in 'connect.php' */
-    if($server == -1) {
+    if($server != 1) {
         $send->error = 1;
         $send->errorInfo = "Server offline!";
         customExit($send);
@@ -130,20 +130,19 @@
 
         if($count != 0){
             $send->error = 0;
-            $send->info = null;
             $send->collection = $dataset;
             $send->numRows = $count;
             customExit($send);
         }
         else{
             $send->error = 1;
-            $send->info = "No Results Found!";
+            $send->errorInfo = "No Results Found!";
             customExit($send);
         }
     }
     else{
         $send->error = 1;
-        $send->info = "No Results Found!";
+        $send->errorInfo = "No Results Found!";
         customExit($send);
     }
 ?>
