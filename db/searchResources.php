@@ -109,8 +109,6 @@
     $dataset = "";
     $noLinks = 0;
 
-    $send->query = $query;
-
     /* result is collected and formatted according to html page and sent later. '$count' counts number of rows (easier way is to use built-in 'mysqli_result' variable property 'num_rows') */
     if($result->num_rows > 0){
         $dataset .= "<ul class='collection'>";
