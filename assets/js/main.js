@@ -1,6 +1,20 @@
 $(window).on("load", function(){
     loadBreadcrumb();
+    updateVisitorData();
 });
+
+/* Runs visitor counter script */
+function updateVisitorData() {
+    $.ajax({
+        url:"db/visitorCounter.php",
+        success: function() {
+            return;
+        },
+        error: function() {
+            return;
+        }
+    });
+}
 
 /* (Materialize) JS Init. */
 $(document).ready(function(){
