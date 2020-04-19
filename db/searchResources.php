@@ -72,6 +72,23 @@
         return false;
     }
 
+    function getRandomChar() {
+        $charArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        return $charArr[mt_rand(0, (count($charArr) - 1))];
+    }
+
+    /* Returns a unique formatted id */
+    function getRuid($id) {
+        $len = strlen($id);
+        $maxLen = mt_rand(($len + 4), 15);
+        $arr = [$len];
+        for($i = 0; $i < ($maxLen - $len - 1); $i++) {
+            array_push($arr, getRandomChar());
+        }
+        $ruid = implode($arr).$id;
+        return $ruid;
+    }
+
     /* base query... is modified according to search criteria dynamically */
     $query = "SELECT * FROM resource_data WHERE 1";
     $search = "";
@@ -106,25 +123,27 @@
     $query .= $search;
     $result = $connect->query($query);
     $count = 0;
-    $dataset = "";
+    $dataset = [];
     $noLinks = 0;
 
-    /* result is collected and formatted according to html page and sent later. '$count' counts number of rows (easier way is to use built-in 'mysqli_result' variable property 'num_rows') */
+    /* result is collected and sent later. '$count' counts number of rows (easier way is to use built-in 'mysqli_result' variable property 'num_rows') */
     if($result->num_rows > 0){
-        $dataset .= "<ul class='collection'>";
-
         while($row = $result->fetch_assoc()){
-            if(empty($row["drive_link"]) && $noLinks == 1)
+            if(empty($row["drive_link"]) && $noLinks == 1) {
                 continue;
-            $dataset .= "<li class='collection-item avatar'>";
-                $dataset .= "<img src='assets/img/icons/".getIcon($row["file_type"])."' alt='".$row["file_type"]."' class='circle'>";
-                $dataset .= "<span class='title'><b>".$row["title"]."</b></span>";
-                $dataset .= "<p>".$row["sub_code"].", ".getResourceType($row["r_type"])." (".getFormattedSem($row["semester"]).")</p>";
-                $dataset .= "<a class='secondary-content black-text scale-effect' ".getLink($row["drive_link"])." target='_blank'><i class='material-icons'>get_app</i></a>";
-            $dataset .= "</li>";
+            }
+
+            $tempObj = new stdClass;
+            $tempObj->img = getIcon($row["file_type"]);
+            $tempObj->title = $row["title"];
+            $tempObj->subCode = $row["sub_code"];
+            $tempObj->type = getResourceType($row["r_type"]);
+            $tempObj->sem = getFormattedSem($row["semester"]);
+            $tempObj->ruid = getRuid($row["rid"]);
+            array_push($dataset, $tempObj);
+            unset($tempObj);    /* clears the previous object */
             $count++;
         }
-        $dataset .= "</ul>";
 
         if($count != 0){
             $send->error = 0;

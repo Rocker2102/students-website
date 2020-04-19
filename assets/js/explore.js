@@ -67,7 +67,7 @@ $("#new-search").on("submit", function(e){
             let data = JSON.parse(receive);
 
             if(Number(data.error) == 0){
-                $("#search-result-set").html(data.collection);
+                $("#search-result-set").html(getCollectionHTML(data.collection));
                 $("#search-result-name").attr("data-badge-caption", "Result(s)").html(data.numRows);
                 $("#search-result-name").removeClass("orange green red blue black-text").addClass("green");
                 showToast("Search query returned " + data.numRows + " result(s)", "green", "done_all");
@@ -84,4 +84,65 @@ $("#new-search").on("submit", function(e){
             showToast("Weak Connection", "red", "signal_wifi_off");
         }
     });
+});
+
+/* formats the data received from server as HTML layout */
+function getCollectionHTML(collection) {
+    function getElement(elementData) {
+        imgAlt = elementData.img;
+        imgSrc = "assets/img/icons/" + elementData.img;
+        title = elementData.title;
+        content = elementData.subCode + ", " + elementData.type + " (" + elementData.sem + ")";
+        ruid = elementData.ruid;
+        return "<li class='collection-item avatar'><img src='" + imgSrc + "' alt='" + imgAlt + "' class='circle'><span class='title'><b>" + title + "</b></span><p>" + content + "</p><a href='javascript:void(0)' data-ruid='" + ruid + "' class='secondary-content black-text scale-effect'><i class='material-icons'>get_app</i></a></li>";
+    }
+
+    let data = "<ul class='collection'>";
+    for(i = 0; i < collection.length; i++) {
+        data += getElement(collection[i]);
+    }
+    data += "</ul>";
+    return data;
+}
+
+$("#search-result-set").on("click", "ul > li > a", function() {
+    let currentBtn = $(this);
+    let loaderData = "<div class='preloader-wrapper small active'><div class='spinner-layer spinner-blue'><div class='circle-clipper left'><div class='circle'></div></div><div class='gap-patch'><div class='circle'></div></div><div class='circle-clipper right'><div class='circle'></div></div></div><div class='spinner-layer spinner-red'><div class='circle-clipper left'><div class='circle'></div></div><div class='gap-patch'><div class='circle'></div></div><div class='circle-clipper right'><div class='circle'></div></div></div><div class='spinner-layer spinner-yellow'><div class='circle-clipper left'><div class='circle'></div></div><div class='gap-patch'><div class='circle'></div></div><div class='circle-clipper right'><div class='circle'></div></div></div><div class='spinner-layer spinner-green'><div class='circle-clipper left'><div class='circle'></div></div><div class='gap-patch'><div class='circle'></div></div><div class='circle-clipper right'><div class='circle'></div></div></div></div>";
+    let defaultIcon = "<i class='material-icons'>get_app</i>";
+    let ruid = currentBtn.attr("data-ruid");
+    
+    $.ajax({
+        url: "db/getLink.php?ruid=" + ruid,
+        type: "GET",
+        timeout: 20000,
+        beforeSend: function() {
+            currentBtn.html(loaderData);
+        },
+        success: function(receive) {
+            currentBtn.html(defaultIcon);
+
+            try {
+                JSON.parse(receive);
+            }
+            catch(e) {
+                showToast("Data Error!", "red white-text", "close");
+                return;
+            }
+
+            let data = JSON.parse(receive);
+            if(data.error == 0) {
+                window.open(data.link, "_blank");
+                return;
+            }
+            else {
+                showToast(data.errorInfo, "red white-text");
+                return;
+            }
+        },
+        error: function() {
+            currentBtn.html(defaultIcon);
+            showToast("Server Error!", "red white-text", "close");
+            return;
+        }
+    })
 });
