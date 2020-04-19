@@ -18,6 +18,9 @@
         updateVisitors(++$num[0]);
         customExit();
     }
+    else {
+        customExit();
+    }
 
     function getVisitors($mode = 0, $fileName = "visitors.json") {
         if(!file_exists($fileName)) {
