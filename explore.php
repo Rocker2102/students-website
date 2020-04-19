@@ -106,6 +106,12 @@
                 </div>
             </div>
 
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large grey darken-3 white-text z-depth-2" href="#">
+                    <i class="large material-icons">keyboard_arrow_up</i>
+                </a>
+            </div>
+
             <div class="my-gap-30"></div>
         </main>
 
