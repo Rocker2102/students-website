@@ -118,3 +118,14 @@ main.container{
 .feedback-bug{
 	display: none;
 }
+
+.scale-effect {
+    color: #000;
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+.scale-effect:hover {
+    color: green !important;
+    transform: scale(1.3);
+}
