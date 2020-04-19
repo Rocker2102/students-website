@@ -35,6 +35,10 @@
             font-feature-settings: 'liga';
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: 'Open Sans Regular';
     display: flex;
