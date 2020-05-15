@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2020 at 04:47 PM
+-- Generation Time: May 15, 2020 at 07:23 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -209,7 +209,8 @@ INSERT INTO `resource_data` (`rid`, `r_type`, `title`, `sub_code`, `semester`, `
 (147, 4, 'Laplace Transformation (1)', 'MA12101', 2, 2018, 'pdf', 'https://drive.google.com/open?id=1QkN-DpVoDE8_N6zpxy_W-G3oCM6du8Is'),
 (148, 4, 'Laplace Transformation (2)', 'MA12101', 2, 2018, 'pdf', 'https://drive.google.com/file/d/1uSuT1dqih-zhYka8pX6uxVPBQinKBdv8/view?usp=sharing'),
 (149, 4, 'Line Integral', 'MA12101', 2, 2018, 'pdf', 'https://drive.google.com/file/d/1FKXr4YCWUbianq8PwCWgdX9o9Ryxpc3P/view?usp=sharing'),
-(150, 4, 'Trigonometry', 'MA12101', 2, 2018, 'pdf', 'https://drive.google.com/file/d/18UnOPj93x8QxVzKaJpdgghheAgJ6zUGg/view?usp=sharing');
+(150, 4, 'Trigonometry', 'MA12101', 2, 2018, 'pdf', 'https://drive.google.com/file/d/18UnOPj93x8QxVzKaJpdgghheAgJ6zUGg/view?usp=sharing'),
+(151, 4, 'Engineering Graphics Book', 'ME12201', 2, 2018, 'pdf', 'https://drive.google.com/file/d/1Nk2C3Ii6Ef2AL3lIVEpCm-pY1QZmrK9z/view?usp=sharing');
 
 --
 -- Indexes for dumped tables
@@ -241,7 +242,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `resource_data`
 --
 ALTER TABLE `resource_data`
-  MODIFY `rid` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `rid` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
