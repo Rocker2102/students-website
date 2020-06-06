@@ -1,6 +1,7 @@
 <?php
-    // error_reporting(0);
+    error_reporting(0);
 
+    /* database credentials */
     $db_host = "localhost";
     $db_name = "students_website";
     $db_user = "root";

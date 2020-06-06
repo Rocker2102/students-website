@@ -3,19 +3,6 @@ $(window).on("load", function(){
     updateVisitorData();
 });
 
-/* Runs visitor counter script */
-function updateVisitorData() {
-    $.ajax({
-        url:"db/visitorCounter.php",
-        success: function() {
-            return;
-        },
-        error: function() {
-            return;
-        }
-    });
-}
-
 /* (Materialize) JS Init. */
 $(document).ready(function(){
     $('textarea#textarea2').characterCounter();
