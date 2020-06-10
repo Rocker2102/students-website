@@ -10,7 +10,7 @@
     }
 
     /* '$server' variable is initialized in 'connect.php' */
-    if($server != 1) {
+    if ($server != 1) {
         $send->error = 1;
         $send->errorInfo = "Server offline!";
         customExit($send);
@@ -18,19 +18,19 @@
 
     /* returns image file name from file type */
     function getIcon($icon){
-        if($icon == "pdf")
+        if ($icon == "pdf")
             return "icon_adobe.png";
-        else if($icon == "code")
+        else if ($icon == "code")
             return "icon_code.jpg";
-        else if($icon == "xlsx")
+        else if ($icon == "xlsx")
             return "icon_excel.png";
-        else if($icon == "img")
+        else if ($icon == "img")
             return "icon_gallery.png";
-        else if($icon == "pptx")
+        else if ($icon == "pptx")
             return "icon_ppt.png";
-        else if($icon == "docx")
+        else if ($icon == "docx")
             return "icon_word.png";
-        else if($icon == "zip")
+        else if ($icon == "zip")
             return "icon_zip.png";
         else
             return "user.png";
@@ -38,7 +38,7 @@
 
     /* returns 'tagged' link or 'toast_error' from link data */
     function getLink($data){
-        if(empty($data))
+        if (empty($data))
             return "onclick='showToast(\"No links found\", \"red\", \"link_off\")'";
         else
             return "href='".$data."'";
@@ -46,7 +46,7 @@
 
     /* returns formatted resource type */
     function getResourceType($data){
-        switch($data){
+        switch ($data) {
             case 1: return "Mid-Sem 1";
             case 2: return "Mid-Sem 2";
             case 3: return "End-Sem";
@@ -58,7 +58,7 @@
 
     /* returns formatted semester data */
     function getFormattedSem($data){
-        switch($data){
+        switch ($data) {
             case 1: return "<b>1<sup>st</sup> Semester</b>"; break;
             case 2: return "<b>2<sup>nd</sup> Semester</b>"; break;
             case 3: return "<b>3<sup>rd</sup> Semester</b>"; break;
@@ -82,7 +82,7 @@
         $len = strlen($id);
         $maxLen = mt_rand(($len + 4), 15);
         $arr = [$len];
-        for($i = 0; $i < ($maxLen - $len - 1); $i++) {
+        for ($i = 0; $i < ($maxLen - $len - 1); $i++) {
             array_push($arr, getRandomChar());
         }
         $ruid = implode($arr).$id;
@@ -93,27 +93,27 @@
     $query = "SELECT * FROM resource_data WHERE 1";
     $search = "";
 
-    if(!empty($_POST["sem"])){
+    if (!empty($_POST["sem"])) {
         $sem = mysqli_real_escape_string($connect, $_POST["sem"]);
         $search .= (" AND semester = '$sem'");
     }
 
-    if(!empty($_POST["batch"])){
+    if (!empty($_POST["batch"])) {
         $batch = mysqli_real_escape_string($connect, $_POST["batch"]);
         $search .= (" AND batch = '$batch'");
     }
 
-    if(!empty($_POST["subject"])){
+    if (!empty($_POST["subject"])) {
         $subject = strtoupper(mysqli_real_escape_string($connect, $_POST["subject"]));
         $search .= (" AND sub_code = '".$subject."'");
     }
 
-    if(!empty($_POST["type"])){
+    if (!empty($_POST["type"])) {
         $type = mysqli_real_escape_string($connect, $_POST["type"]);
         $search .= (" AND r_type = '".$type."'");
     }
 
-    if(!empty($_POST["name"])){
+    if (!empty($_POST["name"])) {
         $nameHint = strtolower(mysqli_real_escape_string($connect, $_POST["name"]));
         $search .= (" AND lower(title) LIKE '%".$nameHint."%'");
     }
@@ -127,9 +127,9 @@
     $noLinks = 0;
 
     /* result is collected and sent later. '$count' counts number of rows (easier way is to use built-in 'mysqli_result' variable property 'num_rows') */
-    if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-            if(empty($row["drive_link"]) && $noLinks == 1) {
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            if (empty($row["drive_link"]) && $noLinks == 1) {
                 continue;
             }
 
@@ -145,19 +145,17 @@
             $count++;
         }
 
-        if($count != 0){
+        if ($count != 0) {
             $send->error = 0;
             $send->collection = $dataset;
             $send->numRows = $count;
             customExit($send);
-        }
-        else{
+        } else{
             $send->error = 1;
             $send->errorInfo = "No Results Found!";
             customExit($send);
         }
-    }
-    else{
+    } else {
         $send->error = 1;
         $send->errorInfo = "No Results Found!";
         customExit($send);

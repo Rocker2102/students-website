@@ -10,48 +10,43 @@
     }
 
     /* '$server' variable is initialized in 'connect.php' */
-    if($server != 1) {
+    if ($server != 1) {
         $send->error = 1;
         $send->errorInfo = "Server offline!";
         customExit($send);
     }
 
-    if(empty($_POST["feedbackData"])) {
+    if (empty($_POST["feedbackData"])) {
         $send->error = 1;
         $send->errorInfo = "Empty dataset";
         customExit($send);
-    }
-    else {
+    } else {
         $data = $_POST["feedbackData"];
-        if(json_decode($data) == null) {
+        if (json_decode($data) == null) {
             $send->error = 1;
             $send->errorInfo = "Unable to read data!";
             customExit($send);
-        }
-        else {
-            if($data = validateData($data)) {
+        } else {
+            if ($data = validateData($data)) {
                 $data->feedback = mysqli_real_escape_string($connect, $data->feedback);
 
-                if($data->type == 1) {
+                if ($data->type == 1) {
                     $query = "INSERT INTO feedback (type, name, email, feedback) VALUES ('$data->type', '$data->name', '$data->email', '$data->feedback')";
-                }
-                else {
+                } else {
                     $data->url = mysqli_real_escape_string($connect, $data->url);
                     $query = "INSERT INTO feedback (type, name, email, feedback, bug_url) VALUES ('$data->type', '$data->name', '$data->email', '$data->feedback', '$data->url')";
                 }
 
                 $connect->query($query);
-                if(mysqli_affected_rows($connect)) {
+                if (mysqli_affected_rows($connect)) {
                     $send->error = 0;
                     customExit($send);
-                }
-                else {
+                } else {
                     $send->error = 1;
                     $send->errorInfo = "Unable to update database!";
                     customExit($send);
                 }
-            }
-            else {
+            } else {
                 $send->error = 1;
                 $send->errorInfo = "Data validation failed!";
                 customExit($send);
@@ -64,26 +59,25 @@
         $data = json_decode($data);
         $typesArr = [1, 2];
 
-        if(!in_array((int)$data->type, $typesArr)) {
+        if (!in_array((int)$data->type, $typesArr)) {
             return false;
-        }
-        else {
+        } else {
             $data->type = (int)$data->type;
         }
 
-        if(empty($data->feedback)) {
+        if (empty($data->feedback)) {
             return false;
         }
 
-        if($data->type == 2 && !filter_var($data->url, FILTER_VALIDATE_URL)) {
+        if ($data->type == 2 && !filter_var($data->url, FILTER_VALIDATE_URL)) {
             return false;
         }
 
-        if(empty($data->name)) {
+        if (empty($data->name)) {
             $data->name = "anonymous";
         }
 
-        if(empty($data->email)) {
+        if (empty($data->email)) {
             $data->email = "anonymous";
         }
 

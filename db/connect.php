@@ -11,12 +11,11 @@
     
     $connect = new mysqli($db_host, $db_user, $db_password, $db_name);
 
-    if($connect->connect_error){
+    if ($connect->connect_error) {
         $error = $connect->connect_error;
         $server = 0;
         $serverError = "Connection failed: ".$error;
-    }
-    else{
+    } else {
         $server = 1;
     }
 ?>

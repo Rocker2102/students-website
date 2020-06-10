@@ -17,35 +17,32 @@
     }
 
     /* '$server' variable is initialized in 'connect.php' */
-    if($server != 1) {
+    if ($server != 1) {
         $send->error = 1;
         $send->errorInfo = "Server offline!";
         customExit($send);
     }
 
-    if(empty($_GET["ruid"])) {
+    if (empty($_GET["ruid"])) {
         $send->error = 1;
         $send->errorInfo = "Bad Request!";
         customExit($send);
-    }
-    else {
+    } else {
         $ruid = mysqli_real_escape_string($connect, $_GET["ruid"]);
         $rid = getRid($ruid);
         $query = "SELECT drive_link FROM resource_data WHERE rid = '$rid'";
         $result = $connect->query($query);
-        if($result->num_rows == 0) {
+        if ($result->num_rows == 0) {
             $send->error = 1;
             $send->errorInfo = "";
             customExit($send);
-        }
-        else {
+        } else {
             $row = $result->fetch_assoc();
-            if(empty($row["drive_link"])) {
+            if (empty($row["drive_link"])) {
                 $send->error = 1;
                 $send->errorInfo = "Link unavailable!";
                 customExit($send);
-            }
-            else {
+            } else {
                 $send->error = 0;
                 $send->link = $row["drive_link"];
                 customExit($send);
