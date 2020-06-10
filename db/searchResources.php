@@ -4,7 +4,7 @@
     require_once("connect.php");
 
     /* function to exit at will */
-    function customExit($receive){
+    function customExit($receive) {
         echo json_encode($receive);
         exit();
     }
@@ -17,7 +17,7 @@
     }
 
     /* returns image file name from file type */
-    function getIcon($icon){
+    function getIcon($icon) {
         if ($icon == "pdf")
             return "icon_adobe.png";
         else if ($icon == "code")
@@ -37,7 +37,7 @@
     }
 
     /* returns 'tagged' link or 'toast_error' from link data */
-    function getLink($data){
+    function getLink($data) {
         if (empty($data))
             return "onclick='showToast(\"No links found\", \"red\", \"link_off\")'";
         else
@@ -45,7 +45,7 @@
     }
 
     /* returns formatted resource type */
-    function getResourceType($data){
+    function getResourceType($data) {
         switch ($data) {
             case 1: return "Mid-Sem 1";
             case 2: return "Mid-Sem 2";
@@ -57,7 +57,7 @@
     }
 
     /* returns formatted semester data */
-    function getFormattedSem($data){
+    function getFormattedSem($data) {
         switch ($data) {
             case 1: return "<b>1<sup>st</sup> Semester</b>"; break;
             case 2: return "<b>2<sup>nd</sup> Semester</b>"; break;

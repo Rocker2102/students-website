@@ -4,7 +4,7 @@
     require_once("connect.php");
 
     /* function to exit at will */
-    function customExit($receive){
+    function customExit($receive) {
         echo json_encode($receive);
         exit();
     }

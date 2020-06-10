@@ -1,5 +1,5 @@
 <?php   
-    if(!isset($pageName))
+    if (!isset($pageName))
         $pageName = "Home";
 ?>
 
