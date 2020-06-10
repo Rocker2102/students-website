@@ -12,7 +12,7 @@ $("#search-sem").on("change", function(e){
     const sem7Menu = "";
     const sem8Menu = "";
 
-    switch(currentSemValue){
+    switch (currentSemValue) {
         case 1: currentMenu = allOption + sem1Menu; break;
         case 2: currentMenu = allOption + sem2Menu; break;
         case 3: currentMenu = allOption + sem3Menu; break;
@@ -50,35 +50,33 @@ $("#new-search").on("submit", function(e){
         method: "POST",
         data: formData,
         timeout: 60000,
-        beforeSend: function(){
+        beforeSend: function() {
             $("#result-preloader").html(loaderData);
             $("#result-preloader").fadeIn().removeClass("hide");
         },
-        success: function(receive){
+        success: function(receive) {
             $("#result-preloader").fadeOut();
             try {
                 JSON.parse(receive);
-            }
-            catch(e) {
+            } catch(e) {
                 showToast("Data Error!", "red white-text", "warning");
                 return;
             }
 
             let data = JSON.parse(receive);
 
-            if(Number(data.error) == 0){
+            if (Number(data.error) == 0) {
                 $("#search-result-set").html(getCollectionHTML(data.collection));
                 $("#search-result-name").attr("data-badge-caption", "Result(s)").html(data.numRows);
                 $("#search-result-name").removeClass("orange green red blue black-text").addClass("green");
                 showToast("Search query returned " + data.numRows + " result(s)", "green", "done_all");
-            }
-            else{
+            } else{
                 $("#search-result-name").attr("data-badge-caption", "Result(s)").html("0");
                 $("#search-result-name").removeClass("orange green red blue black-text").addClass("red");
                 showToast(data.errorInfo, "red", "clear");
             }
         },
-        error: function(){
+        error: function() {
             $("#result-preloader").fadeOut();
             $("#search-result-name").removeClass("orange green red blue black-text").addClass("red");
             showToast("Weak Connection", "red", "signal_wifi_off");
@@ -98,7 +96,7 @@ function getCollectionHTML(collection) {
     }
 
     let data = "<ul class='collection'>";
-    for(i = 0; i < collection.length; i++) {
+    for (i = 0; i < collection.length; i++) {
         data += getElement(collection[i]);
     }
     data += "</ul>";
@@ -123,18 +121,16 @@ $("#search-result-set").on("click", "ul > li > a", function() {
 
             try {
                 JSON.parse(receive);
-            }
-            catch(e) {
+            } catch(e) {
                 showToast("Data Error!", "red white-text", "close");
                 return;
             }
 
             let data = JSON.parse(receive);
-            if(data.error == 0) {
+            if (data.error == 0) {
                 window.open(data.link, "_blank");
                 return;
-            }
-            else {
+            } else {
                 showToast(data.errorInfo, "red white-text");
                 return;
             }
