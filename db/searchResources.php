@@ -18,30 +18,23 @@
 
     /* returns image file name from file type */
     function getIcon($icon) {
-        if ($icon == "pdf")
-            return "icon_adobe.png";
-        else if ($icon == "code")
-            return "icon_code.jpg";
-        else if ($icon == "xlsx")
-            return "icon_excel.png";
-        else if ($icon == "img")
-            return "icon_gallery.png";
-        else if ($icon == "pptx")
-            return "icon_ppt.png";
-        else if ($icon == "docx")
-            return "icon_word.png";
-        else if ($icon == "zip")
-            return "icon_zip.png";
-        else
+        $icons = array ("pdf" => "icon_adobe.png", "code" => "icon_code.jpg", "xlsx" => "icon_excel.png",
+                        "img" => "icon_gallery.png", "pptx" => "icon_ppt.png", "docx" => "icon_word.png", "zip" => "icon_zip.png");
+        
+        if ( !array_key_exists($icon, $icons) ) {
             return "user.png";
+        }
+        
+        return $icons[$icon];
     }
 
     /* returns 'tagged' link or 'toast_error' from link data */
     function getLink($data) {
         if (empty($data))
             return "onclick='showToast(\"No links found\", \"red\", \"link_off\")'";
-        else
-            return "href='".$data."'";
+        }   
+        
+        return "href='".$data."'";
     }
 
     /* returns formatted resource type */
@@ -58,18 +51,11 @@
 
     /* returns formatted semester data */
     function getFormattedSem($data) {
-        switch ($data) {
-            case 1: return "<b>1<sup>st</sup> Semester</b>"; break;
-            case 2: return "<b>2<sup>nd</sup> Semester</b>"; break;
-            case 3: return "<b>3<sup>rd</sup> Semester</b>"; break;
-            case 4: return "<b>4<sup>th</sup> Semester</b>"; break;
-            case 5: return "<b>5<sup>th</sup> Semester</b>"; break;
-            case 6: return "<b>6<sup>th</sup> Semester</b>"; break;
-            case 7: return "<b>7<sup>th</sup> Semester</b>"; break;
-            case 8: return "<b>8<sup>th</sup> Semester</b>"; break;
-            default: return "-"; break;
+        if ( $data < 1 || $data > 8 ) {
+            return "-"; break;
         }
-        return false;
+        
+        return "<b>{$data}<sup>st</sup> Semester</b>";
     }
 
     function getRandomChar() {
