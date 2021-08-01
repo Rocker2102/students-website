@@ -1,2 +1,4 @@
 *.sql
 tmp.*
+.idea
+.env
