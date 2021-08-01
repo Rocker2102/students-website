@@ -1,24 +1,6 @@
-# students-website
+# Students Website
+Website to provide study-related resources to students.
 
-## Project setup
-```
-npm install
-```
+Technologies used: **HTML5, CSS3, JavaScript, jQuery 3.4.1, PHP 7.0, Materialize CSS 1.0**
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[Visit Site](http://rocker.epizy.com/studentswebsite/)
