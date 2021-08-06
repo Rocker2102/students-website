@@ -7,6 +7,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "pug": "^3.0.2",
@@ -14,6 +15,7 @@
     "vue-router": "^3.2.0"
   },
   "devDependencies": {
+    "pug-plain-loader": "^1.1.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
