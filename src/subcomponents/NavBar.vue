@@ -6,7 +6,6 @@
       b-navbar-nav
         b-nav-item(href='#') Link
         b-nav-item(href='#', disabled=true) Disabled
-
 </template>
 
 <script>
