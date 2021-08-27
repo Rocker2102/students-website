@@ -1,6 +1,6 @@
 <template lang='pug'>
   div
-    nav-bar
+    page-header
     b-container-fluid(align-v='center')
       b-jumbotron(header='Looking for Notes, Past Papers?', lead='Find everything here.')
         b-input-group
@@ -11,13 +11,13 @@
 </template>
 
 <script>
-// import Header from '@/components/TheHeader';
+import Header from '@/components/TheHeader';
 import Footer from '@/components/TheFooter';
 
 export default {
   name: 'Home',
   components: {
-    // 'page-header': Header,
+    'page-header': Header,
     'page-footer': Footer
   }
 }
