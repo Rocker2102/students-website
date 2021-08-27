@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <p>Made with <b-icon icon='suit-heart-fill' variant='danger'></b-icon></p>
-    </div>
+  <div class="footer fixed-bottom">
+    <p>Made with <b-icon icon='suit-heart-fill' variant='danger'></b-icon></p>
+  </div>
 </template>
 
 <script>
-export default {};
+  export default {};
 </script>
