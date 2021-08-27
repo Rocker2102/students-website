@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
   main
     div
       div
@@ -6,13 +6,13 @@
           li Search Resources
     div
       div
-        form(method="post")#new-search
+        form(method='post')#new-search
 
 </template>
 
 <script>
 export default {
-  name: "Explore"
+  name: 'Explore'
 }
 </script>
 

@@ -1,7 +1,8 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '@/components/Home'
-import Explore from "@/components/Explore";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '@/views/Home';
+import Explore from '@/views/Explore';
+import Search from '@/views/Search';
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/explore',
     name: 'Explore',
     component: Explore
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
   }
 ]
 
